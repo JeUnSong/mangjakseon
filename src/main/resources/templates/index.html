@@ -2,9 +2,72 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>index</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <!-- 폰트어썸 -->
+    <script th:src="@{https://kit.fontawesome.com/3337789680.js}" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>하이</h1>
+    <div class="mainContainer">
+        <div class="posterContainer">
+            <!--헤더-->
+            <div class="header">
+                <div class="headerContainer">
+                    <div class="headerLogo">
+                        <a href="index">
+                            <img src="/assets/logo/Original on Transparent.png">
+                        </a>
+                    </div>
+                    <div class="headerList">
+                        <div class="listAlign">
+                            <a href="#">
+                                <span>로그인</span>
+                            </a>
+                            <a href="#">
+                                <span>영화</span>
+                            </a>
+                            <a href="#">
+                                <span>TV</span>
+                            </a>
+                            <a href="#">
+                                <span>배우</span>
+                            </a>
+                            <a href="#">
+                                <span>걸(乞)작선</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="headerSearch">
+                        <input class="searchBar searchItem" type="text">
+                        <div class="searchBarShadow searchItem"></div>
+                        <i class="fa-solid fa-magnifying-glass searchIcon "></i>
+                    </div>
+                </div>
+            </div><!--헤더끝-->
+            <!--포스터 필드-->
+            <div class="posterField">
+                <div id="movieName">
+                    <a href="#">
+                        <span>리얼 (2017)</span>
+                    </a>
+                </div>
+            </div><!--포스터 필드끝-->
+        </div>
+        <!--info 텍스트-->
+        <div class="info">
+            <div class="introduce">
+                <span>망한 영화 중 걸(傑)작을 찾아보세요.</span><br>
+                <span>누군가에겐 명작인 망작을</span><br>
+                <span>소개해 주세요.</span>
+            </div>
+            <div class="infoSignUp">
+                <button>시작하세요</button>
+            </div>
+            <div class="fromAPI">
+                <span>우리 사이트는 TMDB API를 사용하고 있습니다.</span>
+            </div>
+        </div><!--info 텍스트 끝-->
+    </div>
+    <div class="mainContainer2"></div>
 </body>
 </html>
