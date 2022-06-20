@@ -154,10 +154,10 @@
     background-color: #14181C;
     display: flex;
     justify-content: center;
-    height: 850px;
+    height: 500px;
 }
 .movieReviewContainer{
-    /*background-color: #ff1616;*/
+    background-color: #ff1616;
     margin-top: -50px;
     width: 60%;
     height: 500px;
@@ -181,7 +181,7 @@
     font-size: 12px;
 }
 .movingPoster{
-    /*background-color: #ec7070;*/
+    background-color: #ec7070;
     grid-area: poster;
 }
 .posterBox{
@@ -197,6 +197,7 @@
 .posterRanking{
     text-align: center;
     font-size: 12px;
+    color: #93A0AE;
 }
 .fa-eye{
     color: #00C030;
@@ -336,6 +337,10 @@
     height: 35px;
     margin: auto;
     padding-top: 15px;
+}
+.reviewListContainer{
+    background-color: #14181C;
+    height: 500px;
 }
 .footer{
     background-color: #2C3440;
