@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.mainContainer{
+    background-color: #14181C;
+    height: 850px;
+}
+.posterContainer{
+    background: linear-gradient(
+            to left,
+            rgba(20, 24, 28, 0) 10%,
+            rgba(20, 24, 28, 0) 25%,
+            rgba(20, 24, 28, 0) 50%,
+            rgba(20, 24, 28, 0.3) 80%,
+            rgba(20, 24, 28, 1) 100%
+    ),linear-gradient(
+            to right,
+            rgba(20, 24, 28, 0) 10%,
+            rgba(20, 24, 28, 0) 25%,
+            rgba(20, 24, 28, 0) 50%,
+            rgba(20, 24, 28, 0.3) 80%,
+            rgba(20, 24, 28, 1) 100%
+    ),linear-gradient(
+            to bottom,
+            rgba(20, 24, 28, 0) 10%,
+            rgba(20, 24, 28, 0) 25%,
+            rgba(20, 24, 28, 0) 50%,
+            rgba(20, 24, 28, 0.1) 90%,
+            rgba(20, 24, 28, 1) 100%
+    ),linear-gradient(
+            to top,
+            rgba(20, 24, 28, 0) 10%,
+            rgba(20, 24, 28, 0) 25%,
+            rgba(20, 24, 28, 0) 50%,
+            rgba(20, 24, 28, 0.1) 90%,
+            rgba(20, 24, 28, 1) 100%
+    ),
+    url("/assets/dummy/2426E33A592C233F07.jpg");
+    background-size: cover;
+    border-radius: 50px;
+    width: 60%;
+    height: 560px;
+    margin: auto;
+}
+.posterField{
+    /*background-color: gray;*/
+    position: relative;
+    margin: 0 5px;
+    height: 500px;
+}
+.header{
+    /*background-color: blue;*/
+    height: 60px;
+}
+.headerContainer{
+    /*background-color: blueviolet;*/
+    text-align: center;
+    margin: auto;
+    width: 85%;
+    display: grid;
+    grid-template-columns: 25% 60% 15% ;
+    grid-template-rows: 60px 60px 60px;
+}
+.headerLogo{
+    /*background-color: darkkhaki;*/
+    margin: auto;
+}
+.headerLogo img{
+    width: 100%;
+}
+.headerList{
+    /*background-color: chocolate;*/
+    margin-top: 19px;
+    margin-right: 20px;
+    display: flex;
+}
+.listAlign{
+    margin-left: auto;
+}
+.headerList a {
+    text-align: center;
+    text-decoration: none;
+    color: #EBE7DA;
+    margin-left: 15px;
+}
+.headerList a:hover{
+    color: #cccccc;
+}
+.headerSearch{
+    /*background-color: aqua;*/
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchIcon{
+    font-size: 12px;
+    color: #c9c9c9;
+    left: -25px;
+    position: relative;
+    z-index: 1;
+}
+.searchIconScroll{
+    top:-10px!important;
+}
+.searchBar{
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    border-style: none;
+    z-index: 1;
+    background: transparent;
+}
+.searchBar::-ms-clear,.searchBar::-ms-reveal {
+    display:none;
+}
+.searchBarShadow{
+    position: relative;
+    width: 140px;
+    height: 30px;
+    border-radius: 30px;
+    border-style: none;
+    background-color: #ababab;
+    opacity: 0.3;
+}
+.searchBar:focus {
+    outline: none;
+    text-align: left;
+}
+.header:hover{
+    background: linear-gradient(
+            to top,
+            rgba(20, 24, 28, 0) 10%,
+            rgba(20, 24, 28, 0.1) 25%,
+            rgba(20, 24, 28, 0.2) 50%,
+            rgba(20, 24, 28, 0.3) 80%,
+            rgba(20, 24, 28, 1) 100%
+    );
+
+}
+.header:hover .searchBarShadow{
+    background-color: #ffffff;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+.header:hover .searchIcon{
+    color: #6e6e6e;
+    transition: all 0.3s;
+}
+.mainContainer2{
+    background-color: #14181C;
+    display: flex;
+    justify-content: center;
+    height: 850px;
+}
+.movieReviewContainer{
+    /*background-color: #ff1616;*/
+    margin-top: -50px;
+    width: 60%;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas:
+    "poster title title"
+    "poster content score"
+    "poster content score";
+}
+.movieReviewTitle{
+    /*background-color: white;*/
+    grid-area: title;
+    height: 60px;
+}
+.movieReviewTitle span:nth-child(1){
+    font-size: 30px;
+}
+.movieReviewTitle span:nth-child(2){
+    font-size: 12px;
+}
+.movingPoster{
+    /*background-color: #ec7070;*/
+    grid-area: poster;
+
+}
+.posterBox{
+    text-align: center;
+
+}
+.posterBox img{
+    width: 230px;
+    height: 340px;
+    border-radius: 7px;
+    border: 1px #767681 solid;
+    object-fit: cover;
+}
+.posterRanking{
+    text-align: center;
+    font-size: 12px;
+}
+.fa-eye{
+    color: #00C030;
+}
+.fa-crown{
+    color: #E0C010;
+}
+.whereToWatch{
+    /*background-color: darkblue;*/
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.watchTitle{
+    background-color: #242C34;
+    border: 1px #303840 solid;
+    color: #93A0AE;
+    border-radius: 3px;
+    width: 230px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30px;
+}
+.watchTitle div:nth-child(1){
+    margin-left: 5px;
+    margin-top: 7px;
+    font-size: 12px;
+}
+.watchTitle div:nth-child(2){
+    margin-right: 5px;
+    margin-top: 6px;
+    text-align: right;
+    font-size: 15px;
+}
+.watchTitle div:nth-child(3){
+    background-color: #14181C;
+    border-top:1px #303840 solid;
+}
+.watchTitle div:nth-child(4){
+    background-color: #14181C;
+    border-top:1px #303840 solid;
+}
+.movieContent{
+    background-color: brown;
+    grid-area: content;
+    height: 440px;
+}
+.textContent{
+    background-color: #fc0000;
+    font-size: 15px;
+}
+.castContent{
+    background-color: #3d1c1c;
+}
+.movieScoreField{
+    background-color: #3976DC;
+    grid-area: score;
+    height: 440px;
+}
+.footer{
+    background-color: #2C3440;
+    width: 100%;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 50px;
+    justify-items: center;
+}
+.footerMenu{
+    /*background-color: #0BAF2F;*/
+    width: 45%;
+}
+.footerCopyright{
+    /*background-color: coral;*/
+    width: 45%;
+    color: #99AABB;
+    font-size: 12px;
+}
+

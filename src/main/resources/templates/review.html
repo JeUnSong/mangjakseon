@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>review</title>
+  <link th:href="@{/css/review.css}" rel="stylesheet" />
+  <!-- 폰트어썸 -->
+  <script th:src="@{https://kit.fontawesome.com/3337789680.js}" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="posterContainer">
+            <!--헤더-->
+            <div class="header">
+                <div class="headerContainer">
+                  <div class="headerLogo">
+                    <a href="index">
+                      <img src="/assets/logo/Original on Transparent.png">
+                    </a>
+                  </div>
+                <div class="headerList">
+                    <div class="listAlign">
+                        <a href="#">
+                            <span>로그인</span>
+                        </a>
+                        <a href="#">
+                            <span>영화</span>
+                        </a>
+                        <a href="#">
+                            <span>TV</span>
+                        </a>
+                        <a href="#">
+                            <span>배우</span>
+                        </a>
+                        <a href="#">
+                            <span>걸(乞)작선</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="headerSearch">
+                    <input class="searchBar searchItem" type="text">
+                    <div class="searchBarShadow searchItem"></div>
+                    <i class="fa-solid fa-magnifying-glass searchIcon "></i>
+                </div>
+              </div>
+            </div><!--헤더끝-->
+          <!--포스터 필드-->
+          <div class="posterField">
+          </div><!--포스터 필드끝-->
+    </div>
+    <div class="mainContainer2">
+      <!--영화소개-->
+        <div class="movieReviewContainer">
+            <div class="movingPoster">
+                <div class="posterBox">
+                  <img src="/assets/dummy/real.jpg">
+                </div>
+                <div class="posterRanking">
+                    <i class="fa-solid fa-eye"></i>
+                    <span>24</span>&nbsp;
+                    <i class="fa-solid fa-crown"></i>
+                    <span>53</span>
+                </div>
+                <div class="whereToWatch">
+                    <div class="watchTitle">
+                        <div>WHERE TO WATCH</div>
+                        <div><i class="fa-brands fa-youtube"></i>&nbsp;Trailer</div>
+                        <div>넷플릭스</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+          <div class="movieReviewTitle">
+              <span>리얼</span>
+              <span>2017  Directed by 이사랑</span>
+          </div>
+          <div class="movieContent">
+              <div class="textContent">
+                  카지노 ‘시에스타’ 오픈을 앞둔 조직의 보스 장태영(김수현) 앞에 암흑가 대부 조원근(성동일)이 카지노의 소유권을 주장하며 나타난다. 조원근의 개입으로 카지노를 빼앗길 위기에 처한 장태영은 자금 문제를 해결하기 위해 투자자를 찾아 나선다. 어느 날, 이름뿐만 아니라 생김새마저 똑같은 의문의 투자자(김수현)가 나타나 자금은 물론 조원근까지 해결해주겠다는 제안을 한다. 의문의 투자자의 등장으로 조원근과 카지노를 차지하기 위한 전쟁이 시작되고 이들을 둘러 싼 거대한 비밀과 음모의 정체가 서서히 드러난다. 오직 진짜만이 모든 것을 갖는다!
+              </div>
+              <div class="castContent">
+                  d
+              </div>
+          </div>
+          <div class="movieScoreField"></div>
+        </div><!--영화소개 끝-->
+    </div>
+
+      <!--footer-->
+        <div class="footer">
+            <div class="footerMenu">
+
+            </div>
+            <div class="footerCopyright">
+              © mangjakseon Limited.
+            </div>
+        </div><!--footer 끝-->
+    </div>
+</body>
+</html>
