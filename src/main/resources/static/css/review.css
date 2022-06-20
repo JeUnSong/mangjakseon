@@ -170,6 +170,7 @@
 }
 .movieReviewTitle{
     /*background-color: white;*/
+    color: white;
     grid-area: title;
     height: 60px;
 }
@@ -182,11 +183,9 @@
 .movingPoster{
     /*background-color: #ec7070;*/
     grid-area: poster;
-
 }
 .posterBox{
     text-align: center;
-
 }
 .posterBox img{
     width: 230px;
@@ -241,21 +240,102 @@
     border-top:1px #303840 solid;
 }
 .movieContent{
-    background-color: brown;
+    /*background-color: brown;*/
     grid-area: content;
     height: 440px;
 }
 .textContent{
-    background-color: #fc0000;
+    /*background-color: #fc0000;*/
+    color: white;
+    width: 90%;
     font-size: 15px;
+    margin-bottom: 35px;
 }
-.castContent{
-    background-color: #3d1c1c;
+.castTitle{
+    /*background-color: #0BAF2F;*/
+    color: white;
+    border-bottom: 1px #445566 solid;
+}
+.castPicture{
+    /*background-color: #E0C010;*/
+    overflow: auto;
+    white-space: nowrap;
+    height: 220px;
+    margin-top: 20px;
+}
+.castPicture::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+    height: 10px;
+
+}
+.castPicture::-webkit-scrollbar-thumb {
+    height: 10px; /* 스크롤바의 길이 */
+    background: #445566; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+.castPicture::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
+}
+.castItem{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25% 25% 25% 25% 25% 25% ;
+}
+.castFace{
+    height: 150px;
+}
+.castFace img {
+    border: 1px #445566 solid;
+    border-radius: 5px 5px 0 0;
+    width: 130px;
+    height: 150px;
+    object-fit: cover;
+}
+.castName{
+    /*background-color: #3d1c1c;*/
+    width: 130px;
+    height: 40px;
+    border: 1px #445566 solid;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    color: white;
+}
+.castName span:nth-child(1){
+    font-weight: bolder;
+}
+.castName span:nth-child(3){
+    font-size: 12px;
 }
 .movieScoreField{
-    background-color: #3976DC;
+    /*background-color: #3976DC;*/
     grid-area: score;
     height: 440px;
+    text-align: center;
+}
+.watch{
+    background-color: #445566;
+    font-size: 30px;
+    color: #91A3AC;
+    border-radius: 5px 5px 0 0;
+    border: 1px #14181C solid;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+.watch .fa-eye{
+    color: #91A3AC;
+}
+.writeReview{
+    background-color: #445566;
+    color: #91A3AC;
+    border-radius: 0 0 5px 5px;
+    border-bottom: 1px #14181C solid;
+    border-right: 1px #14181C solid;
+    border-left: 1px #14181C solid;
+    width: 80%;
+    height: 35px;
+    margin: auto;
+    padding-top: 15px;
 }
 .footer{
     background-color: #2C3440;
