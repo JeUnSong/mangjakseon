@@ -49,8 +49,8 @@
 .posterField{
     /*background-color: gray;*/
     position: relative;
-    margin-top: -50px;
-    height: 500px;
+
+    height: 560px;
 }
 #movieName {
     position: absolute;

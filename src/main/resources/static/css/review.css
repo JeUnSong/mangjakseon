@@ -45,12 +45,6 @@
     height: 560px;
     margin: auto;
 }
-.posterField{
-    /*background-color: gray;*/
-    position: relative;
-    margin-top: -50px;
-    height: 500px;
-}
 .mainContainer2{
     background-color: #14181C;
     display: flex;
@@ -242,6 +236,7 @@
 .reviewListContainer{
     background-color: #14181C;
     height: 500px;
+    margin-top: 50px;
 }
 .reviewItem{
     /*background-color: #00C030;*/
