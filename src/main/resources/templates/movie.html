@@ -2,8 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link th:href="@{/css/menu.css}" rel="stylesheet"/>
 <link th:href="@{/css/list.css}" rel="stylesheet"/>
+<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/movie.js}"></script>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
     <th:block th:fragment="content">
+
         <div class="listTitle">영화 목록</div>
         <div class="listGap"></div>
         <diV class="listContainer">
@@ -21,8 +24,12 @@
                 <button class="sortButton">검색</button>
             </div>
             <div class="list">
+                <div class="movieList">
 
-            </div>
-        </diV>
+                </div>
+                <button class="moreButton">더보기</button>
+            </div><!--영화 리스트 끝-->
+
+        </div>
     </th:block>
 </th:block>
