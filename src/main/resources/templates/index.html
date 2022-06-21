@@ -1,49 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
-    <!-- 폰트어썸 -->
-    <script th:src="@{https://kit.fontawesome.com/3337789680.js}" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="mainContainer">
-        <div class="posterContainer">
-            <!--헤더-->
-            <div class="header">
-                <div class="headerContainer">
-                    <div class="headerLogo">
-                        <a href="index">
-                            <img src="/assets/logo/Original on Transparent.png">
-                        </a>
-                    </div>
-                    <div class="headerList">
-                        <div class="listAlign">
-                            <a href="#">
-                                <span>로그인</span>
-                            </a>
-                            <a href="#">
-                                <span>영화</span>
-                            </a>
-                            <a href="#">
-                                <span>TV</span>
-                            </a>
-                            <a href="#">
-                                <span>배우</span>
-                            </a>
-                            <a href="#">
-                                <span>걸(乞)작선</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="headerSearch">
-                        <input class="searchBar searchItem" type="text">
-                        <div class="searchBarShadow searchItem"></div>
-                        <i class="fa-solid fa-magnifying-glass searchIcon "></i>
-                    </div>
-                </div>
-            </div><!--헤더끝-->
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
             <!--포스터 필드-->
             <div class="posterField">
                 <div id="movieName">
@@ -197,17 +156,9 @@
                         미이라
                     </div>
                 </div>
-            </div>
-        </div><!--영화 리스트 끝-->
-        <!--footer-->
-        <div class="footer">
-            <div class="footerMenu">
 
             </div>
-            <div class="footerCopyright">
-                © mangjakseon Limited.
-            </div>
-        </div><!--footer 끝-->
+        </div><!--영화 리스트 끝-->
     </div>
-</body>
-</html>
+    </th:block>
+</th:block>
