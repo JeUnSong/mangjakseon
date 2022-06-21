@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link th:href="@{/css/menu.css}" rel="stylesheet"/>
+<link th:href="@{/css/actorList.css}" rel="stylesheet"/>
+<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/actor.js}"></script>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
   <th:block th:fragment="content">
     <div class="listTitle">배우 목록</div>
     <div class="listGap"></div>
+    <div class="actorList">
+
+    </div>
+    <button class="moreButton">더보기</button>
 
   </th:block>
 </th:block>
