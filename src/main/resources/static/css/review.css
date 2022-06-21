@@ -6,7 +6,7 @@
 }
 .mainContainer{
     background-color: #14181C;
-    height: 850px;
+    height: auto;
 }
 .posterContainer{
     background: linear-gradient(
@@ -48,20 +48,20 @@
 .posterField{
     /*background-color: gray;*/
     position: relative;
-    margin: 0 5px;
+    margin-top: -50px;
     height: 500px;
 }
 .mainContainer2{
     background-color: #14181C;
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: auto;
 }
 .movieReviewContainer{
     /*background-color: #ff1616;*/
     margin-top: -50px;
     width: 60%;
-    height: 500px;
+    height: auto;
     display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-areas:

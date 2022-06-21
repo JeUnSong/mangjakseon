@@ -4,15 +4,18 @@
     padding: 0;
     margin: 0;
 }
+body{
+    background-color:  #14181C;
+}
 .header{
-    /*background-color: blue;*/
+    background-color: #14181C;
     height: 60px;
 }
 .headerContainer{
     /*background-color: blueviolet;*/
     text-align: center;
     margin: auto;
-    width: 85%;
+    width: 60%;
     display: grid;
     grid-template-columns: 25% 60% 15% ;
     grid-template-rows: 60px 60px 60px;
@@ -90,7 +93,7 @@
             rgba(20, 24, 28, 0.1) 25%,
             rgba(20, 24, 28, 0.2) 50%,
             rgba(20, 24, 28, 0.3) 80%,
-            rgba(20, 24, 28, 1) 100%
+            rgb(20, 24, 28) 100%
     );
 
 }
