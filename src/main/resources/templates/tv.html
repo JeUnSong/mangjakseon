@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/menu.css}" rel="stylesheet"/>
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="listTitle">TV 목록</div>
+        <div class="listGap"></div>
+        <th:block th:replace="~{/layout/list :: setContent(~{this::content})}">
+            <th:block th:fragment="content">
+
+            </th:block>
+        </th:block>
+    </th:block>
+</th:block>
