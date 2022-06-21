@@ -1,13 +1,12 @@
 var page = 1;
 //ajax data 불러오기
-function movieList(){
+function actorList(){
     $.ajax({
         type: "GET",
-        url: "https://api.themoviedb.org/3/discover/movie?api_key=" +
+        url: "https://api.themoviedb.org/3/person/popular?api_key=" +
             "" +
-            "&language=ko&include_adult=false&include_video=false&" +
-            `page=${page}` +
-            "&vote_average.gte=0&vote_average.lte=6&with_watch_monetization_types=flatrate",
+            "&language=ko&" +
+            `page=${page}`,
         data: {},
         dataType:"json",
         success: function(data){
@@ -18,18 +17,17 @@ function movieList(){
             data.results.forEach((item)=>{
                 list.push([
                     str = '<div>',
-                    str += '<div class="moviePoster">' + `<img src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
-                    str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
-                    str += '<div class="movieTitle">' + item.title + '</div>',
+                    str += '<div class="actorImg">' + `<img src=https://image.tmdb.org/t/p/w200${item.profile_path}>` + '</div>',
+                    str += '<div class="actorName">' + item.name + '</div>',
                     str += '</div>',
-                $('.movieList').append(str),
+                    $('.actorList').append(str),
                 ]);
             });
         }
     });
 }
 // 최초 목록 갱신
-movieList();
+actorList();
 
 // 글릭시 다음 페이지 갱신
 $(document).ready(function() {
@@ -37,7 +35,7 @@ $(document).ready(function() {
         $('.moreButton').hide();
         page++
         //console.log(page)
-        movieList();
+        actorList();
     });
 });
 
@@ -48,7 +46,7 @@ $(document).ready(function(){
         //console.log(scrT);
         if(scrT == $(document).height() - $(window).height() && page != 1){
             page++
-            movieList();
+            actorList();
         }
     });
 });
