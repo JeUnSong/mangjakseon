@@ -49,6 +49,12 @@
     background-color: #394956;
     color: #c1d0d3;
 }
+select {
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+}
+
 .list{
     background-color: #3976DC;
     display: grid;

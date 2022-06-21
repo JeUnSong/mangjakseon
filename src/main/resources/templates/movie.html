@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link th:href="@{/css/menu.css}" rel="stylesheet"/>
+<link th:href="@{/css/list.css}" rel="stylesheet"/>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <div class="listTitle">영화 목록</div>
         <div class="listGap"></div>
-        <th:block th:replace="~{/layout/list :: setContent(~{this::content})}">
-            <th:block th:fragment="content">
+        <diV class="listContainer">
+            <div class="sort">
+                <div class="sortBox">정렬</div>
+                <div class="sortBox">
+                    Sort Results By<br>
+                    <select>
+                        <option>TMDb 내림차순</option>
+                        <option>TMDb 오름차순</option>
+                        <option>망작선 내림차순</option>
+                        <option>망작선 오름차순</option>
+                    </select>
+                </div>
+                <button class="sortButton">검색</button>
+            </div>
+            <div class="list">
 
-            </th:block>
-        </th:block>
+            </div>
+        </diV>
     </th:block>
 </th:block>
