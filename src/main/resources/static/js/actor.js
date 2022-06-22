@@ -1,10 +1,12 @@
 var page = 1;
+const key = ""
+
 //ajax data 불러오기
 function actorList(){
     $.ajax({
         type: "GET",
-        url: "https://api.themoviedb.org/3/person/popular?api_key=" +
-            "" +
+        url: "https://api.themoviedb.org/3/person/popular?" +
+            `api_key=${key}` +
             "&language=ko&" +
             `page=${page}`,
         data: {},

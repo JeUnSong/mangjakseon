@@ -1,10 +1,12 @@
 var page = 1;
+const key = ""
+
 //ajax data 불러오기
 function tvList(){
     $.ajax({
         type: "GET",
-        url: "https://api.themoviedb.org/3/discover/tv?api_key=" +
-            "" +
+        url: "https://api.themoviedb.org/3/discover/tv?" +
+            `api_key=${key}` +
             "&language=ko&sort_by=popularity.desc&" +
             `page=${page}` +
             "&timezone=America%2FNew_York&&vote_average.gte=0&vote_average.lte=6&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0",

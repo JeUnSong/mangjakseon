@@ -1,10 +1,12 @@
 var page = 1;
+const key = ""
+
 //ajax data 불러오기
 function movieList(){
     $.ajax({
         type: "GET",
-        url: "https://api.themoviedb.org/3/discover/movie?api_key=" +
-            "" +
+        url: "https://api.themoviedb.org/3/discover/movie?" +
+            `api_key=${key}` +
             "&language=ko&include_adult=false&include_video=false&" +
             `page=${page}` +
             "&vote_average.gte=0&vote_average.lte=6&with_watch_monetization_types=flatrate",
