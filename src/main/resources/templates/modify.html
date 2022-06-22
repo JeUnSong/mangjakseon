@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Modify</title>
+</head>
+<body>
+<form method="post" action="/modify">
+    <h1>회원정보 수정페이지</h1>
+    <input type="hidden" name="memberCode" th:value="${dto.memberId}">
+    <input type="hidden" name="fromSocial" th:value="${dto.fromSocial}">
+
+    <p>ID: <input type="text" name="email" th:value="${dto?.email}" readonly></p>
+    <p>PW: <input type="text" name="password" placeholder="Password"></p>
+    <p>닉네임: <input type="text" name="nickname" placeholder="Nickname"> <button type="button" onclick="#">중복체크</button></p>
+    <p>프로필사진: ajax로 업로드 된 사진 표시 </p><button type="button" class="uploadBtn">upload</button>
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>

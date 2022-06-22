@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Modify</title>
+</head>
+<body>
+    <h1>회원정보</h1>
+    <input type="hidden" name="memberCode" th:value="${dto.memberId}">
+    <input type="hidden" name="fromSocial" th:value="${dto.fromSocial}">
+
+    <p>ID: <input type="text" name="email" th:value="${dto.email}" readonly></p>
+    <p>PW: <input type="password" name="password" th:value="${dto.password}" readonly></p>
+    <p>닉네임: <input type="text" name="nickname" th:value="${dto.nickname}" readonly></p>
+    <p>프로필사진: ajax로 업로드 된 사진 표시 </p>
+    <a href="/modify">수정하기</a>
+    <form method="post" th:action="@{/remove(memberId=${dto.memberId})}">
+        <button type="submit">회원탈퇴</button>
+    </form>
+<!--    <button onclick="acRemove()">회원탈퇴</button>-->
+
+<!--    <script>-->
+<!--    function acRemove(){-->
+<!--      let form = document.createElement('form');-->
+<!--      form.setAttribute('method','post');-->
+<!--      form.setAttribute('action','/remove');-->
+<!--      let info = document.createElement('input');-->
+<!--      info.setAttribute('type','hidden');-->
+<!--      info.setAttribute('th:value','${dto.memberId}');-->
+
+<!--      form.appendChild(info);-->
+<!--      document.body.appendChild(form);-->
+<!--      form.submit();-->
+<!--    }-->
+<!--  </script>-->
+</body>
+</html>
