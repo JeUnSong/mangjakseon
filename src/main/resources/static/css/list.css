@@ -86,7 +86,7 @@ select {
 .moviePoster input:hover{
     filter: brightness(50%);
 }
-.contentId{
+.dataId{
     display: none;
 }
 .moreButton{

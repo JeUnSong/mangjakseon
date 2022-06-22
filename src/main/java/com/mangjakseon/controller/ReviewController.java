@@ -17,10 +17,20 @@ public class ReviewController {
 
     }
 
-    @RequestMapping("/review/{contentId}")
-    public String Login(@PathVariable String contentId, Model model){
+    @RequestMapping("/review/{movieId}/{movieTitle}/{movieOverview}/{movieReleaseDate}/{moviePoster}/{movieBackdrop}")
+    public String Login(@PathVariable Long movieId,
+                        @PathVariable String movieTitle,
+                        @PathVariable String movieOverview,
+                        @PathVariable String movieReleaseDate,
+                        @PathVariable String moviePoster,
+                        @PathVariable String movieBackdrop , Model model){
 
-        model.addAttribute("contentId", contentId);
+        model.addAttribute("contentId", movieId);
+        model.addAttribute("contentId", movieTitle);
+        model.addAttribute("contentId", movieOverview);
+        model.addAttribute("contentId", movieReleaseDate);
+        model.addAttribute("contentId", moviePoster);
+        model.addAttribute("contentId", movieBackdrop);
 
         return "/review";
     }
