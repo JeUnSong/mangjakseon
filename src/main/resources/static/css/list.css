@@ -77,14 +77,17 @@ select {
     margin-left: 15px;
     text-align: left!important;
 }
-.moviePoster img{
+.moviePoster input{
     width: 150px;
     height: 230px;
     border-radius: 7px;
     object-fit: cover;
 }
-.moviePoster img:hover{
+.moviePoster input:hover{
     filter: brightness(50%);
+}
+.contentId{
+    display: none;
 }
 .moreButton{
     background-color: #445566;
