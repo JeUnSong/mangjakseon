@@ -20,7 +20,7 @@ function tvList(){
             data.results.forEach((item)=>{
                 list.push([
                     str = '<div>',
-                    str += '<div class="moviePoster">' + `<img src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
+                    str += '<div class="moviePoster">' + `<input type="image" src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
                     str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
                     str += '<div class="movieTitle">' + item.name + '</div>',
                     str += '</div>',
