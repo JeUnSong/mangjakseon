@@ -1,6 +1,5 @@
 package com.mangjakseon.service;
 
-import com.mangjakseon.controller.ReviewController;
 import com.mangjakseon.dto.MovieDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
