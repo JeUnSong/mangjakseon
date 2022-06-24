@@ -31,8 +31,9 @@ function tvList(){
     });
 }
 // 최초 목록 갱신
-tvList();
-
+$(document).ready(function() {
+    tvList();
+});
 // 글릭시 다음 페이지 갱신
 $(document).ready(function() {
     $('.moreButton').click(function (){

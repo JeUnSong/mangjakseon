@@ -29,7 +29,9 @@ function actorList(){
     });
 }
 // 최초 목록 갱신
-actorList();
+$(document).ready(function() {
+    actorList();
+});
 
 // 글릭시 다음 페이지 갱신
 $(document).ready(function() {

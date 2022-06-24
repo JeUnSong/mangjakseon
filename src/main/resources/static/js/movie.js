@@ -19,9 +19,9 @@ function movieList(){
             let list = [];
             data.results.forEach((item)=>{
                 list.push([
-                    str = '<form action="/review" method="GET">',
+                    str = `<form action=/review/${item.id} method="GET">`,
                     str += '<div>',
-                    str += '<div class="moviePoster">' + `<input type="image" src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
+                    str += '<div class="moviePoster">' + `<input type="image" name="poster" src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
                     str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
                     str += '<div class="movieTitle">' + item.title + '</div>',
                     str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
@@ -34,7 +34,10 @@ function movieList(){
     });
 }
 // 최초 목록 갱신
-movieList();
+$(document).ready(function (){
+    movieList();
+})
+
 
 // 글릭시 다음 페이지 갱신
 $(document).ready(function() {
