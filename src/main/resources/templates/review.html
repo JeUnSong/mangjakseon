@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <link th:href="@{/css/review.css}" rel="stylesheet"/>
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
 <script th:src="@{/js/review.js}"></script>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <div class="mainContainer">
-            <div class="posterContainer">
-                <!--포스터 필드-->
-                <div class="posterField"></div><!--포스터 필드끝-->
+            <div class="posterContainer"
+                 th:style="
+                 'background-image: linear-gradient(
+                    to left,
+                    rgba(20, 24, 28, 0) 10%,
+                    rgba(20, 24, 28, 0) 25%,
+                    rgba(20, 24, 28, 0) 50%,
+                    rgba(20, 24, 28, 0.3) 80%,
+                    rgba(20, 24, 28, 1) 100%
+                    ),linear-gradient(
+                    to right,
+                    rgba(20, 24, 28, 0) 10%,
+                    rgba(20, 24, 28, 0) 25%,
+                    rgba(20, 24, 28, 0) 50%,
+                    rgba(20, 24, 28, 0.3) 80%,
+                    rgba(20, 24, 28, 1) 100%
+                    ),linear-gradient(
+                    to bottom,
+                    rgba(20, 24, 28, 0) 10%,
+                    rgba(20, 24, 28, 0) 25%,
+                    rgba(20, 24, 28, 0) 50%,
+                    rgba(20, 24, 28, 0.1) 90%,
+                    rgba(20, 24, 28, 1) 100%
+                    ),linear-gradient(
+                    to top,
+                    rgba(20, 24, 28, 0) 10%,
+                    rgba(20, 24, 28, 0) 25%,
+                    rgba(20, 24, 28, 0) 50%,
+                    rgba(20, 24, 28, 0.1) 90%,
+                    rgba(20, 24, 28, 1) 100%
+                    ),
+                    url('+ 'https://image.tmdb.org/t/p/w1280'+${movieData.backdrop_path} +')'">
+
             </div>
         </div>
         <div class="mainContainer2">
@@ -16,19 +46,21 @@
             <div class="movieReviewContainer">
                 <div class="movingPoster">
                     <div class="posterBox">
-                        <img th:src="@{'https://image.tmdb.org/t/p/w200'+${movieData.poster_path}}">
+                        <img th:src="@{'https://image.tmdb.org/t/p/w500'+${movieData.poster_path}}">
                     </div>
                     <div class="posterRanking">
                         <i class="fa-solid fa-eye"></i>
                         <span>24</span>&nbsp;
                         <i class="fa-solid fa-crown"></i>
                         <span>53</span>
+                        <span>TMDb</span>
+                        <span>[[${movieData.vote_average}]]</span>
                     </div>
                     <div class="whereToWatch">
                         <div class="watchTitle">
                             <div>WHERE TO WATCH</div>
                             <div><i class="fa-brands fa-youtube"></i>&nbsp;Trailer</div>
-                            <div>넷플릭스</div>
+                            <div></div>
                             <div></div>
                         </div>
                     </div>
