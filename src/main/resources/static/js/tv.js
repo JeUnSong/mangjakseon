@@ -9,7 +9,7 @@ function tvList(){
             `api_key=${key}` +
             "&language=ko&sort_by=popularity.desc&" +
             `page=${page}` +
-            "&timezone=America%2FNew_York&&vote_average.gte=0&vote_average.lte=6&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0",
+            "&timezone=America%2FNew_York&&vote_average.gte=0.1&vote_average.lte=6&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0",
         data: {},
         dataType:"json",
         success: function(data){
@@ -20,7 +20,7 @@ function tvList(){
             data.results.forEach((item)=>{
                 list.push([
                     str = '<div>',
-                    str += '<div class="moviePoster">' + `<input type="image" src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
+                    str += '<div class="moviePoster">' + `<input type="image" src=https://image.tmdb.org/t/p/w500${item.poster_path}>` + '</div>',
                     str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
                     str += '<div class="movieTitle">' + item.name + '</div>',
                     str += '</div>',

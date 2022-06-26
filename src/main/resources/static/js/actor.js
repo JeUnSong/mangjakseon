@@ -19,7 +19,7 @@ function actorList(){
             data.results.forEach((item)=>{
                 list.push([
                     str = '<div>',
-                    str += '<div class="actorImg">' + `<img src=https://image.tmdb.org/t/p/w200${item.profile_path}>` + '</div>',
+                    str += '<div class="actorImg">' + `<img src=https://image.tmdb.org/t/p/w500${item.profile_path}>` + '</div>',
                     str += '<div class="actorName">' + item.name + '</div>',
                     str += '</div>',
                     $('.actorList').append(str),

@@ -9,7 +9,7 @@ function movieList(){
             `api_key=${key}` +
             "&language=ko&include_adult=false&include_video=false&" +
             `page=${page}` +
-            "&vote_average.gte=0&vote_average.lte=6&with_watch_monetization_types=flatrate",
+            "&vote_average.gte=0.1&vote_average.lte=6&with_watch_monetization_types=flatrate",
         data: {},
         dataType:"json",
         success: function(data){
@@ -19,9 +19,9 @@ function movieList(){
             let list = [];
             data.results.forEach((item)=>{
                 list.push([
-                    str = `<form action=/review/${item.id} method="GET">`,
+                    str = `<form action=/${item.id} method="GET">`,
                     str += '<div>',
-                    str += '<div class="moviePoster">' + `<input type="image" name="poster" src=https://image.tmdb.org/t/p/w200${item.poster_path}>` + '</div>',
+                    str += '<div class="moviePoster">' + `<input type="image" name="poster" src=https://image.tmdb.org/t/p/w500${item.poster_path}>` + '</div>',
                     str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
                     str += '<div class="movieTitle">' + item.title + '</div>',
                     str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
