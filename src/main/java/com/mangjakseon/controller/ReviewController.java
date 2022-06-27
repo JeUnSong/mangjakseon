@@ -7,6 +7,7 @@ import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Optional;
 
 
 @Controller
@@ -34,13 +36,18 @@ public class ReviewController {
         String castJson = "";
 
         JSONObject movieData = null;
-        JSONObject watchData1 = null;
-        JSONObject watchData2 = null;
-        JSONObject watchData3 = null;
+
+        JSONObject watchData = null;
+        JSONObject watchResults = null;
+        JSONObject watchLink = null;
         JSONArray watchArray = null;
+        JSONObject watchLogo = null;
 
-        JSONObject castObject = null;
-
+        JSONObject castData = null;
+        JSONArray castArray = null;
+        JSONArray crewArray = null;
+        JSONObject crewObject = null;
+        JSONObject director = null;
         try {
             URL movieUrl = new URL("https://api.themoviedb.org/3/" +
                     "movie/" + movieId +
@@ -64,7 +71,7 @@ public class ReviewController {
 
             movieBf = new BufferedReader(new InputStreamReader(movieUrl.openStream()));
             watchBf = new BufferedReader(new InputStreamReader(watchUrl.openStream()));
-            castBf  = new BufferedReader(new InputStreamReader(castUrl.openStream()));
+            castBf = new BufferedReader(new InputStreamReader(castUrl.openStream()));
 
             movieJson = movieBf.readLine();
             watchJson = watchBf.readLine();
@@ -73,27 +80,38 @@ public class ReviewController {
             JSONParser jsonParser = new JSONParser();
             movieData = (JSONObject) jsonParser.parse(movieJson);
 
-            watchData1 = (JSONObject) jsonParser.parse(watchJson);
-            watchData2 = (JSONObject) watchData1.get("results");
-            watchData3 = (JSONObject) watchData2.get("KR");
-            watchArray = (JSONArray) watchData3.get("flatrate");
-
-            JSONObject cast = (JSONObject) jsonParser.parse(castJson);
-            castObject = (JSONObject) cast.get("cast");
-            log.info(castJson+"어디");
-            log.info(cast +"어디");
-            log.info(castObject +"어디2");
-
-            //76 ~ 86 줄 아무 의미없음 안됨 개빡침
+            watchData = (JSONObject) jsonParser.parse(watchJson);
+            watchResults = (JSONObject) watchData.get("results");
+            watchLink = (JSONObject) watchResults.get("KR");
+            watchArray = (JSONArray) watchLink.get("flatrate");
 
 
+            for(int i=0; i<watchArray.size(); i++){
+                watchLogo = (JSONObject) watchArray.get(i);
+            }
+
+            castData = (JSONObject) jsonParser.parse(castJson);
+            castArray = (JSONArray) castData.get("cast");
+
+            crewArray = (JSONArray) castData.get("crew");
+
+            for(int i=0; i<crewArray.size(); i++){
+                crewObject = (JSONObject) crewArray.get(i);
+                //log.info(crewObject.get("job"));
+                if(crewObject.get("job").equals("Director")){
+                    //log.info(crewObject);
+                    model.addAttribute("director", crewObject);
+                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         model.addAttribute("movieData", movieData);
-        model.addAttribute("watchLink", watchData3);
-        model.addAttribute("watchLogo", watchArray);
+        model.addAttribute("castData", castArray);
+        model.addAttribute("watchLink", watchLink);
+        model.addAttribute("watchLogo", watchLogo);
+
         return "/review";
     }
 
