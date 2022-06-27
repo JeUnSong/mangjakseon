@@ -60,14 +60,25 @@
                         <div class="watchTitle">
                             <div>WHERE TO WATCH</div>
                             <div><i class="fa-brands fa-youtube"></i>&nbsp;Trailer</div>
-                            <div></div>
-                            <div></div>
+                            <div class="ottLogo" th:if = "${watchLogo != null}">
+                                <img th:src="@{'https://image.tmdb.org/t/p/w200'+${watchLogo.logo_path}}">
+                            </div>
+                            <div class="ottLogo" th:if = "${watchLink != null}">
+                                <a th:href="${watchLink.link}">
+                                    [[${watchLogo.provider_name}]]
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="movieReviewTitle">
                     <span>[[${movieData.title}]]</span>
-                    <span>[[${movieData.release_date}]] Directed by 이사랑</span>
+                    <span th:if = "${director != null}">
+                        [[${movieData.release_date}]]
+                        <span class="directedBy">Directed by</span>
+                        [[${director.name}]]
+                    </span>
                 </div>
                 <div class="movieContent">
                     <div class="textContent">
@@ -79,70 +90,12 @@
                         </div>
                         <div class="castPicture">
                             <div class="castItem">
-                                <div class="castFace">
-                                    <img src="/assets/dummy/soohyun.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/dongil.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/sungmin.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/sulli.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/woojin.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/hongpa.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/ingyeom.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/choikwon.jpg">
-                                </div>
-                                <div class="castFace">
-                                    <img src="/assets/dummy/gyupil.jpg">
-                                </div>
-                            </div>
-                            <div class="castItem">
-                                <div class="castName">
-                                    <span>김수현</span><br>
-                                    <span>장태영</span>
-                                </div>
-                                <div class="castName">
-                                    <span>성동일</span><br>
-                                    <span>조원근</span>
-                                </div>
-                                <div class="castName">
-                                    <span>이성민</span><br>
-                                    <span>최진기</span>
-                                </div>
-                                <div class="castName">
-                                    <span>설리</span><br>
-                                    <span>송유화</span>
-                                </div>
-                                <div class="castName">
-                                    <span>조우진</span><br>
-                                    <span>사동진</span>
-                                </div>
-                                <div class="castName">
-                                    <span>김홍파</span><br>
-                                    <span>최낙현</span>
-                                </div>
-                                <div class="castName">
-                                    <span>정인겸</span><br>
-                                    <span>김교수</span>
-                                </div>
-                                <div class="castName">
-                                    <span>최권</span><br>
-                                    <span>백실장</span>
-                                </div>
-                                <div class="castName">
-                                    <span>고규필</span><br>
-                                    <span>민머리</span>
+                                <div class="castFace" th:each="castData : ${castData}">
+                                    <img class="profile" th:src="@{'https://image.tmdb.org/t/p/w500'+${castData.profile_path}}" onerror="this.src='/assets/null/null.png';"/>
+                                    <div class="castName">
+                                        <span>[[${castData.name}]]</span>
+                                        <span>[[${castData.character}]]</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
