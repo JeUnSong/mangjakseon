@@ -40,6 +40,9 @@
     grid-area: title;
     height: 60px;
 }
+.directedBy{
+    font-size: 20px!important;
+}
 .movieReviewTitle span:nth-child(1){
     font-size: 30px;
 }
@@ -106,6 +109,19 @@
     background-color: #14181C;
     border-top:1px #303840 solid;
 }
+.ottLogo{
+    text-align: center;
+    padding-top: 10px;
+}
+.ottLogo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+.ottLogo a{
+    text-decoration-line: none;
+}
 .movieContent{
     /*background-color: brown;*/
     grid-area: content;
@@ -146,7 +162,23 @@
 }
 .castItem{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25% 25% 25% 25% 25% 25% ;
+    grid-template-columns:
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%
+            25% 25% 25% 25% 25%;
 }
 .castFace{
     height: 150px;
@@ -165,13 +197,16 @@
     border: 1px #445566 solid;
     border-radius: 0 0 5px 5px;
     text-align: center;
+    display: grid;
+    word-wrap:break-word;
     color: white;
 }
 .castName span:nth-child(1){
     font-weight: bolder;
-}
-.castName span:nth-child(3){
     font-size: 12px;
+}
+.castName span:nth-child(2){
+    font-size: 9px;
 }
 .movieScoreField{
     /*background-color: #3976DC;*/
