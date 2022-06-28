@@ -12,10 +12,7 @@ public class MenuController {
     public void movie(){
 
     }
-    @GetMapping("/tv")
-    public void tv(){
 
-    }
     @GetMapping("/actor")
     public void actor(){
 
