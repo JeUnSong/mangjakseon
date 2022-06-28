@@ -1,7 +1,7 @@
 package com.mangjakseon.controller;
 
 
-import com.mangjakseon.dto.MovieDTO;
+import com.mangjakseon.dto.MovieInfoDTO;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
@@ -15,16 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Optional;
-
 
 @Controller
 @Log4j2
 @RequiredArgsConstructor
-public class ReviewController {
+public class MovieInfoController {
 
-    @GetMapping ("/{movieId}")
-    public Object review(MovieDTO dto, Model model) {
+    @GetMapping ("/movie/{movieId}")
+    public Object movieInfo(MovieInfoDTO dto, Model model) {
 
         String key = "";
 
@@ -62,8 +60,7 @@ public class ReviewController {
             URL castUrl = new URL("https://api.themoviedb.org/3/" +
                     "movie/" + movieId +
                     "/credits?" +
-                    "api_key=" + key +
-                    "&language=ko");
+                    "api_key=" + key);
 
             BufferedReader movieBf;
             BufferedReader watchBf;
@@ -78,13 +75,36 @@ public class ReviewController {
             castJson = castBf.readLine();
 
             JSONParser jsonParser = new JSONParser();
+
             movieData = (JSONObject) jsonParser.parse(movieJson);
 
             watchData = (JSONObject) jsonParser.parse(watchJson);
             watchResults = (JSONObject) watchData.get("results");
             watchLink = (JSONObject) watchResults.get("KR");
-            watchArray = (JSONArray) watchLink.get("flatrate");
+            if(watchLink == null){
+                watchLink = (JSONObject) watchResults.get("US");
+                watchArray = (JSONArray) watchLink.get("flatrate");
+                if(watchArray == null) {
+                    watchArray = (JSONArray) watchLink.get("buy");
+                    if(watchArray == null) {
+                        watchArray = (JSONArray) watchLink.get("rent");
+                        if(watchArray == null){
+                            watchArray = (JSONArray) watchLink.get("ads");
+                        }
+                    }
+                }
+            }
 
+            watchArray = (JSONArray) watchLink.get("flatrate");
+            if(watchArray == null) {
+                watchArray = (JSONArray) watchLink.get("buy");
+                if (watchArray == null) {
+                    watchArray = (JSONArray) watchLink.get("rent");
+                    if(watchArray == null){
+                        watchArray = (JSONArray) watchLink.get("ads");
+                    }
+                }
+            }
 
             for(int i=0; i<watchArray.size(); i++){
                 watchLogo = (JSONObject) watchArray.get(i);
@@ -92,7 +112,6 @@ public class ReviewController {
 
             castData = (JSONObject) jsonParser.parse(castJson);
             castArray = (JSONArray) castData.get("cast");
-
             crewArray = (JSONArray) castData.get("crew");
 
             for(int i=0; i<crewArray.size(); i++){
@@ -112,7 +131,7 @@ public class ReviewController {
         model.addAttribute("watchLink", watchLink);
         model.addAttribute("watchLogo", watchLogo);
 
-        return "/review";
+        return "/movie-info";
     }
 
 }
