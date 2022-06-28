@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
-<link th:href="@{/css/review.css}" rel="stylesheet"/>
+<link th:href="@{/css/movie-info.css}" rel="stylesheet"/>
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
-<script th:src="@{/js/review.js}"></script>
+
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <div class="mainContainer">
@@ -58,17 +58,22 @@
                     </div>
                     <div class="whereToWatch">
                         <div class="watchTitle">
-                            <div>WHERE TO WATCH</div>
-                            <div><i class="fa-brands fa-youtube"></i>&nbsp;Trailer</div>
-                            <div class="ottLogo" th:if = "${watchLogo != null}">
+                            <div>
+                                WHERE TO WATCH
+                            </div>
+                            <div>
+                                <i class="fa-brands fa-youtube"></i>&nbsp;Trailer
+                            </div>
+                            <div class="ottLogo" th:if = "${not #strings. isEmpty(watchLogo)}">
                                 <img th:src="@{'https://image.tmdb.org/t/p/w200'+${watchLogo.logo_path}}">
                             </div>
-                            <div class="ottLogo" th:if = "${watchLink != null}">
+                            <div class="ottLogo" th:if = "${not #strings. isEmpty(watchLink)}">
                                 <a th:href="${watchLink.link}">
                                     [[${watchLogo.provider_name}]]
                                 </a>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
