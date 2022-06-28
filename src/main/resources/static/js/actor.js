@@ -12,16 +12,17 @@ function actorList(){
         data: {},
         dataType:"json",
         success: function(data){
-            // console.log(data)
-            // console.log(data.results)
 
             let list = [];
             data.results.forEach((item)=>{
                 list.push([
-                    str = '<div>',
-                    str += '<div class="actorImg">' + `<img src=https://image.tmdb.org/t/p/w500${item.profile_path}>` + '</div>',
+                    str = `<form action=/actor/${item.id} method="GET">`,
+                    str += '<div>',
+                    str += '<div class="actorImg">' + `<input type="image" name="profile" src=https://image.tmdb.org/t/p/w500${item.profile_path} onerror="this.src='/assets/null/null.png';">` + '</div>',
                     str += '<div class="actorName">' + item.name + '</div>',
+                    str += `<input type="checkbox" class="dataId" name="actorId" value=${item.id} checked>`,
                     str += '</div>',
+                    str += '</form>',
                     $('.actorList').append(str),
                 ]);
             });
