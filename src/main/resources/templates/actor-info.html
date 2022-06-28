@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/actor-info.css}" rel="stylesheet"/>
+<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="mainContainer">
+            <div class="profile">
+                <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorData.profile_path}}">
+            </div>
+            <div class="info">
+                <div class="actorName">
+                    [[${actorData.name}]]
+                </div>
+                <br>
+                <div class="biography">
+                    <span class="title">약력</span><br>
+                    <span class="content">[[${actorData.biography}]]</span>
+                </div>
+                <br>
+                <div class="birthdayAndPlace">
+                    <span class="title">생일</span>
+                    <br>
+                    <span class="content">[[${actorData.birthday}]]</span>
+                    <br>
+                    <span class="title">사는곳</span>
+                    <br>
+                    <span class="content">[[${actorData.place_of_birth}]]</span>
+                </div>
+                <br>
+                <div class="sns">
+                    <i class="fa-brands fa-instagram"></i>
+                    &nbsp
+                    <i class="fa-brands fa-facebook"></i>
+                    &nbsp
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mainContainer2">
+            <div class="biographyTitle">
+                <span class="title">출현 영화</span>
+            </div>
+
+            <div class="biographyContent">
+                <div class="movie" th:each="actorMovieData : ${actorMovieData}">
+                    <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorMovieData.poster_path}}" onerror="this.src='/assets/logo/whiteLogo.png';"><br>
+                    <span>[[${actorMovieData.title}]]</span><br>
+                    <span>[[${actorMovieData.character}]] 역</span>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</th:block>
