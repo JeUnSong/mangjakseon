@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
 }
-.actorList{
+.actorList {
     /*background-color: #00C030;*/
     width: 60%;
     height: auto;
@@ -13,14 +13,17 @@
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-row-gap: 40px;
 }
-.actorImg img{
+.actorImg input{
     width: 200px;
     height: 230px;
     border-radius: 7px;
     object-fit: cover;
 }
-.actorImg img:hover{
+.actorImg input:hover{
     filter: brightness(50%);
+}
+.dataId{
+    display: none;
 }
 .actorName{
     color: white;
