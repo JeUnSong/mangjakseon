@@ -3,9 +3,11 @@
 <th:block th:fragment="setContent(content)">
     <head>
         <meta charset="UTF-8">
-        <title>layout</title>
+        <title>망작선 :: </title>
+
         <link th:href="@{/css/header.css}" rel="stylesheet"/>
         <link th:href="@{/css/footer.css}" rel="stylesheet"/>
+        <link rel="icon" href="/assets/logo/favicon.png">
         <!-- 폰트어썸 -->
         <script th:src="@{https://kit.fontawesome.com/3337789680.js}" crossorigin="anonymous"></script>
         <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
@@ -38,7 +40,10 @@
                 </div>
             </div>
             <div class="headerSearch">
-                <input class="searchBar searchItem" type="text">
+                <form action="/search" method="GET">
+                    <input class="searchBar searchItem" name="query" type="text">
+                    <input class="submit" type="submit">
+                </form>
                 <div class="searchBarShadow searchItem"></div>
                 <i class="fa-solid fa-magnifying-glass searchIcon "></i>
             </div>

@@ -64,11 +64,11 @@
                             <div>
                                 <i class="fa-brands fa-youtube"></i>&nbsp;Trailer
                             </div>
-                            <div class="ottLogo" th:if = "${not #strings. isEmpty(watchLogo)}">
-                                <img th:src="@{'https://image.tmdb.org/t/p/w200'+${watchLogo.logo_path}}">
+                            <div class="ottLogo">
+                                <img th:if = "${not #strings. isEmpty(watchLogo)}" th:src="@{'https://image.tmdb.org/t/p/w200'+${watchLogo.logo_path}}">
                             </div>
-                            <div class="ottLogo" th:if = "${not #strings. isEmpty(watchLink)}">
-                                <a th:href="${watchLink.link}">
+                            <div class="ottLogo">
+                                <a th:if = "${not #strings. isEmpty(watchLink)}" th:href="${watchLink.link}">
                                     [[${watchLogo.provider_name}]]
                                 </a>
                             </div>

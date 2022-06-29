@@ -40,10 +40,14 @@
 .fa-brands{
     color: white;
     font-size: 30px;
+
 }
 .fa-brands:hover{
     color: #4d4d4d;
 
+}
+a{
+    text-decoration:none
 }
 
 .mainContainer2{
