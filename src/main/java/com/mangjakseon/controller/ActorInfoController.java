@@ -7,6 +7,7 @@ import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +22,13 @@ import java.net.URL;
 @RequiredArgsConstructor
 public class ActorInfoController {
 
+    @Value("${API_KEY}")
+    String key;
+
     @GetMapping ("/actor/{actorId}")
     public Object actorInfo(ActorInfoDTO dto, Model model) {
 
-        String key = "";
+
 
         Long actorId = dto.getActorId();
 

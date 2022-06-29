@@ -8,6 +8,7 @@ import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +22,11 @@ import java.net.URL;
 @RequiredArgsConstructor
 public class MovieInfoController {
 
+    @Value("${API_KEY}")
+    String key;
+
     @GetMapping ("/movie/{movieId}")
     public Object movieInfo(MovieInfoDTO dto, Model model) {
-
-        String key = "";
 
         Long movieId = dto.getMovieId();
 
@@ -46,6 +48,7 @@ public class MovieInfoController {
         JSONArray crewArray = null;
         JSONObject crewObject = null;
         JSONObject director = null;
+
         try {
             URL movieUrl = new URL("https://api.themoviedb.org/3/" +
                     "movie/" + movieId +

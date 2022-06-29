@@ -1,6 +1,5 @@
 package com.mangjakseon.service;
 
-import com.mangjakseon.dto.SearchDTO;
 import com.mangjakseon.dto.SearchMovieDataDTO;
 import com.mangjakseon.dto.SearchPersonDataDTO;
 import com.nimbusds.jose.shaded.json.JSONArray;
@@ -8,19 +7,21 @@ import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.util.ArrayList;
 
 @Service
 @Log4j2
-@RequiredArgsConstructor
 public class SearchServiceImpl implements SearchService {
 
-    String key = "";
+    @Value("${API_KEY}")
+    String key;
 
     String queryJson = "";
 
@@ -33,9 +34,9 @@ public class SearchServiceImpl implements SearchService {
     JSONObject dataObject = null;
 
     @Override
-    public void movieData(SearchMovieDataDTO movieDataDto, SearchDTO dto) {
+    public void movieData(SearchMovieDataDTO movieDataDto) {
 
-        String query = dto.getQuery();
+        String query = movieDataDto.getQuery();
 
         try {
             keyword = new String(query.getBytes("8859_1"), "UTF-8");
@@ -62,7 +63,12 @@ public class SearchServiceImpl implements SearchService {
 
             queryData = (JSONObject) jsonParser.parse(queryJson);
 
+//            movieDataDto = SearchMovieDataDTO.builder().totalPage(queryData.get("total_pages")).build();
+//            System.out.println(movieDataDto+"페이지");
+//            페이지 따로 빼야할지 생각해보기
+
             dataArray = (JSONArray) queryData.get("results");
+
 
             for (int i = 0; i < dataArray.size(); i++) {
                 dataObject = (JSONObject) dataArray.get(i);
@@ -84,13 +90,12 @@ public class SearchServiceImpl implements SearchService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
         @Override
-        public void personData (SearchPersonDataDTO personDataDto, SearchDTO dto){
+        public void personData (SearchPersonDataDTO personDataDto){
 
-            String query = dto.getQuery();
+            String query = personDataDto.getQuery();
 
             try {
                 keyword = new String(query.getBytes("8859_1"), "UTF-8");
