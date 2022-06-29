@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class SearchMovieDataDTO {
 
+    private String query;
     private Object id;
     private Object title;
     private Object posterPath;

@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchPersonDataDTO {
 
+    private String query;
     private Long id;
     private String name;
     private String knownForDepartment;

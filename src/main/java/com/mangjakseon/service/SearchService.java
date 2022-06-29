@@ -1,15 +1,16 @@
 package com.mangjakseon.service;
 
-import com.mangjakseon.dto.SearchDTO;
 import com.mangjakseon.dto.SearchMovieDataDTO;
 import com.mangjakseon.dto.SearchPersonDataDTO;
+
+import java.util.ArrayList;
 
 public interface SearchService {
 
 
-    void movieData(SearchMovieDataDTO movieDataDto, SearchDTO dto);
+    void movieData(SearchMovieDataDTO movieDataDto);
 
-    void personData(SearchPersonDataDTO personDataDto, SearchDTO dto);
+    void personData(SearchPersonDataDTO personDataDto);
 
 
 }
