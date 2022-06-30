@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
@@ -31,11 +31,17 @@ public class PageController {
     // 회원정보 상세보기 및 수정 페이지
     @PreAuthorize("isAuthenticated()")
     @GetMapping({"/read","/modify"})
-    public void read(Principal principal,Long memberId, Model model){
+    public void read(Principal principal, String memberId, Model model){
         memberId = repository.findByMemberId(principal.getName());
         MemberDTO memberDTO = memberService.read(memberId);
         model.addAttribute("dto",memberDTO);
 
+    }
+
+    @RequestMapping(value = "/test{keyword}")
+    @GetMapping("/test")
+    public void test(String keyword, Model model){
+        model.addAttribute("key",keyword);
     }
     /* Spring Security 담당 김준희 */
 

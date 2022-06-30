@@ -5,16 +5,20 @@ import com.mangjakseon.entity.Member;
 import com.mangjakseon.entity.MemberRole;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.Errors;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 public interface MemberService {
 
-    Long register(MemberDTO memberDTO);
+    String register(MemberDTO memberDTO);
 
-    MemberDTO read(Long memberId);
+    MemberDTO read(String memberId);
 
-    void modify(MemberDTO memberDTO);
+    void modify(MemberDTO memberDTO, MultipartFile multipartFile);
 
-    void remove(Long memberId);
+    void remove(String memberId);
 
     default Member dtoToEntity(MemberDTO memberDTO){
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -24,6 +28,9 @@ public interface MemberService {
                 .password(passwordEncoder.encode(memberDTO.getPassword()))
                 .nickname(memberDTO.getNickname())
                 .fromSocial(false)
+                .profileImage(memberDTO.getProfileImage())
+                .movieViewed(false)
+                .movieId(memberDTO.getMovieId())
                 .build();
 
         member.addMemberRole(MemberRole.USER);
@@ -37,25 +44,23 @@ public interface MemberService {
                 .password(member.getPassword())
                 .nickname(member.getNickname())
                 .fromSocial(member.isFromSocial())
+                .profileImage(member.getProfileImage())
+                .movieViewed(member.isMovieViewed())
+                .movieId(member.getMovieId())
                 .regDate(member.getRegDate())
                 .modDate(member.getModDate())
                 .build();
 
         return memberDTO;
     }
-}
 
-/**
- * 비밀번호 입력을 하게 하고
- * 맞는지 select 쿼리를 날려서
- * .password(passwordEncoder.encode(memberDTO.getPassword()))
- * // 중복검사
- * select count(*) from member where id = #{id} and password = #{암호화 pw}
- * =>> return : 1 - 정상 , 0 - 비밀번호 틀림 or 아이디 없음
- *
- *
- * 맞으면 비밀번호 업데이트
- * update member set id = '' password = '';
- * @param member
- * @return
- */
+    // 회원가입시 유효성 체크
+    Map<String,String> validateHandling(Errors errors);
+
+    // 회원가입시 이메일 중복 여부 확인
+    void checkEmailDuplication(MemberDTO memberDTO);
+    // 회원가입시 닉네임 중복 여부 확인
+    void checkNicknameDuplication(MemberDTO memberDTO);
+    // 회원정보 수정시 닉네임 중복 여부 확인
+    int nicknameCheck(String nickname);
+}

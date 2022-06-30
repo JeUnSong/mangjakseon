@@ -112,7 +112,7 @@
                     <div class="watch">
                         <i class="fa-solid fa-eye"></i><br>
                     </div>
-                    <div class="writeReview" th:if="${movieData.vote_average < 6}">
+                    <div class="writeReview" th:if="${movieData.vote_average <= 6}">
                         리뷰 쓰기
                     </div>
                     <div class="writeReview" th:if="${movieData.vote_average > 6}">
@@ -122,7 +122,7 @@
             </div><!--영화소개 끝-->
         </div>
         <div class="reviewListContainer">
-            <div class="reviewItem" th:if="${movieData.vote_average < 6}">
+            <div class="reviewItem" th:if="${movieData.vote_average <= 6}">
                 <div class="castTitle">
                     BEST 리뷰
                 </div>

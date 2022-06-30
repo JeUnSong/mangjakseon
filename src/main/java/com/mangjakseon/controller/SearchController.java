@@ -1,6 +1,5 @@
 package com.mangjakseon.controller;
 
-
 import com.mangjakseon.dto.queryDTO;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
@@ -18,7 +17,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-
 
 @Controller
 @Log4j2
