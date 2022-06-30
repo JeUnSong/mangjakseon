@@ -9,11 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchPersonDataDTO {
+public class queryDTO {
 
     private String query;
-    private Long id;
-    private String name;
-    private String knownForDepartment;
-    private String mediaType;
+    private Long page;
 }
