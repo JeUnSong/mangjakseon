@@ -51,9 +51,11 @@
 
             <div class="biographyContent">
                 <div class="movie" th:each="actorMovieData : ${actorMovieData}">
-                    <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorMovieData.poster_path}}" onerror="this.src='/assets/logo/whiteLogo.png';"><br>
-                    <span>[[${actorMovieData.title}]]</span><br>
-                    <span>[[${actorMovieData.character}]] 역</span>
+                    <a th:href="@{'/movie/'+${actorMovieData.id}}">
+                        <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorMovieData.poster_path}}" onerror="this.src='/assets/logo/whiteLogo.png';"><br>
+                    </a>
+                    <span class="movieTitle">[[${actorMovieData.title}]]</span><br>
+                    <span class="character">[[${actorMovieData.character}]] 역</span>
                 </div>
             </div>
         </div>

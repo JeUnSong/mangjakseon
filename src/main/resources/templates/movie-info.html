@@ -96,7 +96,9 @@
                         <div class="castPicture">
                             <div class="castItem">
                                 <div class="castFace" th:each="castData : ${castData}">
-                                    <img class="profile" th:src="@{'https://image.tmdb.org/t/p/w500'+${castData.profile_path}}" onerror="this.src='/assets/null/null.png';"/>
+                                    <a th:href="@{'/actor/'+${castData.id}}">
+                                        <img class="profile" th:src="@{'https://image.tmdb.org/t/p/w500'+${castData.profile_path}}" onerror="this.src='/assets/null/null.png';"/>
+                                    </a>
                                     <div class="castName">
                                         <span>[[${castData.name}]]</span>
                                         <span>[[${castData.character}]]</span>
@@ -110,14 +112,17 @@
                     <div class="watch">
                         <i class="fa-solid fa-eye"></i><br>
                     </div>
-                    <div class="writeReview">
+                    <div class="writeReview" th:if="${movieData.vote_average < 6}">
                         리뷰 쓰기
+                    </div>
+                    <div class="writeReview" th:if="${movieData.vote_average > 6}">
+                        TMDb 평점 기준 6점 이하만<br> 작성 가능합니다.
                     </div>
                 </div>
             </div><!--영화소개 끝-->
         </div>
         <div class="reviewListContainer">
-            <div class="reviewItem">
+            <div class="reviewItem" th:if="${movieData.vote_average < 6}">
                 <div class="castTitle">
                     BEST 리뷰
                 </div>
