@@ -76,12 +76,12 @@ a{
     border-radius: 7px;
     object-fit: cover;
 }
-.movie :nth-child(3){
+.movieTitle{
     color: white;
     font-size: 18px;
     font-weight: bold;
 }
-.movie :nth-child(5){
+.character{
     color: white;
     font-size: 12px;
 }

@@ -46,6 +46,7 @@
     margin: auto;
 
 }
+
 .posterField{
     /*background-color: gray;*/
     position: relative;
@@ -71,6 +72,9 @@
     margin: auto;
     width: 50%;
     text-align: center;
+}
+.tmdbLofo{
+    width: 10%;
 }
 .introduce{
     font-size: 32px;

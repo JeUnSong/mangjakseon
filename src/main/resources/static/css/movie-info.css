@@ -20,8 +20,9 @@
     background-color: #14181C;
     display: flex;
     justify-content: center;
-    height: auto;
+    height:auto;
 }
+
 .movieReviewContainer{
     /*background-color: #ff1616;*/
     margin-top: -50px;
@@ -124,13 +125,14 @@
 .movieContent{
     /*background-color: brown;*/
     grid-area: content;
-    height: 440px;
+    height: auto;
 }
 .textContent{
     /*background-color: #fc0000;*/
     color: white;
     width: 90%;
     font-size: 15px;
+
     margin-bottom: 35px;
 }
 .castTitle{
@@ -210,9 +212,15 @@
 .castName span:nth-child(1){
     font-weight: bolder;
     font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .castName span:nth-child(2){
     font-size: 9px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .movieScoreField{
     /*background-color: #3976DC;*/
@@ -241,9 +249,10 @@
     border-right: 1px #14181C solid;
     border-left: 1px #14181C solid;
     width: 80%;
-    height: 35px;
+    height: auto;
     margin: auto;
     padding-top: 15px;
+    padding-bottom: 15px;
 }
 .reviewListContainer{
     background-color: #14181C;
