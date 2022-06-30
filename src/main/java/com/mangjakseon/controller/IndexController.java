@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Log4j2
 public class IndexController {
 
-    @GetMapping("index")
+    @GetMapping("/index")
     public void index(){}
 
     @GetMapping("loginModal")
     public void test(){}
 
     @PreAuthorize("isAuthenticated()")  //로그인 한 사용자만 접근 가능
-    @GetMapping("/home")
-    public void home(){}
+    @GetMapping("/")
+    public String home(){
+
+        return "/index";
+    }
 }
