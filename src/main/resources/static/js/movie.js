@@ -1,8 +1,9 @@
 var page = 1;
-const key = ""
+const key = "";
+var totalStr = "";
 
 //ajax data 불러오기
-function movieList(){
+function movieList() {
     $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/discover/movie" +
@@ -16,14 +17,11 @@ function movieList(){
             "&vote_average.lte=6" +
             "&with_watch_monetization_types=flatrate",
         data: {},
-        dataType:"json",
-        success: function(data){
-
-            // console.log(data)
-            // console.log(data.results)
+        dataType: "json",
+        success: function (data) {
 
             let list = [];
-            data.results.forEach((item)=>{
+            data.results.forEach((item) => {
                 list.push([
                     str = `<form action=/movie/${item.id} method="GET">`,
                     str += '<div>',
@@ -32,40 +30,54 @@ function movieList(){
                     str += '<div class="movieTitle">' + item.title + '</div>',
                     str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
                     str += '</div>',
-                    str += '</form>',
-                $('.movieList').append(str),
+                    str += '</form>'
                 ]);
+                totalStr += str;
+                $('.movieList').append(str)
             });
+            sessionStorage.setItem("movieTotalStr", totalStr);
+            sessionStorage.setItem("moviePage", page)
         }
     });
 }
+
 // 최초 목록 갱신
-$(document).ready(function (){
-    movieList();
+$(document).ready(function (event) {
+    if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        totalStr = sessionStorage.getItem("movieTotalStr");
+        $('.movieList').append(totalStr);
+        if (sessionStorage.getItem("moviePage") != 1) {
+            $('.moreButton').hide();
+        }
+    } else {
+        movieList();
+    }
 })
 
 // 글릭시 다음 페이지 갱신
-$(document).ready(function() {
-    $('.moreButton').click(function (){
+$(document).ready(function () {
+    $('.moreButton').click(function () {
         $('.moreButton').hide();
         page++
-        //console.log(page)
         movieList();
     });
 });
 
 //스크롤 발생 이벤트 처리
-$(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function (event) {
+    $(window).scroll(function () {
         var scrT = $(window).scrollTop();
-        //console.log(scrT);
-        if(scrT == $(document).height() - $(window).height() && page != 1){
-            page++
-            movieList();
+        if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+            page = sessionStorage.getItem("moviePage");
         }
+        setTimeout(function () {
+            if (scrT == $(document).height() - $(window).height() && page != 1) {
+                page++
+                movieList();
+            }
+        }, 50)
     });
 });
-
 
 
 

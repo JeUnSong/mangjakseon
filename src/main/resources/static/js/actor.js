@@ -1,8 +1,9 @@
 var page = 1;
 const key = ""
+var totalStr = "";
 
 //ajax data 불러오기
-function actorList(){
+function actorList() {
     $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/person/popular?" +
@@ -10,11 +11,11 @@ function actorList(){
             "&language=ko&" +
             `page=${page}`,
         data: {},
-        dataType:"json",
-        success: function(data){
+        dataType: "json",
+        success: function (data) {
 
             let list = [];
-            data.results.forEach((item)=>{
+            data.results.forEach((item) => {
                 list.push([
                     str = `<form action=/actor/${item.id} method="GET">`,
                     str += '<div>',
@@ -22,37 +23,52 @@ function actorList(){
                     str += '<div class="actorName">' + item.name + '</div>',
                     str += `<input type="checkbox" class="dataId" name="actorId" value=${item.id} checked>`,
                     str += '</div>',
-                    str += '</form>',
-                    $('.actorList').append(str),
+                    str += '</form>'
                 ]);
+                totalStr += str;
+                $('.actorList').append(str)
             });
+            sessionStorage.setItem("actorTotalStr", totalStr);
+            sessionStorage.setItem("actorPage", page);
         }
     });
 }
+
 // 최초 목록 갱신
-$(document).ready(function() {
-    actorList();
+$(document).ready(function (event) {
+    if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        totalStr = sessionStorage.getItem("actorTotalStr");
+        $('.actorList').append(totalStr);
+        if (sessionStorage.getItem("actorPage") != 1) {
+            $('.moreButton').hide();
+        }
+    } else {
+        actorList();
+    }
 });
 
 // 글릭시 다음 페이지 갱신
-$(document).ready(function() {
-    $('.moreButton').click(function (){
+$(document).ready(function () {
+    $('.moreButton').click(function () {
         $('.moreButton').hide();
         page++
-        //console.log(page)
         actorList();
     });
 });
 
 //스크롤 발생 이벤트 처리
-$(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function () {
+    $(window).scroll(function () {
         var scrT = $(window).scrollTop();
-        //console.log(scrT);
-        if(scrT == $(document).height() - $(window).height() && page != 1){
-            page++
-            actorList();
+        if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+            page = sessionStorage.getItem("actorPage");
         }
+        setTimeout(function () {
+            if (scrT == $(document).height() - $(window).height() && page != 1) {
+                page++
+                actorList();
+            }
+        }, 50)
     });
 });
 
