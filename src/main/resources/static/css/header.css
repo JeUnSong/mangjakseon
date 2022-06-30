@@ -5,10 +5,10 @@
     margin: 0;
 }
 a{
-    text-decoration: none;
+    text-decoration: none!important;
 }
 body{
-    background-color:  #14181C;
+    background-color:  #14181C!important;
 }
 .header{
     background-color: #14181C;
@@ -39,6 +39,16 @@ body{
 }
 .listAlign{
     margin-left: auto;
+}
+#loginModalButton{
+    text-align: center;
+    text-decoration: none;
+    color: #EBE7DA;
+    margin-left: 15px;
+    cursor: pointer;
+}
+#loginModalButton:hover{
+    color: #cccccc;
 }
 .headerList a {
     text-align: center;
@@ -102,7 +112,7 @@ body{
     transition: all 0.3s;
 }
 .header:hover{
-    background: linear-gradient(
+    background: linear-gradient!important;(
             to top,
             rgba(20, 24, 28, 0) 10%,
             rgba(20, 24, 28, 0.1) 25%,
