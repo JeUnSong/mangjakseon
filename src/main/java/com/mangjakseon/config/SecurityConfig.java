@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login-page")   // 로그인 화면
                 .loginProcessingUrl("/login")   // 로그인 처리시 사용되는 페이지
                 .failureHandler(failureHandler) // 로그인 실패시 처리하는 방법
-                .defaultSuccessUrl("/home");   // 로그인 성공시 보여줄 페이지
+                .defaultSuccessUrl("/");   // 로그인 성공시 보여줄 페이지
         http.csrf().disable();  // csrf 토큰 비활성화
 
         http.logout().invalidateHttpSession(true).deleteCookies("JSESSIONID");
