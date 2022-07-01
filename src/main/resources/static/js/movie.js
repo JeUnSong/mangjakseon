@@ -24,9 +24,9 @@ function movieList() {
             data.results.forEach((item) => {
                 list.push([
                     str = `<form action=/movie/${item.id} method="GET">`,
-                    str += '<div>',
-                    str += '<div class="moviePoster">' + `<input type="image" name="poster" src=https://image.tmdb.org/t/p/w500${item.poster_path}>` + '</div>',
-                    str += '<div class="movieScore">' + '<span>' + `TMDB ${item.vote_average} 망작선` + '</span>' + '</div>',
+                    str += '<div class="listGroup">',
+                    str += `<input type="image" name="poster" class="moviePoster" src=https://image.tmdb.org/t/p/w500${item.poster_path}>`,
+                    str += '<div class="movieScore">' + `TMDb ${item.vote_average} 망작선` + '</div>',
                     str += '<div class="movieTitle">' + item.title + '</div>',
                     str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
                     str += '</div>',
@@ -43,6 +43,9 @@ function movieList() {
 
 // 최초 목록 갱신
 $(document).ready(function (event) {
+
+    jQuery.noConflict();
+
     if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
         totalStr = sessionStorage.getItem("movieTotalStr");
         $('.movieList').append(totalStr);
