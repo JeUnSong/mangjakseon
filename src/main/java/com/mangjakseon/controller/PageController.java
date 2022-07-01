@@ -22,9 +22,6 @@ public class PageController {
     private final MemberService memberService;
     private final MemberRepository repository;
 
-    @GetMapping("/login-page")  // 기본 로그인 페이지
-    public void loginCustom(){}
-
     @GetMapping("/sign-up") // 기본 회원가입 페이지
     public void signup(){}
 
@@ -35,7 +32,6 @@ public class PageController {
         memberId = repository.findByMemberId(principal.getName());
         MemberDTO memberDTO = memberService.read(memberId);
         model.addAttribute("dto",memberDTO);
-
     }
 
     @RequestMapping(value = "/test{keyword}")

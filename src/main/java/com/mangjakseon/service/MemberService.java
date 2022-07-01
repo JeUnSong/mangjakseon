@@ -47,6 +47,7 @@ public interface MemberService {
                 .profileImage(member.getProfileImage())
                 .movieViewed(member.isMovieViewed())
                 .movieId(member.getMovieId())
+                .role(member.getRoleSet())
                 .regDate(member.getRegDate())
                 .modDate(member.getModDate())
                 .build();

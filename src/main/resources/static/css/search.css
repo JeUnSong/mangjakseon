@@ -80,19 +80,19 @@
     border:1px solid #ccc;
 }
 .page_nation .pprev {
-    background:#f8f8f8 url('/assets/pagination/page_pprev.png') no-repeat center center;
+    background:#f8f8f8 url('/assets/button/page_pprev.png') no-repeat center center;
     margin-left:0;
 }
 .page_nation .prev {
-    background:#f8f8f8 url('/assets/pagination/page_prev.png') no-repeat center center;
+    background:#f8f8f8 url('/assets/button/page_prev.png') no-repeat center center;
     margin-right:7px;
 }
 .page_nation .next {
-    background:#f8f8f8 url('/assets/pagination/page_next.png') no-repeat center center;
+    background:#f8f8f8 url('/assets/button/page_next.png') no-repeat center center;
     margin-left:7px;
 }
 .page_nation .nnext {
-    background:#f8f8f8 url('/assets/pagination/page_nnext.png') no-repeat center center;
+    background:#f8f8f8 url('/assets/button/page_nnext.png') no-repeat center center;
     margin-right:0;
 }
 .page_nation a.active {

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -37,6 +38,8 @@ public class MemberDTO {
     private String profileImage;
 
     private boolean movieViewed;
+
+    private Set role;
 
     private String movieId;
 

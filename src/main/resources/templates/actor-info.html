@@ -30,15 +30,18 @@
                 </div>
                 <br>
                 <div class="sns">
-                    <a th:if = "${not #strings. isEmpty(snsData.instagram_id)}" th:href="@{'https://www.instagram.com/'+${snsData.instagram_id}}">
+                    <a th:if="${not #strings. isEmpty(snsData.instagram_id)}"
+                       th:href="@{'https://www.instagram.com/'+${snsData.instagram_id}}">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     &nbsp
-                    <a th:if = "${not #strings. isEmpty(snsData.facebook_id)}" th:href="@{'https://www.facebook.com/'+${snsData.facebook_id}}">
+                    <a th:if="${not #strings. isEmpty(snsData.facebook_id)}"
+                       th:href="@{'https://www.facebook.com/'+${snsData.facebook_id}}">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     &nbsp
-                    <a th:if = "${not #strings. isEmpty(snsData.twitter_id)}" th:href="@{'https://twitter.com/'+${snsData.twitter_id}}">
+                    <a th:if="${not #strings. isEmpty(snsData.twitter_id)}"
+                       th:href="@{'https://twitter.com/'+${snsData.twitter_id}}">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
                 </div>
@@ -52,7 +55,8 @@
             <div class="biographyContent">
                 <div class="movie" th:each="actorMovieData : ${actorMovieData}">
                     <a th:href="@{'/movie/'+${actorMovieData.id}}">
-                        <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorMovieData.poster_path}}" onerror="this.src='/assets/logo/whiteLogo.png';"><br>
+                        <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorMovieData.poster_path}}"
+                             onerror="this.src='/assets/logo/whiteLogo.png';"><br>
                     </a>
                     <span class="movieTitle">[[${actorMovieData.title}]]</span><br>
                     <span class="character">[[${actorMovieData.character}]] 역</span>

@@ -16,6 +16,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -84,13 +86,13 @@ public class MethodController {
     }
 
     // 로그인 에러시 메시지
-    @GetMapping("/auth/login")
+    @GetMapping("/login")
     public String login(@RequestParam(value = "error", required = false) String error,
                         @RequestParam(value = "exception", required = false) String exception,
                         Model model){
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
-        return "/login-page";
+        return "/layout/login";
     }
 
     // 회원정보 수정시 닉네임 중복 체크

@@ -109,9 +109,11 @@
 .watchTitle div:nth-child(4){
     background-color: #14181C;
     border-top:1px #303840 solid;
+    padding: 10px;
 }
 .ottLogo{
     text-align: center;
+    padding: 10px;
 }
 .ottLogo img{
     width: 30px;
@@ -121,6 +123,11 @@
 }
 .ottLogo a{
     text-decoration-line: none;
+    color: #93A0AE!important;
+}
+.ottLogo a:hover{
+    text-decoration-line: none;
+    color: #484c54 !important;
 }
 .movieContent{
     /*background-color: brown;*/

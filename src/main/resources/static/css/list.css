@@ -62,11 +62,19 @@ select {
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-row-gap: 40px;
 }
-.movieList div:hover {
-    color: #3976DC;
-}
+
 .movieList div {
     color: #ffffff;
+    cursor:pointer;
+}
+.movieList div:hover .moviePoster {
+    filter: brightness(50%);
+}
+.movieList div:hover .movieScore {
+    color: #3976DC;
+}
+.movieList div:hover .movieTitle {
+    color: #3976DC;
 }
 .movieScore{
     margin-left: 15px;
@@ -77,13 +85,13 @@ select {
     margin-left: 15px;
     text-align: left!important;
 }
-.moviePoster input{
+.moviePoster{
     width: 150px;
     height: 230px;
     border-radius: 7px;
     object-fit: cover;
 }
-.moviePoster input:hover{
+.moviePoster:hover{
     filter: brightness(50%);
 }
 .dataId{
@@ -103,3 +111,4 @@ select {
     background-color: #394956;
     color: #c1d0d3;
 }
+

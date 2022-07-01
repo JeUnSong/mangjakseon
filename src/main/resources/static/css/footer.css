@@ -1,10 +1,4 @@
 @charset "UTF-8";
-
-*{
-    padding: 0;
-    margin: 0;
-}
-
 .footerGap{
     background-color: #14181C;
     height: 50px;

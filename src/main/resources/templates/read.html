@@ -12,6 +12,7 @@
     <p>ID: <input type="text" name="email" th:value="${dto.email}" readonly></p>
     <p>PW: <input type="password" name="password" th:value="${dto.password}" readonly></p>
     <p>닉네임: <input type="text" name="nickname" th:value="${dto.nickname}" readonly></p>
+    <p>권한 <input type="text" name="nickname" th:value="${dto.role}" readonly></p>
     <p>프로필 이미지</p>
     <img th:src="@{${'/profile_images/'+dto.profileImage}}" onerror="this.src='/assets/null/null.png';"/>
     <h3><a href="/modify">수정하기</a></h3><br/>

@@ -1,9 +1,4 @@
 @charset "UTF-8";
-
-*{
-    padding: 0;
-    margin: 0;
-}
 .mainContainer{
     background-color: #14181C;
     height: 850px;
@@ -74,7 +69,7 @@
     text-align: center;
 }
 .tmdbLofo{
-    width: 10%;
+    width: 13%;
 }
 .introduce{
     font-size: 32px;

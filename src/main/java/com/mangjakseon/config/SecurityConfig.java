@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -51,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         
         http.formLogin()
-                .loginPage("/login-page")   // 로그인 화면
+                .loginPage("/login")   // 로그인 화면
                 .loginProcessingUrl("/login")   // 로그인 처리시 사용되는 페이지
                 .failureHandler(failureHandler) // 로그인 실패시 처리하는 방법
                 .defaultSuccessUrl("/");   // 로그인 성공시 보여줄 페이지
