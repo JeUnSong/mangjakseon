@@ -1,29 +1,31 @@
 @charset "UTF-8";
 
-*{
+* {
     padding: 0;
     margin: 0;
 }
-.mainContainer{
+
+.mainContainer {
     background-color: #14181C;
     height: auto;
 }
 
-.posterContainer{
+.posterContainer {
     background-size: cover;
     border-radius: 50px;
     width: 60%;
     height: 580px;
     margin: auto;
 }
-.mainContainer2{
+
+.mainContainer2 {
     background-color: #14181C;
     display: flex;
     justify-content: center;
-    height:auto;
+    height: auto;
 }
 
-.movieReviewContainer{
+.movieReviewContainer {
     /*background-color: #ff1616;*/
     margin-top: -50px;
     width: 60%;
@@ -35,53 +37,65 @@
     "poster content score"
     "poster content score";
 }
-.movieReviewTitle{
+
+.movieReviewTitle {
     /*background-color: white;*/
     color: white;
     grid-area: title;
     height: 60px;
 }
-.directedBy{
-    font-size: 20px!important;
+
+.directedBy {
+    font-size: 20px !important;
 }
-.movieReviewTitle span:nth-child(1){
+
+.movieReviewTitle span:nth-child(1) {
     font-size: 30px;
 }
-.movieReviewTitle span:nth-child(2){
+
+.movieReviewTitle span:nth-child(2) {
     font-size: 12px;
 }
-.movingPoster{
+
+.movingPoster {
     /*background-color: #ec7070;*/
     grid-area: poster;
 }
-.posterBox{
+
+.posterBox {
     text-align: center;
 }
-.posterBox img{
+
+.posterBox img {
     width: 230px;
     height: 340px;
     border-radius: 7px;
     border: 1px #767681 solid;
     object-fit: cover;
 }
-.posterRanking{
+
+.posterRanking {
     text-align: center;
     font-size: 12px;
     color: #93A0AE;
 }
-.fa-eye{
+
+.fa-eye {
     color: #00C030;
 }
-.fa-crown{
+
+.fa-crown {
     color: #E0C010;
 }
-.whereToWatch{
+
+.whereToWatch {
     /*background-color: darkblue;*/
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
-.watchTitle{
+
+.watchTitle {
     background-color: #242C34;
     border: 1px #303840 solid;
     color: #93A0AE;
@@ -91,50 +105,60 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 30px;
 }
-.watchTitle div:nth-child(1){
+
+.watchTitle div:nth-child(1) {
     margin-left: 5px;
     margin-top: 7px;
     font-size: 12px;
 }
-.watchTitle div:nth-child(2){
+
+.watchTitle div:nth-child(2) {
     margin-right: 5px;
     margin-top: 6px;
     text-align: right;
     font-size: 15px;
 }
-.watchTitle div:nth-child(3){
+
+.watchTitle div:nth-child(3) {
     background-color: #14181C;
-    border-top:1px #303840 solid;
+    border-top: 1px #303840 solid;
 }
-.watchTitle div:nth-child(4){
+
+.watchTitle div:nth-child(4) {
     background-color: #14181C;
-    border-top:1px #303840 solid;
+    border-top: 1px #303840 solid;
     padding: 10px;
 }
-.ottLogo{
+
+.ottLogo {
     text-align: center;
     padding: 10px;
 }
-.ottLogo img{
+
+.ottLogo img {
     width: 30px;
     height: 30px;
     border-radius: 8px;
     object-fit: cover;
 }
-.ottLogo a{
+
+.ottLogo a {
     text-decoration-line: none;
-    color: #93A0AE!important;
+    color: #93A0AE !important;
 }
-.ottLogo a:hover{
+
+.ottLogo a:hover {
     text-decoration-line: none;
     color: #484c54 !important;
 }
-.movieContent{
+
+.movieContent {
     /*background-color: brown;*/
     grid-area: content;
     height: auto;
 }
-.textContent{
+
+.textContent {
     /*background-color: #fc0000;*/
     color: white;
     width: 90%;
@@ -142,33 +166,39 @@
 
     margin-bottom: 35px;
 }
-.castTitle{
+
+.castTitle {
     /*background-color: #0BAF2F;*/
     color: white;
     border-bottom: 1px #445566 solid;
 }
-.castPicture{
+
+.castPicture {
     /*background-color: #E0C010;*/
     overflow: auto;
     white-space: nowrap;
     height: 220px;
     margin-top: 20px;
 }
+
 .castPicture::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
+    width: 10px; /* 스크롤바의 너비 */
     height: 10px;
 
 }
+
 .castPicture::-webkit-scrollbar-thumb {
     height: 10px; /* 스크롤바의 길이 */
     background: #445566; /* 스크롤바의 색상 */
     border-radius: 10px;
 }
+
 .castPicture::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+    background: rgba(33, 122, 244, .1); /*스크롤바 뒷 배경 색상*/
     border-radius: 10px;
 }
-.castItem{
+
+.castItem {
     display: grid;
     grid-template-columns:
             25% 25% 25% 25% 25%
@@ -200,9 +230,11 @@
             25% 25% 25% 25% 25%
             25% 25% 25% 25% 25%;
 }
-.castFace{
+
+.castFace {
     height: 150px;
 }
+
 .castFace img {
     border: 1px #445566 solid;
     border-radius: 5px 5px 0 0;
@@ -210,7 +242,8 @@
     height: 150px;
     object-fit: cover;
 }
-.castName{
+
+.castName {
     /*background-color: #3d1c1c;*/
     width: 130px;
     height: 40px;
@@ -218,29 +251,33 @@
     border-radius: 0 0 5px 5px;
     text-align: center;
     display: grid;
-    word-wrap:break-word;
+    word-wrap: break-word;
     color: white;
 }
-.castName span:nth-child(1){
+
+.castName span:nth-child(1) {
     font-weight: bolder;
     font-size: 12px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.castName span:nth-child(2){
+
+.castName span:nth-child(2) {
     font-size: 9px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.movieScoreField{
+
+.movieScoreField {
     /*background-color: #3976DC;*/
     grid-area: score;
     height: 440px;
     text-align: center;
 }
-.watch{
+
+.watch {
     background-color: #445566;
     font-size: 30px;
     color: #91A3AC;
@@ -250,10 +287,12 @@
     margin: auto;
     padding-bottom: 10px;
 }
-.watch .fa-eye{
+
+.watch .fa-eye {
     color: #91A3AC;
 }
-.writeReview{
+
+.writeReview {
     background-color: #445566;
     color: #91A3AC;
     border-radius: 0 0 5px 5px;
@@ -265,20 +304,148 @@
     margin: auto;
     padding-top: 15px;
     padding-bottom: 15px;
+    cursor: pointer;
 }
-.reviewListContainer{
+
+.reviewListContainer {
     background-color: #14181C;
     height: 500px;
     margin-top: 50px;
 }
-.reviewItem{
+
+.reviewItem {
     /*background-color: #00C030;*/
     width: 45%;
     margin-left: 665px;
 }
-.bestReviewContent, .reviewContent{
+
+.bestReviewContent, .reviewContent {
     /*background-color: white;*/
     width: 100%;
     height: 150px;
 }
 
+/*심동수 리뷰관련 css 추가*/
+
+.reviewContent1 {
+    width: 100%;
+    color: white;
+}
+
+.buttonContent {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.reviewSave, .reviewRemove, .reviewModify {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
+
+.addReview {
+    background-color: #445566;
+
+}
+
+.modal-header, .modal-body, .modal-footer {
+    background-color: #14181C;
+
+}
+
+#modal h2 {
+    margin: 0;
+}
+
+.modal_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: -1;
+}
+
+.card-body {
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+.card-body1 {
+    width: 16%;
+    height: 130px;
+    float: left;
+}
+
+.card-body1-memberImage {
+    border-radius: 100%;
+    margin: auto;
+}
+
+.card-body1-memberNickname {
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+}
+
+.card-body2 {
+    width: 58%;
+    height: 130px;
+    float: left;
+}
+
+.card-body2-reviewTitle {
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+}
+
+.card-body2-reviewRegdate {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.card-body3-rating {
+    width: 26%;
+    height: 130px;
+    float: left;
+    text-align: right;
+}
+
+.card-body4-reviewContent {
+    width: 100%;
+    height: 40%;
+    float: left;
+}
+
+.card-body5-like {
+    width: 75%;
+    height: 30px;
+    float: left;
+    text-align: right;
+}
+
+.card-body6-reply {
+    width: 25%;
+    height: 30px;
+    float: left;
+    text-align: right;
+
+}
+
+.card-body7-empty {
+    width: 100%;
+    height: 20%;
+    float: left;
+}
+
+.card-body6-reply, .card-body5-like {
+    border-bottom: 1px #445566 solid;
+}
+
+.card-body1, .card-body2, .card-body3-rating {
+    border-top: 1px #445566 solid;
+}
