@@ -2,8 +2,7 @@ package com.mangjakseon.controller;
 
 
 import com.mangjakseon.dto.MovieInfoDTO;
-import com.mangjakseon.dto.WriterDTO;
-import com.mangjakseon.service.MemberService;
+import com.mangjakseon.service.WriterService;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
@@ -27,7 +26,7 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class MovieInfoController {
 
-    MemberService service;
+    WriterService writerService;
 
     @Value("${API_KEY}")
     String key;
@@ -137,11 +136,10 @@ public class MovieInfoController {
             e.printStackTrace();
         }
 
-//        String email = principal.getName();
-//
-//        WriterDTO writer = service.getWriter(email);
-//
-//        log.info(writer + "제발");
+        String email = principal.getName();
+        log.info(email + "이메일 어디");
+
+        writerService.getWriter(email);
 
         model.addAttribute("movieData", movieData);
         model.addAttribute("castData", castArray);

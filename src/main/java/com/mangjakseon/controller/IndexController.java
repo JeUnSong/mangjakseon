@@ -13,8 +13,6 @@ import java.security.Principal;
 @Log4j2
 public class IndexController {
 
-    MemberService service;
-
     @GetMapping("/index")
     public void index(Principal principal){}
 
@@ -32,7 +30,5 @@ public class IndexController {
     public void test(Principal principal){
         String email = principal.getName();
 
-
-        log.info(service.getWriter(email) +"어디");
     }
 }

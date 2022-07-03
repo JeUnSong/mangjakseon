@@ -21,8 +21,6 @@ public interface MemberService {
 
     void remove(String memberId);
 
-    WriterDTO getWriter(String email);
-
     default Member dtoToEntity(MemberDTO memberDTO){
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -56,15 +54,6 @@ public interface MemberService {
                 .build();
 
         return memberDTO;
-    }
-    default WriterDTO writerEntityToDto(Member member) {
-        WriterDTO writerDTO = WriterDTO.builder()
-                .memberId(member.getMemberId())
-                .nickname(member.getNickname())
-                .profileImage(member.getProfileImage())
-                .build();
-
-        return writerDTO;
     }
 
     // 회원가입시 유효성 체크

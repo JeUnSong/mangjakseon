@@ -26,8 +26,4 @@ public interface MemberRepository extends JpaRepository<Member, String>, Queryds
     @Query(value = "SELECT count(*) FROM Member m WHERE m.nickname = :nickname", nativeQuery = true)
     int countByNickname(@Param("nickname") String nickname);
 
-    @Query("SELECT m FROM Member m WHERE m.email = :email")
-    Optional<Member> findByWriterInfo(@Param("email") String email);
-
-
 }

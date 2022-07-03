@@ -46,13 +46,6 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public WriterDTO getWriter(String email) {
-        Optional<Member> writerInfo = memberRepository.findByWriterInfo(email);
-        log.info(writerInfo + "어디");
-        return writerInfo.map(this::writerEntityToDto).orElse(null);
-    }
-
-    @Override
     public void modify(MemberDTO memberDTO, MultipartFile multipartFile) {
         String memberEmail = memberDTO.getEmail();
         boolean isSocial = memberDTO.isFromSocial();
