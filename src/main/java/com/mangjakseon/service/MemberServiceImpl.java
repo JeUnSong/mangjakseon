@@ -2,6 +2,7 @@ package com.mangjakseon.service;
 
 import com.mangjakseon.dto.MemberDTO;
 import com.mangjakseon.entity.Member;
+import com.mangjakseon.entity.MemberRole;
 import com.mangjakseon.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,6 +27,8 @@ import java.util.*;
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
+
+    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Value("${profileImage.path}")  //application.properties에 파일을 저장할 폴더 설정
     private String uploadFolder;
@@ -78,7 +81,6 @@ public class MemberServiceImpl implements MemberService{
             }
             memberRepository.save(entity);
         } else if (result.isPresent()) {
-            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
             log.info("== MOD USER ==");
             Member entity = result.get();
@@ -127,9 +129,16 @@ public class MemberServiceImpl implements MemberService{
             throw new IllegalStateException("이미 사용중인 닉네임입니다.");
         }
     }
-    
+
     // 회원정보 수정시 닉네임 중복 여부 확인
     public int nicknameCheck(String nickname){
         return memberRepository.countByNickname(nickname);
+    }
+
+
+    public boolean accountCheck(String email, String password) {
+        String pass = memberRepository.findByPassword(email);
+        log.info("REF CHK ::: "+passwordEncoder.matches(password,pass));
+        return passwordEncoder.matches(password,pass);
     }
 }

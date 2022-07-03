@@ -25,8 +25,6 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final MangjakseonUserDetailsService userDetailsService;
-    // 로그인 실패 핸들러
-    private final AuthenticationFailureHandler failureHandler;
 
     // 패스워드 암호화
     @Bean
@@ -52,7 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/login")   // 로그인 화면
                 .loginProcessingUrl("/login")   // 로그인 처리시 사용되는 페이지
-                .failureHandler(failureHandler) // 로그인 실패시 처리하는 방법
                 .defaultSuccessUrl("/");   // 로그인 성공시 보여줄 페이지
         http.csrf().disable();  // csrf 토큰 비활성화
 

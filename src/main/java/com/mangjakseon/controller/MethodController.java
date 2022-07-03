@@ -17,6 +17,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
@@ -85,24 +86,61 @@ public class MethodController {
         return "redirect:/";
     }
 
-    // 로그인 에러시 메시지
     @GetMapping("/login")
-    public String login(@RequestParam(value = "error", required = false) String error,
-                        @RequestParam(value = "exception", required = false) String exception,
-                        Model model){
-        model.addAttribute("error", error);
-        model.addAttribute("exception", exception);
-        return "/layout/login";
+    public String login(){
+        return "/index";
+    }
+
+    @GetMapping("/index/login")
+    public String ilogin(){
+        return "/index";
     }
 
     // 회원정보 수정시 닉네임 중복 체크
     @PostMapping("/nickChk")
     @ResponseBody
-    public int nickChk(@RequestParam("nickname")String nickname, Model model){
-        log.info("Nickname Check!!");
+    public int nickChk(@RequestParam("nickname")String nickname){
         log.info(nickname);
 
         return memberService.nicknameCheck(nickname);
     }
+
+    @PostMapping("/loginChk")
+    @ResponseBody
+    public boolean loginChk(@RequestParam("email")String email,
+                            @RequestParam("password")String password,
+                            Model model){
+        log.info("INFO CHECK ::: ");
+        log.info(email);
+        log.info(password);
+        return memberService.accountCheck(email, password);
+    }
+
+    // 로그인 에러시 메시지
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    @GetMapping("/login")
+//    public String login(@RequestParam(value = "error", required = false) String error,
+//                        @RequestParam(value = "exception", required = false) String exception,
+//                        RedirectAttributes attr
+//                        ){
+////        model.addAttribute("error", error);
+////        model.addAttribute("exception", exception);
+//
+//        attr.addFlashAttribute("error", error);
+//        attr.addFlashAttribute("exception", exception);
+//        return "/index";
+//    }
+//
+//    @GetMapping("/index/login")
+//    public String error(@RequestParam(value = "error", required = false) String error,
+//                        @RequestParam(value = "exception", required = false) String exception,
+//                        Model model){
+//        log.info("ERROR PAGE CHECK !!!");
+//        model.addAttribute("error", error);
+//        model.addAttribute("exception", exception);
+//        model.addAttribute("check",1);
+//
+//        return "/index";
+//    }
     /* Spring Security 담당 김준희 */
 }

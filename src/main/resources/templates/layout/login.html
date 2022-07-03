@@ -1,23 +1,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="setLogin(login)">
+    <head>
+        <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+    </head>
     <body>
     <div>
-        <form class="form-signin" method="post" th:action="@{/login}">
+        <form class="form-signin" id="formCheck" method="post" th:action="@{/login}">
             <div class="member_login_input">
-                <input type="text" name="username" placeholder="이메일" required autofocus>
+                <input type="text" name="username" id="username" placeholder="이메일" required autofocus>
             </div>
 
             <div>
-                <input type="password" name="password" placeholder="비밀번호" required>
+                <input type="password" name="password" id="password" placeholder="비밀번호" required>
             </div>
 
-<!--            <div th:if="${error}">-->
-<!--                <p id="valid" class="alert alert-danger">[[${exception}]]</p>-->
-<!--            </div>-->
+            <!--            <div th:if="${error}">-->
+            <!--                <p id="valid" class="alert alert-danger">[[${exception}]]</p>-->
+            <!--            </div>-->
 
+            <span id="check" style="color: red; font-weight:bold; display:none">아이디 또는 비밀번호가 일치하지않습니다.</span>
             <div>
-
-                <input type="submit" id="btn-login" value="로그인">
+                <input type="button" id="btn-login" value="로그인" onclick="validCheck()">
 
                 <input type="button" value="회원가입" onclick="acRegister()">
 

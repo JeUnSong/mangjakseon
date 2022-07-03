@@ -20,7 +20,7 @@ public interface MemberService {
 
     void remove(String memberId);
 
-    default Member dtoToEntity(MemberDTO memberDTO){
+    default Member dtoToEntity(MemberDTO memberDTO) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         Member member = Member.builder()
@@ -64,4 +64,6 @@ public interface MemberService {
     void checkNicknameDuplication(MemberDTO memberDTO);
     // 회원정보 수정시 닉네임 중복 여부 확인
     int nicknameCheck(String nickname);
+
+    boolean accountCheck(String email, String password);
 }

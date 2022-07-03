@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,4 +25,6 @@ public interface MemberRepository extends JpaRepository<Member, String>, Queryds
     @Query(value = "SELECT count(*) FROM Member m WHERE m.nickname = :nickname", nativeQuery = true)
     int countByNickname(@Param("nickname") String nickname);
 
+    @Query("SELECT m.password FROM Member m WHERE m.email = :email")
+    String findByPassword(@Param("email") String email);
 }
