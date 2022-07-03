@@ -171,6 +171,7 @@
     /*background-color: #0BAF2F;*/
     color: white;
     border-bottom: 1px #445566 solid;
+    margin-bottom: 10px;
 }
 
 .castPicture {
@@ -324,128 +325,64 @@
     width: 100%;
     height: 150px;
 }
-
-/*심동수 리뷰관련 css 추가*/
-
-.reviewContent1 {
-    width: 100%;
-    color: white;
-}
-
-.buttonContent {
-    margin-top: 20px;
-    text-align: right;
-}
-
-.reviewSave, .reviewRemove, .reviewModify {
-    display: inline-block;
-    width: 100px;
-    height: 40px;
-}
-
-.addReview {
-    background-color: #445566;
-
-}
-
-.modal-header, .modal-body, .modal-footer {
-    background-color: #14181C;
-
-}
-
-#modal h2 {
-    margin: 0;
-}
-
-.modal_layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-    z-index: -1;
-}
-
-.card-body {
-    width: 100%;
-    height: 100%;
-    color: black;
-}
-
-.card-body1 {
-    width: 16%;
-    height: 130px;
-    float: left;
-}
-
-.card-body1-memberImage {
-    border-radius: 100%;
-    margin: auto;
-}
-
-.card-body1-memberNickname {
-    width: 100%;
-    height: 30px;
-    margin-top: 15px;
-}
-
-.card-body2 {
-    width: 58%;
-    height: 130px;
-    float: left;
-}
-
-.card-body2-reviewTitle {
-    width: 100%;
-    height: 70px;
-    margin-top: 10px;
-}
-
-.card-body2-reviewRegdate {
-    width: 100%;
-    height: 30px;
-    margin-top: 10px;
-}
-
-.card-body3-rating {
-    width: 26%;
-    height: 130px;
-    float: left;
-    text-align: right;
-}
-
-.card-body4-reviewContent {
-    width: 100%;
-    height: 40%;
-    float: left;
-}
-
-.card-body5-like {
-    width: 75%;
-    height: 30px;
-    float: left;
-    text-align: right;
-}
-
-.card-body6-reply {
-    width: 25%;
-    height: 30px;
-    float: left;
-    text-align: right;
-
-}
-
-.card-body7-empty {
-    width: 100%;
-    height: 20%;
-    float: left;
-}
-
-.card-body6-reply, .card-body5-like {
+.reviewBox{
+    color: #AABBCC;
     border-bottom: 1px #445566 solid;
+    margin-bottom: 30px;
+}
+.nickNameBox :nth-child(1){
+    color: #91A3AC;
+    font-size: 14px;
+    font-weight: lighter;
+}
+.nickNameBox :nth-child(2){
+    font-size: 21px;
+    font-weight: bold;
+
+}
+.nickNameBox :nth-child(3){
+    color:#40BCF4 ;
+    font-weight: bold;
+
+}
+.writeInfo{
+    display: grid;
+    grid-template-columns: 5% 30% 65%
+}
+.profileImage{
+    width: 100%;
+    height: 45px;
+    border-radius: 50px;
+}
+.nickNameBox{
+    margin-left: 15px;
+}
+.edit{
+    text-align: right;
+}
+.edit span{
+    cursor: pointer;
+}
+.reviewContents{
+    margin-left: 55px;
+    margin-bottom: 20px;
+}
+.reviewTitle span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.reviewCont span{
+    font-size: 14px;
+}
+.likesAndComment{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    margin-bottom: 10px;
+}
+.Comment{
+    text-align: right;
 }
 
-.card-body1, .card-body2, .card-body3-rating {
-    border-top: 1px #445566 solid;
-}
+
+
+

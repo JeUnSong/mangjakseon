@@ -141,7 +141,7 @@ public class MovieInfoController {
         //log.info(email);
 
         WriterDTO writer = writerService.getWriter(email);
-        //log.info(writer);
+        log.info(writer + "어디");
 
         model.addAttribute("movieData", movieData);
         model.addAttribute("castData", castArray);

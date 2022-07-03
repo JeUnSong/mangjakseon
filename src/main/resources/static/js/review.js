@@ -2,12 +2,12 @@
     //리뷰 등록
     $(document).ready(function () {
         var movieId = $('.movieId').val();
-        console.log(movieId);
+        //console.log(movieId);
         //var listGroup = $(".reviewContent1");
 
         //나중에 '/reviews/review/'+movieId로 바꾸기
         $.getJSON('/movies/movie/' + movieId, function (arr) {
-            console.log(arr);
+            //console.log(arr);
         })//end getJSON
 
         //리뷰 출력 될 영역
@@ -27,30 +27,32 @@
         //리뷰 출력 코드
         function loadJSONData() {
             $.getJSON('/movies/movie/' + movieId, function (arr) {
-                console.log(arr);
+                //console.log(arr);
 
                 var str = "";
                 $.each(arr, function (idx, review) {
                     console.log(review);
-                    str += '<div class="card-body">';
-                    str += ' <div class="card-body-ex" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">';
-                    str += '    <div class="card-body1">'
-                    str += `        <img class="card-body1-memberImage" src="${review.profileImage}" width="70"height="70">`;
-                    str += '        <div class="card-body1-memberNickname">' + review.nickName + '</div>';
-                    str += '    </div>';
-                    str += '    <div class="card-body2">'
-                    str += '        <div class="card-body2-reviewTitle" style="cursor:pointer;">' + review.reviewTitle + '</div>';
-                    str += '        <div class="card-body2-reviewRegdate">' + formatTime(review.regDate) + '</div>';
-                    str += '    </div>';
-                    str += '    <div class="card-body3-rating">' + review.score + '</div>';
-                    str += '    <div class="card-body4-reviewContent">' + review.reviewContent + '</div>';
-                    str += '   </div>';
-                    str += '    <div class="card-body5-like">'
-                    str += '        <i class="fa-solid fa-thumbs-up"></i>'
-                    str += '        <span>' + review.likeCount + '<span>'
-                    str += '    </div>';
-                    str += '    <div class="card-body6-reply">' + '댓글쓰기' + '</div>';
-                    str += '    <div class="card-body7-empty">' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '</div>';
+                    str += '<div class="reviewBox">';
+                    str += '<div class="writeInfo">';
+                    str += '<div class="profileBox">';
+                    str += `<img class="profileImage" src=/assets/profile_images/${review.profileImage} onerror=this.src='/assets/null/null.png'>`;
+                    str += '</div>';
+                    str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ review.score +"점" + '</span>' ;
+                    str += '</div>';
+                    str += '<div class="edit" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span>'+ "댓글 수정"+'</span>';
+                    str += '</div>';
+                    str += '</div>';
+                    str += '<div class="reviewContents">';
+                    str += '<div class="reviewTitle">' +'<span>'+ review.reviewTitle +'</span>';
+                    str += '</div>';
+                    str += '<div class="reviewCont">' +'<span>'+ review.reviewContent +'</span>';
+                    str += '</div>';
+                    str += '</div>';
+                    str += '<div class="likesAndComment">';
+                    str += '<i class="fa-solid fa-thumbs-up">' +'&nbsp'+ review.likeCount + '</i>'
+                    str += '<div class="Comment">' + '댓글 보기';
+                    str += '</div>';
+                    str += '</div>';
                     str += '</div>';
                 })
 
@@ -80,14 +82,11 @@
                 movieId: $('input[name="movieId"]').val(),
                 score: $('input[name="score"]').val(),
                 likeCount: 0,
-                memberId: "1656758359471-120126",
-                nickName: "hi",
-                profileImage: null
-                // memberId: $('input[name="memberId"]').val(),
-                // nickName: $('input[name="nickName"]').val(),
-                // profileImage: $('input[name="profileImage"]').val(),
+                memberId: $('input[name="memberId"]').val(),
+                nickName: $('input[name="nickName"]').val(),
+                profileImage: $('input[name="profileImage"]').val()
             }
-            console.log(review);
+            console.log(review + "리뷰");
 
             $.ajax({
                 url: '/movies',
@@ -105,15 +104,15 @@
         });
 
         //리뷰 클릭 시 수정, 삭제 모달
-        $('.reviewContent1').on("click", ".card-body-ex", function () {
+        $('.reviewContent1').on("click", ".edit", function () {
             var reviewNum = $(this).data(reviewNum);
-            console.log(reviewNum);
+            //console.log(reviewNum);
 
             const obj = JSON.stringify(reviewNum);
-            console.log(obj);
+            //console.log(obj);
 
             const obj2 = JSON.parse(obj);
-            console.log(obj2.reviewnum);
+            //console.log(obj2.reviewnum);
 
             $("input[name='reviewTitle']").val($(this).find('.card-body2-reviewTitle').html());
             $('.reviewContent').val($(this).find('.card-body4-reviewContent').html());
@@ -125,13 +124,13 @@
 
         $(".reviewRemove").on("click", function () {
             var reviewNum = $("input[name='reviewNum']").val(); //모달창에 보이는 댓글 번호 hidden처리 되어있음
-            console.log(reviewNum);
+            //console.log(reviewNum);
             $.ajax({
                 url: '/movies/' + reviewNum,
                 method: 'delete',
 
                 success: function (result) {
-                    console.log("result: " + result);
+                    //console.log("result: " + result);
                     if (result === 'success') {
     //                    alert("댓글이 삭제되었습니다");
                         loadJSONData();
@@ -150,7 +149,7 @@
                 movieId: $('input[name="movieId"]').val(),
                 score: $('input[name="score"]').val()
             }
-            console.log(review);
+            //console.log(review);
 
             $.ajax({
                 url: '/movies/' + reviewNum,
@@ -159,7 +158,7 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
 
-                    console.log("RESULT: " + result);
+                    //console.log("RESULT: " + result);
 
                     if (result === 'success') {
     //                    alert("댓글이 수정되었습니다.");
@@ -177,11 +176,11 @@
                 initialRating: null,
                 disableAfterRate: null,
                 onHover: function (currentIndex, currentRating, $el) {
-                    console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+                    //console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
                     $('.live-rating').text(currentIndex);
                 },
                 onLeave: function (currentIndex, currentRating, $el) {
-                    console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+                    //console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
                     $('.live-rating').text(currentRating);
                     $('.live-rating-form').val(currentRating);
                 }

@@ -24,9 +24,4 @@ public class IndexController {
         return "/index";
     }
 
-    @GetMapping("/test")
-    public void test(Principal principal){
-        String email = principal.getName();
-
-    }
 }

@@ -53,7 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/");   // 로그인 성공시 보여줄 페이지
         http.csrf().disable();  // csrf 토큰 비활성화
 
-        http.logout().invalidateHttpSession(true).deleteCookies("JSESSIONID");
+        http.logout()
+                .logoutSuccessUrl("/index")
+                .invalidateHttpSession(true).deleteCookies("JSESSIONID");
 
         http.oauth2Login(); // 소셜 로그인 처리
         http.oauth2Login().successHandler(successHandler());

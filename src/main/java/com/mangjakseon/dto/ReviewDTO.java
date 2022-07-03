@@ -23,6 +23,6 @@ public class ReviewDTO {
 
     private String memberId;        //회원pk (누가 썼는지)
     private String nickName;        //회원이름
-
+    private String profileImage;
     private LocalDateTime regDate, modDate;
 }

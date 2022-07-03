@@ -173,18 +173,19 @@
                                 <textarea class="reviewContent" name="reviewContent"
                                           placeholder="내용을 입력해주세요"></textarea>
                             </div>
+
+                            <button type="button" class="btn btn-primary reviewRemove" data-dismiss="modal">삭제</button>
+                            <button type="button" class="btn btn-primary reviewSave" data-dismiss="modal">등록</button>
+                            <button type="button" class="btn btn-primary reviewModify" data-dismiss="modal">수정</button>
+
                         </div>
-                        <input class="movieId" type="checkbox" name="movieId" th:value='${movieData.id}' checked>
-                        <input class="movieId" type="checkbox" name="memberId" th:value='${writer.memberId}' checked>
-                        <input class="movieId" type="checkbox" name="nickName" th:value='${writer.nickname}' checked>
-                        <input class="movieId" type="checkbox" name="profileImage" th:value='${writer.profileImage}' checked>
+                            <input class="movieId" type="hidden" name="movieId" th:value='${movieData.id}' checked>
+                            <input class="movieId" type="hidden" name="memberId" th:value='${writer.memberId}' checked>
+                            <input class="movieId" type="hidden" name="nickName" th:value='${writer.nickname}' checked>
+                            <input class="movieId" type="hidden" name="profileImage" th:value='${writer.profileImage}' checked>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary reviewRemove" data-dismiss="modal">삭제</button>
-                        <button type="button" class="btn btn-primary reviewSave" data-dismiss="modal">등록</button>
-                        <button type="button" class="btn btn-primary reviewModify" data-dismiss="modal">수정</button>
-                    </div><!-- 리뷰 제목,내용,전송버튼 끝 -->
-                </div>
+
+                </div><!-- 리뷰 제목,내용,전송버튼 끝 -->
             </div>
         </div><!-- Modal 끝 -->
 

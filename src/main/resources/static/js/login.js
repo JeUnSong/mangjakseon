@@ -5,6 +5,13 @@ function acRegister() {
     document.body.appendChild(form);
     form.submit();
 }
+function enterKey() {
+    if (window.event.keyCode == 13) {
+
+        // 엔터키가 눌렸을 때 실행하는 반응
+        $("#formCheck").submit();
+    }
+}
 
 function validCheck() {
     var check = document.getElementById("check");

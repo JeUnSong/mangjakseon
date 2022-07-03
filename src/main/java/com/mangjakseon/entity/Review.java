@@ -20,7 +20,7 @@ public class Review extends BaseEntity {
     @Column(length = 50)
     private String reviewTitle;     //리뷰 제목
 
-    @Column(length = 600)
+    @Column(length = 5000)
     private String reviewContent;   //리뷰 내용
 
     @Column

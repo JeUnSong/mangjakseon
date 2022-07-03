@@ -35,25 +35,28 @@
 
                 <div class="listAlign">
 
-                        <span sec:authorize-expr="!isAuthenticated()" id="loginModalButton" data-toggle="modal"
-                              data-target="#loginDrop">
-                            로그인
-                        </span>
+                    <span sec:authorize-expr="!isAuthenticated()" id="loginModalButton" data-toggle="modal"
+                          data-target="#loginDrop">
+                        로그인
+                    </span>
 
-                    <span sec:authorize-expr="isAuthenticated()" id="infoButton" class="loginIcon">
-                            회원정보
-                        </span>
+                    <span sec:authorize-expr="isAuthenticated()" id="infoButton" class="dropdown">
+                        회원정보
+                        <div class="dropdown-content">
+                            <div class="dropdown1"><a href="/read">내 정보</a></div>
+                            <div class="dropdown2"><a href="/logout">로그아웃</a></div>
+                        </div>
+                    </span>
+                        <a href="../movie">
 
-                    <a href="../movie">
-
-                        <span>영화</span>
-                    </a>
-                    <a href="../actor">
-                        <span>배우</span>
-                    </a>
-                    <a href="#">
-                        <span>걸(乞)작선</span>
-                    </a>
+                            <span>영화</span>
+                        </a>
+                        <a href="../actor">
+                            <span>배우</span>
+                        </a>
+                        <a href="#">
+                            <span>걸(乞)작선</span>
+                        </a>
                 </div>
             </div>
             <div>
@@ -83,10 +86,6 @@
                 <div class="modal-body">
                     <th:block th:replace="~{/layout/login :: setLogin(~{this::login} )}"></th:block>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
                 </div>
             </div>
         </div>
