@@ -44,8 +44,6 @@ function movieList() {
 // 최초 목록 갱신
 $(document).ready(function (event) {
 
-    jQuery.noConflict();
-
     if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
         totalStr = sessionStorage.getItem("movieTotalStr");
         $('.movieList').append(totalStr);
