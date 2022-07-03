@@ -1,7 +1,5 @@
 package com.mangjakseon.controller;
 
-import com.mangjakseon.dto.WriterDTO;
-import com.mangjakseon.service.MemberService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

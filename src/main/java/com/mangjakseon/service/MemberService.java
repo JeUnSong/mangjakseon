@@ -1,7 +1,6 @@
 package com.mangjakseon.service;
 
 import com.mangjakseon.dto.MemberDTO;
-import com.mangjakseon.dto.WriterDTO;
 import com.mangjakseon.entity.Member;
 import com.mangjakseon.entity.MemberRole;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

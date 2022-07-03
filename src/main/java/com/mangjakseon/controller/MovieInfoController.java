@@ -2,6 +2,7 @@ package com.mangjakseon.controller;
 
 
 import com.mangjakseon.dto.MovieInfoDTO;
+import com.mangjakseon.dto.WriterDTO;
 import com.mangjakseon.service.WriterService;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
@@ -26,7 +27,7 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class MovieInfoController {
 
-    WriterService writerService;
+    private final WriterService writerService;
 
     @Value("${API_KEY}")
     String key;
@@ -137,15 +138,16 @@ public class MovieInfoController {
         }
 
         String email = principal.getName();
-        log.info(email + "이메일 어디");
+        //log.info(email);
 
-        writerService.getWriter(email);
+        WriterDTO writer = writerService.getWriter(email);
+        //log.info(writer);
 
         model.addAttribute("movieData", movieData);
         model.addAttribute("castData", castArray);
         model.addAttribute("watchLink", watchLink);
         model.addAttribute("watchLogo", watchLogo);
-//        model.addAttribute("writer", writer);
+        model.addAttribute("writer", writer);
 
         return "/movie-info";
     }

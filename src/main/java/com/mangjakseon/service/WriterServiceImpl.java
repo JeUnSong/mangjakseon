@@ -14,12 +14,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class WriterServiceImpl implements WriterService {
 
-    WriterRepository repository;
+    private final WriterRepository repository;
 
     @Override
     public WriterDTO getWriter(String email) {
         Optional<Member> writerInfo = repository.findByWriterInfo(email);
-        log.info(writerInfo + "어디");
-        return writerInfo.map(this::writerEntityToDto).orElse(null);
+        log.info(writerInfo + "writerInfo");
+        return writerInfo.isPresent() ? writerEntityToDto(writerInfo.get()) : null;
     }
 }
