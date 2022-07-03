@@ -1,20 +1,3 @@
-    //별 출력
-    $(function () {
-        jQuery.noConflict();
-        $(".my-rating-9").starRating({
-            initialRating: null,
-            disableAfterRate: null,
-            onHover: function (currentIndex, currentRating, $el) {
-                console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
-                $('.live-rating').text(currentIndex);
-            },
-            onLeave: function (currentIndex, currentRating, $el) {
-                console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
-                $('.live-rating').text(currentRating);
-                $('.live-rating-form').val(currentRating);
-            }
-        });
-    });
 
     //리뷰 등록
     $(document).ready(function () {
@@ -186,7 +169,25 @@
             });
         });
     });
-
+    //별 출력
+{
+    jQuery(document).ready(function($){
+        $(function () {
+            $(".my-rating-9").starRating({
+                initialRating: null,
+                disableAfterRate: null,
+                onHover: function (currentIndex, currentRating, $el) {
+                    console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+                    $('.live-rating').text(currentIndex);
+                },
+                onLeave: function (currentIndex, currentRating, $el) {
+                    console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+                    $('.live-rating').text(currentRating);
+                    $('.live-rating-form').val(currentRating);
+                }
+            });
+        });
+    })}
 
 
 
