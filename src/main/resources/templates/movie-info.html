@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link th:href="@{/css/movie-info.css}" rel="stylesheet"/>
-<script src="/js/jquery.star-rating-svg.js"></script>
-<script th:inline="javascript" src="/js/review.js"></script>
+<link th:href="@{/css/star-rating-svg.css}" rel="stylesheet"/>
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/review.js}"></script>
+<script th:src="@{/js/jquery.star-rating-svg.js}"></script>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <div class="mainContainer">
@@ -124,7 +125,9 @@
                 </div>
             </div>
         </div><!--영화소개 끝-->
-        </div><!--리뷰 쓰기 박스 -->
+        </div>
+
+        <!--리뷰 쓰기 박스 -->
         <div class="reviewListContainer">
             <div class="reviewItem" th:if="${movieData.vote_average <= 6}">
                 <div class="castTitle">
@@ -136,57 +139,52 @@
                 <div class="castTitle">
                     리뷰
                 </div>
-                <div class="reviewContent">
+                <div class="list-group reviewContent1">
 
                 </div>
             </div>
         </div><!-- 리뷰 쓰기 박스 끝-->
+
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">로그인</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">리뷰 등록</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- 별점, 점수 --------------------------------->
-                        <!-- 별크기 svg.js starSize -->
-
-                        <input class="live-rating-form" type="hidden" name="score" value="null">
-                        <span class="my-rating-9"></span>
 
                         <!-- 별점, 점수 -->
-                        <!-- 리뷰 제목,내용,전송버튼 ------------------------------------------------->
+                        <!-- 별크기 svg.js starSize -->
+                        <input class="live-rating-form" type="hidden" name="score" value="null">
+                        <span class="my-rating-9"></span><!-- 별점, 점수 끝-->
+
+                        <!-- 리뷰 제목,내용,전송버튼 -->
                         <div class="reviewTag">
                             <div>
-                                <label class="label1"> 제목</label>
                                 <input type="text" class="reviewTitle" name="reviewTitle" placeholder="제목을 입력해주세요">
                                 <input type="hidden" name="reviewNum">
                             </div>
                             <div>
-                                <lable class="label2"> 내용</lable>
                                 <textarea class="reviewContent" name="reviewContent"
                                           placeholder="내용을 입력해주세요"></textarea>
                             </div>
                         </div>
-
                         <input class="movieId" type="checkbox" name="movieId" th:value='${movieData.id}' checked>
+<!--                        <input class="movieId" type="checkbox" name="memberId" th:value='${writer.memberId}' checked>-->
+<!--                        <input class="movieId" type="checkbox" name="nickName" th:value='${writer.nickname}' checked>-->
+<!--                        <input class="movieId" type="checkbox" name="profileImage" th:value='${writer.profileImage}' checked>-->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary reviewRemove" data-dismiss="modal">삭제</button>
                         <button type="button" class="btn btn-primary reviewSave" data-dismiss="modal">등록</button>
                         <button type="button" class="btn btn-primary reviewModify" data-dismiss="modal">수정</button>
-                    </div>
-                    <!-- 리뷰 제목,내용,전송버튼 -->
+                    </div><!-- 리뷰 제목,내용,전송버튼 끝 -->
                 </div>
-                <!--                <div class="modal-footer">-->
-                <!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-                <!--                    <button type="button" class="btn btn-primary">Understood</button>-->
-                <!--                </div>-->
             </div>
         </div><!-- Modal 끝 -->
 

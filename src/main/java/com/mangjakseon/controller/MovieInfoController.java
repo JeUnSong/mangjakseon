@@ -2,6 +2,8 @@ package com.mangjakseon.controller;
 
 
 import com.mangjakseon.dto.MovieInfoDTO;
+import com.mangjakseon.dto.WriterDTO;
+import com.mangjakseon.service.MemberService;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
@@ -9,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +19,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.Principal;
+
 
 @Controller
 @Log4j2
 @RequiredArgsConstructor
 public class MovieInfoController {
 
+    MemberService service;
+
     @Value("${API_KEY}")
     String key;
 
     @GetMapping ("/movie/{movieId}")
-    public Object movieInfo(MovieInfoDTO dto, Model model) {
+    public Object movieInfo(MovieInfoDTO dto, Principal principal, Model model) {
 
         Long movieId = dto.getMovieId();
 
@@ -129,13 +136,20 @@ public class MovieInfoController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+//        String email = principal.getName();
+//
+//        WriterDTO writer = service.getWriter(email);
+//
+//        log.info(writer + "제발");
+
         model.addAttribute("movieData", movieData);
         model.addAttribute("castData", castArray);
         model.addAttribute("watchLink", watchLink);
         model.addAttribute("watchLogo", watchLogo);
+//        model.addAttribute("writer", writer);
 
         return "/movie-info";
     }
-
 }
 

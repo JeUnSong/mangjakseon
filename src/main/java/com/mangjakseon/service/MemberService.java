@@ -1,6 +1,7 @@
 package com.mangjakseon.service;
 
 import com.mangjakseon.dto.MemberDTO;
+import com.mangjakseon.dto.WriterDTO;
 import com.mangjakseon.entity.Member;
 import com.mangjakseon.entity.MemberRole;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +20,8 @@ public interface MemberService {
     void modify(MemberDTO memberDTO, MultipartFile multipartFile);
 
     void remove(String memberId);
+
+    WriterDTO getWriter(String email);
 
     default Member dtoToEntity(MemberDTO memberDTO){
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -53,6 +56,15 @@ public interface MemberService {
                 .build();
 
         return memberDTO;
+    }
+    default WriterDTO writerEntityToDto(Member member) {
+        WriterDTO writerDTO = WriterDTO.builder()
+                .memberId(member.getMemberId())
+                .nickname(member.getNickname())
+                .profileImage(member.getProfileImage())
+                .build();
+
+        return writerDTO;
     }
 
     // 회원가입시 유효성 체크

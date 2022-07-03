@@ -1,6 +1,7 @@
 package com.mangjakseon.service;
 
 import com.mangjakseon.dto.MemberDTO;
+import com.mangjakseon.dto.WriterDTO;
 import com.mangjakseon.entity.Member;
 import com.mangjakseon.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,13 @@ public class MemberServiceImpl implements MemberService{
         Optional<Member> result = memberRepository.findById(memberId);
 
         return result.isPresent() ? entityToDto(result.get()) : null;
+    }
+
+    @Override
+    public WriterDTO getWriter(String email) {
+        Optional<Member> writerInfo = memberRepository.findByWriterInfo(email);
+        log.info(writerInfo + "어디");
+        return writerInfo.map(this::writerEntityToDto).orElse(null);
     }
 
     @Override
