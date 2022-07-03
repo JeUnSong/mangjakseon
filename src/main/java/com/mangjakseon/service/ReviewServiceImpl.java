@@ -6,13 +6,13 @@ import com.mangjakseon.entity.Review;
 import com.mangjakseon.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-
 public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewRepository reviewRepository;

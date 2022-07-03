@@ -309,7 +309,7 @@
 
 .reviewListContainer {
     background-color: #14181C;
-    height: 500px;
+    height: auto;
     margin-top: 50px;
 }
 

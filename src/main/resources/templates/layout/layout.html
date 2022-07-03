@@ -35,7 +35,7 @@
                 <div class="listAlign">
 
                         <span sec:authorize-expr="!isAuthenticated()" id="loginModalButton" data-toggle="modal"
-                              data-target="#staticBackdrop">
+                              data-target="#loginDrop">
                             로그인
                         </span>
 
@@ -69,7 +69,7 @@
     <th:block th:replace="${content}"></th:block>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+    <div class="modal fade" id="loginDrop" data-backdrop="static" tabindex="-1" role="dialog"
          aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
