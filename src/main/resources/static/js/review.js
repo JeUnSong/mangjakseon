@@ -113,7 +113,6 @@
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data +"어디");
 
                     var newReviewNum = parseInt(data);
                     // alert("댓글이 등록되었습니다.")

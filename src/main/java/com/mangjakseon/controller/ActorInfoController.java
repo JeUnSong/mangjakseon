@@ -80,7 +80,7 @@ public class ActorInfoController {
             actorMovieArray = (JSONArray) actormovieData.get("cast");
             snsData = (JSONObject) jsonParser.parse(snsJson);
 
-            log.info(actorMovieArray + "어디");
+            //log.info(actorMovieArray + "어디");
 
         } catch (Exception e) {
             e.printStackTrace();
