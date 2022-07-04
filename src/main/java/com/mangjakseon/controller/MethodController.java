@@ -6,9 +6,6 @@ import com.mangjakseon.security.validation.CheckNicknameValidator;
 import com.mangjakseon.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +13,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
@@ -64,10 +60,7 @@ public class MethodController {
 
         memberService.register(memberDTO);
 
-        URI redirectUri = new URI("/");
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(redirectUri);
-        return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
+        return "redirect:/index";
     }
     // 회원정보 수정
     @PreAuthorize("isAuthenticated()")
@@ -80,8 +73,12 @@ public class MethodController {
     // 회원탈퇴
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/remove")
-    public String remove(String memberId){
+    public String remove(String memberId, HttpServletResponse response){
         memberService.remove(memberId);
+
+        Cookie cookie = new Cookie("JSESSIONID",null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
 
         return "redirect:/";
     }

@@ -9,7 +9,7 @@ function enterKey() {
     if (window.event.keyCode == 13) {
 
         // 엔터키가 눌렸을 때 실행하는 반응
-        $("#formCheck").submit();
+        $("#btn-login").click();
     }
 }
 

@@ -137,17 +137,22 @@ public class MovieInfoController {
             e.printStackTrace();
         }
 
-        String email = principal.getName();
-        //log.info(email);
-
-        WriterDTO writer = writerService.getWriter(email);
-        log.info(writer + "어디");
+        String email = "";
+        if(principal != null) {
+            email = principal.getName();
+            WriterDTO writer = writerService.getWriter(email);
+            model.addAttribute("writer", writer);
+        }else {
+            email = "zzzzz@mjs.com";
+            WriterDTO writer = writerService.getWriter(email);
+            model.addAttribute("writer", writer);
+        }
 
         model.addAttribute("movieData", movieData);
         model.addAttribute("castData", castArray);
         model.addAttribute("watchLink", watchLink);
         model.addAttribute("watchLogo", watchLogo);
-        model.addAttribute("writer", writer);
+
 
         return "/movie-info";
     }

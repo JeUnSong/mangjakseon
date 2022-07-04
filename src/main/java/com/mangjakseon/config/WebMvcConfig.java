@@ -10,7 +10,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Value("C:/spring_workspace/profile_images/")   //이미지 폴더의 경로를 잡아 String 변수에 저장
+    @Value("C:/spring_workspace/mangjakseon/src/main/resources/static/assets/profile_images/")   //이미지 폴더의 경로를 잡아 String 변수에 저장
     private String profileUploadFolder;
 
     @Override
