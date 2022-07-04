@@ -10,9 +10,15 @@ a{
 body{
     background-color:  #14181C!important;
 }
+.Hcontainer{
+    position: relative;
+    padding-top:60px;
+}
 .header{
+    position: fixed;
     background-color: #14181C;
     height: 60px;
+    top:0px;
 }
 .headerContainer{
     /*background-color: blueviolet;*/
