@@ -14,7 +14,7 @@
     background-size: cover;
     border-radius: 50px;
     width: 60%;
-    height: 580px;
+    height: 490px;
     margin: auto;
 }
 
@@ -59,16 +59,18 @@
 
 .movingPoster {
     /*background-color: #ec7070;*/
+    position:absolute;
     grid-area: poster;
 }
 
 .posterBox {
     text-align: center;
+    margin-left: 15px;
 }
 
 .posterBox img {
     width: 230px;
-    height: 340px;
+    height: 320px;
     border-radius: 7px;
     border: 1px #767681 solid;
     object-fit: cover;
