@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <style>
     *{
@@ -100,15 +100,15 @@
                 </div>
 
             </form>
+            <div sec:authorize="hasRole('ROLE_ADMIN')" >
+                <div class="Btn">
+                    <button type="button" class="modifyBtn">수정완료</button>
 
-            <div class="Btn">
-                <button type="button" class="modifyBtn">수정완료</button>
+                    <button type="button" class="listBtn">목록</button>
 
-                <button type="button" class="listBtn">목록</button>
-
-                <button type="button" class="removeBtn">삭제</button>
+                    <button type="button" class="removeBtn">삭제</button>
+                </div>
             </div>
-
             <script th:inline="javascript">
 
             var actionForm = $("form"); //form 태그 객체

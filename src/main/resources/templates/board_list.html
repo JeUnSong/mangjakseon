@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link th:href="@{/css/board_list.css}" rel="stylesheet"/>
 <th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
 
@@ -66,9 +66,11 @@
 
         <footer>
             <div style="position:fixed; right: 10px; bottom:10px;">
-                <span>
-                    <button type="button" class="register-button" id="register" data-toggle="modal" data-target="#registerModal"><img src="/assets/img/register.png" style="width:20px;height:17px"></button>
-                </span>
+                <div sec:authorize="hasRole('ROLE_ADMIN')" >
+                    <span>
+                        <button type="button" class="register-button" id="register" data-toggle="modal" data-target="#registerModal"><img src="/assets/img/register.png" style="width:20px;height:17px"></button>
+                    </span>
+                </div>
             </div>
 
             <ul class="paging">
