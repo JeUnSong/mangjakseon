@@ -21,51 +21,54 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script th:src="@{/js/login.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
     <body>
 
     <!--헤더-->
-    <div class="header">
-        <div class="headerContainer">
-            <div class="headerLogo">
-                <a href="../index">
-                    <img src="/assets/logo/Original on Transparent.png">
-                </a>
-            </div>
-            <div class="headerList">
-
-                <div class="listAlign">
-
-                    <span sec:authorize-expr="!isAuthenticated()" id="loginModalButton" data-toggle="modal"
-                          data-target="#loginDrop">
-                        로그인
-                    </span>
-
-                    <span sec:authorize-expr="isAuthenticated()" id="infoButton" class="dropdown">
-                        회원정보
-                        <div class="dropdown-content">
-                            <div class="dropdown1"><a href="/read">내 정보</a></div>
-                            <div class="dropdown2"><a href="/logout">로그아웃</a></div>
-                        </div>
-                    </span>
-                        <a href="../movie">
-
-                            <span>영화</span>
-                        </a>
-                        <a href="../actor">
-                            <span>배우</span>
-                        </a>
-                        <a href="#">
-                            <span>걸(乞)작선</span>
-                        </a>
+    <div class="Hcontainer">
+        <div class="header">
+            <div class="headerContainer">
+                <div class="headerLogo">
+                    <a href="../index">
+                        <img src="/assets/logo/Original on Transparent.png">
+                    </a>
                 </div>
-            </div>
-            <div>
-                <form class="headerSearch" action="/search" method="GET">
-                    <input class="searchBar searchItem" name="query" type="text" autocomplete="off">
-                    <input class="submit" type="submit">
-                    <div class="searchBarShadow searchItem"></div>
-                    <i class="fa-solid fa-magnifying-glass searchIcon "></i>
-                </form>
+                <div class="headerList">
+
+                    <div class="listAlign">
+
+                        <span sec:authorize-expr="!isAuthenticated()" id="loginModalButton" data-toggle="modal"
+                              data-target="#loginDrop">
+                            로그인
+                        </span>
+
+                        <span sec:authorize-expr="isAuthenticated()" id="infoButton" class="dropdown">
+                            회원정보
+                            <div class="dropdown-content">
+                                <div class="dropdown1"><a href="/read">내 정보</a></div>
+                                <div class="dropdown2"><a href="/logout">로그아웃</a></div>
+                            </div>
+                        </span>
+                            <a href="../movie">
+
+                                <span>영화</span>
+                            </a>
+                            <a href="../actor">
+                                <span>배우</span>
+                            </a>
+                            <a href="#">
+                                <span>걸(乞)작선</span>
+                            </a>
+                    </div>
+                </div>
+                <div>
+                    <form class="headerSearch" action="/search" method="GET">
+                        <input class="searchBar searchItem" name="query" type="text" autocomplete="off">
+                        <input class="submit" type="submit">
+                        <div class="searchBarShadow searchItem"></div>
+                        <i class="fa-solid fa-magnifying-glass searchIcon "></i>
+                    </form>
+                </div>
             </div>
         </div>
     </div><!--헤더끝-->

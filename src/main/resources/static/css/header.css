@@ -16,9 +16,9 @@ body{
 }
 .header{
     position: fixed;
-    background-color: #14181C;
     height: 60px;
     top:0px;
+    background: #14181C;
 }
 .headerContainer{
     /*background-color: blueviolet;*/
@@ -168,16 +168,6 @@ body{
 .searchBar:focus ~ .searchIcon {
     color: #6e6e6e;
     transition: all 0.3s;
-}
-.header:hover{
-    background: linear-gradient!important;(
-            to top,
-            rgba(20, 24, 28, 0) 10%,
-            rgba(20, 24, 28, 0.1) 25%,
-            rgba(20, 24, 28, 0.2) 50%,
-            rgba(20, 24, 28, 0.3) 80%,
-            rgb(20, 24, 28) 100%
-    );
 }
 .header:hover .searchBarShadow{
     background-color: #ffffff;
