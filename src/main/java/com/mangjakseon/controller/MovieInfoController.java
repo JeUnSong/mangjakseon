@@ -3,6 +3,7 @@ package com.mangjakseon.controller;
 
 import com.mangjakseon.dto.MovieInfoDTO;
 import com.mangjakseon.dto.WriterDTO;
+import com.mangjakseon.repository.MemberRepository;
 import com.mangjakseon.service.WriterService;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;
@@ -28,6 +29,7 @@ import java.security.Principal;
 public class MovieInfoController {
 
     private final WriterService writerService;
+    private final MemberRepository memberRepository;
 
     @Value("${API_KEY}")
     String key;
@@ -142,6 +144,7 @@ public class MovieInfoController {
             email = principal.getName();
             WriterDTO writer = writerService.getWriter(email);
             model.addAttribute("writer", writer);
+            model.addAttribute("userCode", memberRepository.findByMemberId(email));
         }else {
             email = "zzzzz@mjs.com";
             WriterDTO writer = writerService.getWriter(email);

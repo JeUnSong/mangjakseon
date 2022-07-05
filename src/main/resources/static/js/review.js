@@ -39,7 +39,7 @@
                     str += '</div>';
                     str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ review.score +"점" + '</span>' ;
                     str += '</div>';
-                    str += '<div class="edit" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span>'+ "리뷰 수정"+'</span>';
+                    str += '<div class="edit" id="remove'+idx+'" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span id="userChk'+idx+'">'+ "리뷰 수정"+'</span>';
                     str += '</div>';
                     str += '</div>';
                     str += '<div class="reviewContents">';
@@ -49,12 +49,29 @@
                     str += '</div>';
                     str += '</div>';
                     str += '<div class="likesAndComment">';
-                    str += '<i class="fa-solid fa-heart" onclick="commentHeart()">' +'&nbsp'+ review.likeCount + '</i>'
-                    str += '<div class="Comment">' + '댓글 보기';
+                    str += '<i class="fa-solid fa-heart" id="heart" onclick="heart()">' +'&nbsp'+ review.likeCount + '</i>'
+                    str += '<div class="comment">' + '댓글 보기';
                     str += '</div>';
                     str += '</div>';
                     str += '</div>';
-                    str += `<input type="hidden" name="reviewNum" value='${review.reviewNum}'>`;
+                    str += `<input type="hidden" id="reviewNum" value='${review.reviewNum}'>`;
+                    str += '<input type="hidden" id="userId'+idx+'" value="'+review.memberId+'"/>';
+
+                    str += '<script>';
+                    str += '    $(document).ready(function(){';
+                    str += '        var userId'+idx+' = document.getElementById("userId'+idx+'").value;';
+                    str += '        var userInfo = document.getElementById("userInfo").value;';
+                    str += '        var userChk'+idx+' = document.getElementById("userChk'+idx+'");';
+                    str += '        var remove'+idx+' = document.getElementById("remove'+idx+'");';
+                    str += '        console.log(remove'+idx+');';
+                    str += '        if(userInfo != userId'+idx+'){';
+                    str += '            userChk'+idx+'.style.display="none";';
+                    str += '            remove'+idx+'.style.display="none";';
+                    str += '        }else{;';
+                    str += '            userChk'+idx+'.style.display="block";';
+                    str += '        }';
+                    str += '    });';
+                    str += '</script>';
                 })
 
                 listGroup.html(str);
@@ -171,8 +188,41 @@
     });
 
     //좋아요
+    function heart() {
+            var memberId = $("#userInfo").val();
+            var reviewNum = $("#reviewNum").val();
 
+            var param = {"memberId": memberId, "reviewNum": reviewNum}
+            console.log(param);
 
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(param),
+                url: "/heart/up",
+                dataType: "JSON",
+                contentType: 'application/json; charset=utf-8',
+                traditional: true,
+                success: function () {
+                    alert("완료");
+                },
+                error: function () {
+                    alert("오류");
+                }
+            });
+        // $.ajax({
+        //     type: "DELETE",
+        //     data: JSON.stringify(param),
+        //     url: "/heart",
+        //     contentType: 'application/json',
+        //     traditional: true,
+        //     success: function () {
+        //         alert("완료");
+        //     },
+        //     error: function () {
+        //         alert("오류");
+        //     }
+        // });
+    }
     //별 출력
     jQuery(document).ready(function($){
         $(function () {
