@@ -381,11 +381,12 @@
     grid-template-columns: 90% 10%;
     margin-bottom: 10px;
 }
-.Comment{
+.comment{
     text-align: right;
 }
 .fa-heart{
     margin-left: 55px;
+    cursor: pointer;
 }
 
 

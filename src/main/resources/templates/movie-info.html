@@ -123,6 +123,7 @@
                 <div class="writeReview" th:if="${movieData.vote_average > 6}">
                     TMDb 평점 기준 6점 이하만<br> 작성 가능합니다.
                 </div>
+                <input type="hidden" id="userInfo" th:value="${userCode}">
             </div>
         </div><!--영화소개 끝-->
         </div>
