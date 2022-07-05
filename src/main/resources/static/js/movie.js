@@ -70,6 +70,13 @@ $(document).ready(function (event) {
         var scrT = $(window).scrollTop();
         if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
             page = sessionStorage.getItem("moviePage");
+
+            setTimeout(function () {
+                if(scrT == $(document).height() - $(window).height()) {
+                    page++
+                    movieList();
+                }
+            }, 50)
         }
         setTimeout(function () {
             if (scrT == $(document).height() - $(window).height() && page != 1) {

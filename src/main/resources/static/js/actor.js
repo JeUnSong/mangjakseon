@@ -63,6 +63,13 @@ $(document).ready(function () {
         var scrT = $(window).scrollTop();
         if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
             page = sessionStorage.getItem("actorPage");
+
+            setTimeout(function () {
+                if(scrT == $(document).height() - $(window).height()) {
+                    page++
+                    movieList();
+                }
+            }, 50)
         }
         setTimeout(function () {
             if (scrT == $(document).height() - $(window).height() && page != 1) {
