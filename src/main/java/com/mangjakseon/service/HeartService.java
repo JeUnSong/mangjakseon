@@ -2,25 +2,20 @@ package com.mangjakseon.service;
 
 import com.mangjakseon.dto.HeartDTO;
 import com.mangjakseon.entity.Heart;
-import com.mangjakseon.entity.Member;
 import com.mangjakseon.repository.HeartRepository;
-import com.mangjakseon.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class HeartService {
 
     private final HeartRepository heartRepository;
-    private final MemberRepository memberRepository;
 
     public void heart(HeartDTO heartDto) {
         Heart heart = Heart.builder()
                 .reviewNum(heartDto.getReviewNum())
-                .member(memberRepository.findByMember(heartDto.getMemberId()).get())
+                .memberId(heartDto.getMemberId())
                 .build();
         heartRepository.save(heart);
     }
@@ -36,6 +31,14 @@ public class HeartService {
 //
 //        return heartRepository.findHeartByMemberAndReviewNum(userOpt.get(), heartDto.getReviewNum());
 //    }
+
+
+//    public Long countHeart(String reviewNum) {
+//        heartRepository.howManyHeart(reviewNum);
+//        return "";
+//    }
 }
+
+
 
 

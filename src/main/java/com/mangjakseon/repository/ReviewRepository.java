@@ -13,14 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
-    //리뷰 목록보기
-//    List<Review> findByReviewNumBetweenOrderByReviewNumDesc (Long from, Long to);
 
     //movieId별로 출력
     List<Review> findByMovieIdOrderByReviewNumDesc(@Param("movieId") String movieId);
-
-    //movieId 받아서 좋아요 많은 개수대로 정렬하는 쿼리
-    //@Query("select r from Review r where r.movieId=:movieId order by r.likeCount desc")
 
     //제목 수정 쿼리
     @Modifying

@@ -4,6 +4,7 @@ package com.mangjakseon.controller;
 import com.mangjakseon.dto.MovieInfoDTO;
 import com.mangjakseon.dto.WriterDTO;
 import com.mangjakseon.repository.MemberRepository;
+import com.mangjakseon.service.HeartService;
 import com.mangjakseon.service.WriterService;
 import com.nimbusds.jose.shaded.json.JSONArray;
 import com.nimbusds.jose.shaded.json.JSONObject;

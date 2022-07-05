@@ -2,6 +2,7 @@ package com.mangjakseon.controller;
 
 import com.mangjakseon.dto.ReviewDTO;
 
+import com.mangjakseon.repository.HeartRepository;
 import com.mangjakseon.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

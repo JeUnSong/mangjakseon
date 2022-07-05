@@ -49,12 +49,12 @@
                     str += '</div>';
                     str += '</div>';
                     str += '<div class="likesAndComment">';
-                    str += '<i class="fa-solid fa-heart" id="heart" onclick="heart()">' +'&nbsp'+ review.likeCount + '</i>'
+                    str += '<i class="fa-solid fa-heart" id="heart" onclick="heart('+review.reviewNum+')">' +'&nbsp'+ review.likeCount + '</i>'
                     str += '<div class="comment">' + '댓글 보기';
                     str += '</div>';
                     str += '</div>';
                     str += '</div>';
-                    str += `<input type="hidden" id="reviewNum" value='${review.reviewNum}'>`;
+                    str += `<input type="hidden" value='${review.reviewNum}'>`;
                     str += '<input type="hidden" id="userId'+idx+'" value="'+review.memberId+'"/>';
 
                     str += '<script>';
@@ -188,9 +188,8 @@
     });
 
     //좋아요
-    function heart() {
+    function heart(reviewNum) {
             var memberId = $("#userInfo").val();
-            var reviewNum = $("#reviewNum").val();
 
             var param = {"memberId": memberId, "reviewNum": reviewNum}
             console.log(param);
@@ -198,12 +197,13 @@
             $.ajax({
                 type: "POST",
                 data: JSON.stringify(param),
-                url: "/heart/up",
+                url: "/heart",
                 dataType: "JSON",
                 contentType: 'application/json; charset=utf-8',
                 traditional: true,
                 success: function () {
                     alert("완료");
+
                 },
                 error: function () {
                     alert("오류");

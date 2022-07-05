@@ -10,4 +10,5 @@ import lombok.*;
 public class HeartDTO {
     private String memberId;
     private String reviewNum;
+
 }
