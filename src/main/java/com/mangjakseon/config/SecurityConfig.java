@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         
         http.formLogin()
-                .loginPage("/login")   // 로그인 화면
+                .loginPage("/index")   // 로그인 화면
                 .loginProcessingUrl("/login")   // 로그인 처리시 사용되는 페이지
                 .defaultSuccessUrl("/");   // 로그인 성공시 보여줄 페이지
         http.csrf().disable();  // csrf 토큰 비활성화
