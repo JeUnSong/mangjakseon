@@ -7,7 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
+
 
 @Entity
 @Builder
@@ -57,4 +57,5 @@ public class Member extends BaseEntity {
     }
 
     public void addMemberRole(MemberRole memberRole) { roleSet.add(memberRole); }
+
 }

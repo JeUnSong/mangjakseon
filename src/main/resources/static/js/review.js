@@ -39,7 +39,7 @@
                     str += '</div>';
                     str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ review.score +"점" + '</span>' ;
                     str += '</div>';
-                    str += '<div class="edit" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span>'+ "댓글 수정"+'</span>';
+                    str += '<div class="edit" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span>'+ "리뷰 수정"+'</span>';
                     str += '</div>';
                     str += '</div>';
                     str += '<div class="reviewContents">';
@@ -49,11 +49,12 @@
                     str += '</div>';
                     str += '</div>';
                     str += '<div class="likesAndComment">';
-                    str += '<i class="fa-solid fa-thumbs-up">' +'&nbsp'+ review.likeCount + '</i>'
+                    str += '<i class="fa-solid fa-heart" onclick="commentHeart()">' +'&nbsp'+ review.likeCount + '</i>'
                     str += '<div class="Comment">' + '댓글 보기';
                     str += '</div>';
                     str += '</div>';
                     str += '</div>';
+                    str += `<input type="hidden" name="reviewNum" value='${review.reviewNum}'>`;
                 })
 
                 listGroup.html(str);
@@ -168,8 +169,11 @@
             });
         });
     });
+
+    //좋아요
+
+
     //별 출력
-{
     jQuery(document).ready(function($){
         $(function () {
             $(".my-rating-9").starRating({
@@ -186,7 +190,7 @@
                 }
             });
         });
-    })}
+    })
 
     // 움직이는 포스터
     $(document).ready(function() {
