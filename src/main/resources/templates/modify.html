@@ -20,7 +20,7 @@
         </div>
         <div class="infoView">
           <span>이메일</span><br><input type="text" name="email" th:value="${dto.email}" readonly><br>
-          <span>비밀번호</span><br><input type="password" name="password" th:value="${dto.password}" onkeyup="passChk()" placeholder="비밀번호를 입력해주세요"><br>
+          <span>비밀번호</span><br><input type="password" name="password" id="password" onkeyup="passChk()" placeholder="비밀번호를 입력해주세요"><br>
           <span id="password_basic" style="font-size:12px; color:blue; font-weight:bold; display:block;">미기입시 현재 비밀번호가 유지됩니다.</span>
           <span id="password_valid" style="color:red; display:none;">비밀번호는 8자 이상 20자 이하로 입력해주세요.</span>
           <span id="password_possible" style="color:green; display:none;">사용가능한 비밀번호 입니다.</span><br>

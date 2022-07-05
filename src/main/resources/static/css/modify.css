@@ -37,7 +37,7 @@
 }
 .infoView input{
     background-color: #CCDDEE;
-    width: 72%;
+    width: 72%!important;
     height: 40px;
     border-style: none;
     border-radius: 3px;
