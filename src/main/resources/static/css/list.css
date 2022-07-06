@@ -111,4 +111,25 @@ select {
     background-color: #394956;
     color: #c1d0d3;
 }
-
+a.top {
+    background-color: #445566;
+    color: #bbbbbb;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 60px;
+}
+a.top:hover{
+    background-color: #394856;
+    color: #d0cfcf;
+}
+.arrowBox{
+    position:fixed;
+    right: 10px;
+    bottom:10px;
+}
