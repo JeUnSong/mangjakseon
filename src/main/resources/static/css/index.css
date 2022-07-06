@@ -45,7 +45,6 @@
 .posterField{
     /*background-color: gray;*/
     position: relative;
-    z-index: -3;
     height: 560px;
 }
 #movieName {
@@ -58,8 +57,8 @@
     color: #676767;
     font-size: 12px;
 }
-#movieName span{
-
+#movieName div{
+    z-index: 5;
 }
 #movieName a:hover{
     text-decoration: none;
