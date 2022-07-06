@@ -25,7 +25,7 @@
           <span id="password_valid" style="color:red; display:none;">비밀번호는 8자 이상 20자 이하로 입력해주세요.</span>
           <span id="password_possible" style="color:green; display:none;">사용가능한 비밀번호 입니다.</span><br>
 
-          <span>닉네임</span><br><input type="text" name="nickname" th:value="${dto.nickname}" onkeyup="nickChk()" placeholder="닉네임을 입력해주세요"><br>
+          <span>닉네임</span><br><input type="text" name="nickname" id="nickname" onkeyup="nickChk()" placeholder="닉네임을 입력해주세요"><br>
           <span id="nickname_basic" style="font-size:12px; color:blue; font-weight:bold;">미기입시 현재 닉네임이 유지됩니다.</span>
           <span id="nickname_valid" style="color:red; display:none;">닉네임은 특수문자를 제외한 2~8자리여야 합니다.</span>
           <span id="nickname_possible" style="color:green; display:none;">사용가능한 닉네임 입니다.</span>
