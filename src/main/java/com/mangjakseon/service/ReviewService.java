@@ -40,6 +40,7 @@ public interface ReviewService {
                 .movieId(review.getMovieId())
                 .memberId(review.getMember().getMemberId())
                 .nickName(review.getMember().getNickname())
+                .profileImage(review.getMember().getProfileImage())
                 .regDate(review.getRegDate())
                 .modDate(review.getModDate())
                 .build();
