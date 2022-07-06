@@ -202,7 +202,7 @@ function listLte() {
             }, 50)
         });
     });
-
+// 스크롤 맨위로 올리기
     $(document).ready(function () {
         $(window).scroll(function () {
             if ($(this).scrollTop() > 200) {
