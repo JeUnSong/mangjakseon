@@ -1,3 +1,17 @@
+// 스크롤 내릴시 헤더 그림자 생김
+$(document).ready(function () {
+    $(window).scroll(function () {
+        var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환
+            if(position > 0 ){
+                $('.header').css('box-shadow', '5px 5px 30px 5px #000000');
+        }else if(position == 0){
+                $('.header').css('box-shadow', '0 0 0 0 #000000').animate(50);
+            }
+    });
+})
+
+
+// 스크롤 내릴시 헤더 숨김 , 올릴시 헤더 보임
 $(function () {
     var didScroll;
     var lastScrollTop = 0;
@@ -31,7 +45,9 @@ $(function () {
                 $(".header").slideDown("fast"); // header 보이기
             }
         }
-
         lastScrollTop = st; // 현재 멈춘 위치를 기준점으로 재설정
     }
 })
+
+
+

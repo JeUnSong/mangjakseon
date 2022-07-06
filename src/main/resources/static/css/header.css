@@ -20,7 +20,7 @@ body{
     height: 60px;
     top:0px;
     background: #14181C;
-    box-shadow: 5px 5px 30px 5px #000000;
+    box-shadow: 0 0 0 0 #000000;
     z-index: 5;
 }
 .headerContainer{
