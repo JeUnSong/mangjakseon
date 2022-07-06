@@ -35,7 +35,7 @@
                     str += '<div class="reviewBox">';
                     str += '<div class="writeInfo">';
                     str += '<div class="profileBox">';
-                    str += `<img class="profileImage" src=/assets/profile_images/${review.profileImage} onerror=this.src='/assets/null/null.png'>`;
+                    str += `<img class="profileImage" src="/profile_images/${review.profileImage}" onerror=this.src="/assets/null/null.png">`;
                     str += '</div>';
                     str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ review.score +"점" + '</span>' ;
                     str += '</div>';
