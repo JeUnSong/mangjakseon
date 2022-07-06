@@ -6,7 +6,7 @@
     <th:block th:fragment="content">
         <div class="mainContainer">
             <div class="profile">
-                <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorData.profile_path}}">
+                <img th:src="@{'https://image.tmdb.org/t/p/w500'+${actorData.profile_path}}" onerror="this.src='/assets/null/null.png';">
             </div>
             <div class="info">
                 <div class="actorName">
