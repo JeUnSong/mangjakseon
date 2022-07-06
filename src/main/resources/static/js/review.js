@@ -202,11 +202,13 @@
                 contentType: 'application/json; charset=utf-8',
                 traditional: true,
                 success: function () {
-                    alert("완료");
+                    alert("서비스 준비중 입니다.");
 
                 },
                 error: function () {
-                    alert("오류");
+                    if(memberId == null || ""){
+                        alert("서비스 준비중 입니다.");
+                    }
                 }
             });
         // $.ajax({

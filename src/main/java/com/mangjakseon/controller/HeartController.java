@@ -22,14 +22,13 @@ import java.util.Optional;
 public class HeartController {
 
     private final HeartService heartService;
-    private final HeartRepository heartRepository;
 
     @PostMapping
     @RequestMapping(value="/heart",method =  {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<HeartDTO> heart(@RequestBody HeartDTO heartDto) {
 
         heartService.heart(heartDto);
-       return new ResponseEntity<>(heartDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(heartDto, HttpStatus.CREATED);
     }
 
 //    @DeleteMapping(value = "/down")

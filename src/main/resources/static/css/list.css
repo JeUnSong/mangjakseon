@@ -34,21 +34,7 @@
     border-right: 1px #14181C solid;
     border-bottom: 1px #14181C solid;
 }
-.sortButton{
-    background-color: #445566;
-    color: #91A3AC;
-    border-radius: 5px;
-    border: 1px #14181C solid;
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: bolder;
-    height: 30px;
-    width: 100%;
-}
-.sortButton:hover{
-    background-color: #394956;
-    color: #c1d0d3;
-}
+
 select {
     text-align: center;
     width: 100%;

@@ -15,7 +15,7 @@ public class ReviewDTO {
 
     private String reviewContent;       //리뷰 내용
 
-    private Integer likeCount;         //좋아요 체크
+    private Long likeCount;         //좋아요 체크
 
     private double score;           //별점
 

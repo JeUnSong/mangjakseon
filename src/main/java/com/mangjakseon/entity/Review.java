@@ -25,7 +25,7 @@ public class Review extends BaseEntity {
 
     @Column
     @ColumnDefault("0")
-    private Integer likeCount;       //좋아요 개수
+    private Long likeCount;       //좋아요 개수
 
     @Column
     private double score;           //별점
