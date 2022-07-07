@@ -17,7 +17,13 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+###local configuration
+local.properties
+
 ### IntelliJ IDEA ###
+application-aws.properties
+application-oauth.properties
+
 .idea
 *.iws
 *.iml
