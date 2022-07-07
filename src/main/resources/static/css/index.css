@@ -96,6 +96,9 @@
 .infoSignUp button:hover{
     background-color: #0BAF2F;
 }
+.infoSignUp button:focus{
+    outline:none;
+}
 .fromAPI{
     color: #717F8E;
     font-size: 12px;
@@ -148,5 +151,7 @@
 .moviePoster img:hover{
     filter: brightness(50%);
 }
-
+.tmdbLofo:hover{
+    filter: brightness(80%);
+}
 

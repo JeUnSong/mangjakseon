@@ -25,7 +25,7 @@ public interface MemberRepository extends JpaRepository<Member, String>, Queryds
     boolean existsByEmail(String email);
     boolean existsByNickname(String nickname);
 
-    @Query(value = "SELECT count(*) FROM Member m WHERE m.nickname = :nickname", nativeQuery = true)
+    @Query("SELECT count(*) FROM Member WHERE nickname = :nickname")
     int countByNickname(@Param("nickname") String nickname);
 
     @Query("SELECT m.password FROM Member m WHERE m.email = :email")

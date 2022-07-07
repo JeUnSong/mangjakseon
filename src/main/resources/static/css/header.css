@@ -11,6 +11,14 @@ body{
     background-color:  #14181C!important;
     z-index: -5;
 }
+textarea:focus{
+    background-color:white !important;
+    outline:none;
+}
+input:focus{
+    background-color:white !important;
+    outline:none;
+}
 .Hcontainer{
     position: relative;
     padding-top:60px;
