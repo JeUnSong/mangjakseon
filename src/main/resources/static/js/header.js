@@ -43,6 +43,7 @@ $(function () {
             // 스크롤을 올렸을 때
             if (st + $(window).height() < $(document).height()) {
                 $(".header").slideDown("fast"); // header 보이기
+                $(".header").css('overflow','inherit');
             }
         }
         lastScrollTop = st; // 현재 멈춘 위치를 기준점으로 재설정
