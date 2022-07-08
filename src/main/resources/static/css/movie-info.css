@@ -83,9 +83,12 @@
 }
 
 .fa-eye {
-    color: #00C030;
+    color: #00C030!important;
 }
-
+#viewed{
+    z-index: 1;
+    cursor: pointer;
+}
 .fa-crown {
     color: #E0C010;
 }
@@ -165,7 +168,6 @@
     color: white;
     width: 90%;
     font-size: 15px;
-
     margin-bottom: 35px;
 }
 
