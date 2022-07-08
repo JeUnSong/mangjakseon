@@ -42,6 +42,7 @@ input:focus{
 .headerLogo{
     /*background-color: darkkhaki;*/
     margin: auto;
+    z-index: 10;
 }
 .headerLogo img{
     width: 100%;
@@ -50,6 +51,7 @@ input:focus{
     /*background-color: chocolate;*/
     margin-top: 19px;
     display: flex;
+    z-index: 10;
 }
 .listAlign{
     margin-left: auto;
@@ -211,21 +213,21 @@ input:focus{
 }
 #username{
     background-color: #CCDDEE;
-    width: 88%;
+    width: 88%!important;
     height: 40px;
     border-style: none;
     border-radius: 3px;
     z-index: 1;
-    margin-bottom: 10px;
+    margin-bottom: 10px!important;
 }
 #password{
     background-color: #CCDDEE;
-    width: 88%;
+    width: 88%!important;
     height: 40px;
     border-style: none;
     border-radius: 3px;
     z-index: 1;
-    margin-bottom: 10px;
+    margin-bottom: 10px!important;
 }
 #username:focus{
     background-color: #ffffff;
@@ -248,12 +250,12 @@ input:focus{
     text-decoration: none;
     display: inline-block;
     height: 35px;
-    width: 200px;
+    width: 200px!important;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
-    margin-bottom: 25px;
+    margin-bottom: 25px!important;
 }
 #btn-login:hover {
     background-color: #039427;
