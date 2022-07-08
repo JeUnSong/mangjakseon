@@ -16,7 +16,6 @@ textarea:focus{
     outline:none;
 }
 input:focus{
-    background-color:white !important;
     outline:none;
 }
 .Hcontainer{
