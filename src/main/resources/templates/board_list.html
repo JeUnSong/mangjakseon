@@ -5,14 +5,8 @@
 
     <th:block th:fragment="content">
         <style>
-            infinite{
-                width:60%;
-                margin-left:auto;
-                margin-right:auto;
-            }
-
             .paging{
-               text-align:center;
+                text-align:center;
             }
             li{
                 display:inline;
@@ -36,29 +30,29 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="dto : ${result.dtoList}" th:if="${dto != null}" style="border-color:#445566;">
-                            <th scope="row" style="border-color:#445566;">
-                                <a th:href="@{/board_read(bno = ${dto.bno}, page=${result.page})}" >
-                                    <img th:src="@{'/assets/img/'+${dto.s_img}}" class="thumbnail">
-                                </a>
-                            </th>
-                            <td style="border-color:#445566;">
-                                <p class="title">
-                                    <div>
-                                        [[${dto.b_title}]]
-                                    </div>
-                                    <div class="date">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</div>
-                                </p>
-                                <p class="content">
-                                    [[${dto.b_content}]]
-                                </p>
-                            </td>
-                            <td>
-                                <p class="count">
-                                    [[${dto.b_count}]]
-                                </p>
-                            </td>
-                        </tr>
+                    <tr th:each="dto : ${result.dtoList}" th:if="${dto != null}" style="border-color:#445566;">
+                        <th scope="row" style="border-color:#445566;">
+                            <a th:href="@{/board_read(bno = ${dto.bno}, page=${result.page})}" >
+                                <img th:src="@{'/assets/img/'+${dto.s_img}}" class="thumbnail">
+                            </a>
+                        </th>
+                        <td style="border-color:#445566;">
+                            <p class="title">
+                            <div>
+                                [[${dto.b_title}]]
+                            </div>
+                            <div class="date">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</div>
+                            </p>
+                            <p class="content">
+                                [[${dto.b_content}]]
+                            </p>
+                        </td>
+                        <td>
+                            <p class="count">
+                                [[${dto.b_count}]]
+                            </p>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -84,12 +78,6 @@
                     <a class="nextPage page-link" th:href="@{/board_list(page= ${result.end + 1}, type=${pageRequestDTO.type}, keyword=${pageRequestDTO.keyword})}">다음</a>
                 </li>
             </ul>
-
-
-
-            <!--<span>
-                <button type="button" class="btn btn-primary" id="createsum" data-toggle="modal" data-target="#createsumModal">이미지변환</button>
-            </span>-->
         </footer>
 
         <div class="modal" id="registerModal" tabindex="-1" role="dialog" style="border-radius: 3px;">
@@ -101,29 +89,6 @@
                 </div>
             </div>
         </div>
-
-        <!--<div class="modal" id="createsumModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div th:replace="/board/createsum :: header"></div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-      <!--  <div class="modal" id="readModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div th:replace="/board/read :: header"></div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-
-
 
     </th:block>
 </th:block>
