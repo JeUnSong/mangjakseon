@@ -1,65 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign-Up</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+<link th:href="@{/css/menu.css}" rel="stylesheet"/>
+<link th:href="@{/css/sign-up.css}" rel="stylesheet"/>
+<script th:src="@{/js/sign-up.js}"></script>
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="listGap"></div>
+        <div class="listGap"></div>
 
-    <style>
-        .valid{ color : red }
-    </style>
-
-</head>
-<th:block th:fragment="setLogin(signup)">
-<body>
-<form method="post" action="/register">
-    <h1>회원가입 페이지</h1>
-    <div class="form-group">
-        <label>아이디</label><br>
-        <input type="text" name="email" placeholder="이메일을 입력해주세요"/><br>
-        <span th:if="${valid_email}" class="valid">[[${valid_email}]]</span>
-    </div>
-
-    <div>
-        <div class="form-group">
-            <label>비밀번호</label><br>
-            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/><br>
-            <span th:if="${valid_password}" class="valid">[[${valid_password}]]</span>
+        <div class="infoContent">
+            <div class="infoText">
+                <span class="infoTitle">망한 영화에 다른 시각을 가진</span><br>
+                <span class="infoTitle">당신을 위한</span><br>
+                <span class="infoTitle">망한 영화 리뷰</span><br>
+                <br>
+                <span class="infoTitleContent">모래 속의 진주와 같은 영화를 봤으면 여러분의 생각을</span><br>
+                <span class="infoTitleContent"> 리뷰로 적어 보는 게 어떨까요?</span><br>
+            </div>
+            <div class="infoImg">
+                d
+            </div>
         </div>
-        <label>비밀번호 확인</label><br>
-        <input type="password" id="passwordConfirm" placeholder="비밀번호를 다시 입력해주세요"
-        onkeyup="passConfirm()"/>
-        <span id="confirmMsg"></span>
-    </div>
 
-    <div class="form-group">
-        <label>닉네임</label><br>
-        <input type="text" name="nickname" placeholder="닉네임을 입력해주세요"/><br>
-        <span th:if="${valid_nickname}" class="valid">[[${valid_nickname}]]</span>
-    </div>
+        <div class="listGap"></div>
+        <div class="listGap"></div>
+        <div class="listTitle">회원 가입</div>
+        <div class="listGap"></div>
 
-    <button type="submit">등록</button>
+        <div class="signGroup">
+            <div class="singImg">
+                d
+            </div>
 
-    <script>
-        function passConfirm(){
-            var password = document.getElementById('password');
-            var passwordConfirm = document.getElementById('passwordConfirm');
-            var confirmMsg = document.getElementById('confirmMsg');
-            var correctColor = "#00ff00";
-            var incorrectColor = "#ff0000";
+            <form method="post" action="/register">
+                <div class="signUp">
+                    <div class="form-group">
+                        <input class="email" type="text" name="email" placeholder="이메일을 입력해주세요"/><br>
+                        <span th:if="${valid_email}" class="valid">[[${valid_email}]]</span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/>
+                        <span th:if="${valid_password}" class="valid">[[${valid_password}]]</span>
+                    </div>
+                    <br>
+                    <div>
 
-            if (password.value == passwordConfirm.value) {
-                confirmMsg.style.color = correctColor;
-                confirmMsg.innerHTML = "비밀번호 일치";
-            } else {
-                confirmMsg.style.color = incorrectColor;
-                confirmMsg.innerHTML = "비밀번호 불일치";
-            }
-        }
-    </script>
-</form>
-</body>
+                        <input type="password" id="passwordConfirm" placeholder="비밀번호를 다시 입력해주세요"
+                               onkeyup="passConfirm()"/>
+                        <span id="confirmMsg"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="nickname" type="text" name="nickname" placeholder="닉네임을 입력해주세요"/><br>
+                        <span th:if="${valid_nickname}" class="valid">[[${valid_nickname}]]</span>
+                    </div>
+                    <br>
+                    <button class="signButton" type="submit">등록</button>
+                </div>
+            </form>
+        </div>
+    </th:block>
 </th:block>
-</html>

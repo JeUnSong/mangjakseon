@@ -1,0 +1,68 @@
+.infoContent{
+    background-color: #00C030;
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+}
+.infoText{
+    background-color: #91A3AC;
+}
+.infoTitle{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1;
+}
+.infoTitleContent{
+    color: white;
+    font-size: 16px;
+    font-weight: revert;
+}
+.infoImg{
+    background-color: #40BCF4;
+}
+.signGroup{
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.singImg{
+    background-color: #40BCF4;
+}
+.signUp{
+    width: 100%;
+}
+input{
+    background-color: #CCDDEE;
+    width: 100%!important;
+    height: 40px!important;
+    border-style: none!important;
+    border-radius: 3px!important;
+    z-index: 1!important;
+    margin-bottom: 0px!important;
+    font-size: 12px!important;
+}
+.form-group{
+    margin-bottom: 0px!important;
+}
+.signButton{
+    background-color: #00C030;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    height: 35px;
+    width: 30%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-bottom: 75px;
+}
+.signButton button:hover{
+    background-color: #0BAF2F;
+}
+.valid{ color : red }
