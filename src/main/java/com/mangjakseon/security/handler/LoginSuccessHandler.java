@@ -27,7 +27,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         boolean fromSocial = mangjakseonAuthMember.isFromSocial();
 
         if (fromSocial){
-            redirectStrategy.sendRedirect(request, response, "/home");
+            redirectStrategy.sendRedirect(request, response, "/");
         }
 
     }
