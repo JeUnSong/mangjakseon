@@ -11,14 +11,16 @@ import java.security.Principal;
 @Log4j2
 public class IndexController {
 
-    @GetMapping("/index")
-    public void index(Principal principal){}
+    @GetMapping("/")
+    public String index(){
+        return "/index";
+    }
 
     @GetMapping("loginModal")
     public void test(){}
 
     @PreAuthorize("isAuthenticated()")  //로그인 한 사용자만 접근 가능
-    @GetMapping("/")
+    @GetMapping("/index")
     public String home(){
 
         return "/index";
