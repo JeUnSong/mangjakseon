@@ -69,6 +69,7 @@ select {
 }
 .movieTitle{
     margin-left: 15px;
+    font-weight: bold;
     text-align: left!important;
 }
 .moviePoster{
