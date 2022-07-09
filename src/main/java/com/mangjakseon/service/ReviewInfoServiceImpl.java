@@ -22,4 +22,11 @@ public class ReviewInfoServiceImpl implements ReviewInfoService{
 
         return result;
     }
+
+    @Override
+    public List<ReviewInfoDTOImpl> reviewAverageMovieInfo() {
+
+        List<ReviewInfoDTOImpl> result = reviewInfoRepository.reviewScoreAverageMovieInfo();
+        return result;
+    }
 }

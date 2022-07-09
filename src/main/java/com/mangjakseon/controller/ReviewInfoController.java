@@ -25,7 +25,7 @@ public class ReviewInfoController {
 
     @GetMapping("/movie/{movieId}")
     public ResponseEntity<List<ReviewInfoDTOImpl>> reviewAverageView(@PathVariable("movieId")Long movieId){
-        List<ReviewInfoDTOImpl> reviewAverage = reviewInfoService.reviewAverage();
+        List<ReviewInfoDTOImpl> reviewAverage = reviewInfoService.reviewAverageMovieInfo();
         log.info("어디 "+reviewAverage);
         return new ResponseEntity<>(reviewAverage, HttpStatus.OK);
     }
@@ -43,5 +43,4 @@ public class ReviewInfoController {
         log.info("value : " + reviewAverageLankList);
         return new ResponseEntity<>(reviewAverageLankList,HttpStatus.OK);
     }
-
 }
