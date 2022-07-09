@@ -96,7 +96,7 @@
     url("/assets/dummy/mangjak2.jpg");
     background-size: cover;
     border-radius: 50px;
-    width: 100%;
+    width: 90%;
     height: 400px;
 
 }
@@ -118,7 +118,6 @@
 .signUp{
     width: 100%;
     margin-top: 50px;
-    margin-left: 10px;
 }
 input{
     background-color: #CCDDEE;
