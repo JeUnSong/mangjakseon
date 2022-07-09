@@ -25,6 +25,10 @@ public class ActorInfoController {
     @Value("${API_KEY}")
     String key;
 
+    @GetMapping("/actor")
+    public void actor(){
+
+    }
     @GetMapping ("/actor/{actorId}")
     public Object actorInfo(ActorInfoDTO dto, Model model) {
 

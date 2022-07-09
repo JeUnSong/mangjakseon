@@ -13,9 +13,8 @@ $(document).ready(function (){
     })
 });
 
-list();
-//ajax data 불러오기
-function list() {
+listLte();
+function listLte() {
     function movieList() {
         $.ajax({
             type: "GET",
@@ -26,8 +25,8 @@ function list() {
                 "&include_adult=false" +
                 "&include_video=false" +
                 `&page=${page}` +
-                "&vote_average.gte=1" +
-                "&vote_average.lte=6" +
+                "&vote_average.gte=6" +
+                "&vote_average.lte=10" +
                 "&with_watch_monetization_types=flatrate",
             data: {},
             dataType: "json",
@@ -97,20 +96,6 @@ function list() {
                     movieList();
                 }
             }, 50)
-        });
-    });
-
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200) {
-                $('.top').fadeIn();
-            } else {
-                $('.top').fadeOut();
-            }
-        });
-        $('.top').click(function () {
-            $('html, body').animate({scrollTop: 0}, 400);
-            return false;
         });
     });
 // 스크롤 맨위로 올리기
