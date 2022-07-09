@@ -60,13 +60,11 @@ public class BoardServiceImpl implements BoardService{
         return result.isPresent()? entityToDto(result.get()): null;
     }
 
-
     // 조회수
     @Transactional
     public int updateView(Integer bno) {
         return boardRepository.updateView(bno);
     }
-
 
     // 삭제
     @Override

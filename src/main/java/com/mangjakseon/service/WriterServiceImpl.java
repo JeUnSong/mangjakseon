@@ -19,7 +19,7 @@ public class WriterServiceImpl implements WriterService {
     @Override
     public WriterDTO getWriter(String email) {
         Optional<Member> writerInfo = repository.findByWriterInfo(email);
-        log.info(writerInfo + "writerInfo");
+        //log.info(writerInfo + "writerInfo");
         return writerInfo.isPresent() ? writerEntityToDto(writerInfo.get()) : null;
     }
 }

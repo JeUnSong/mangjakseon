@@ -270,7 +270,7 @@
       var $stars = $starSet.$stars;
 
       if(newSize <= 1 || newSize > 200) {
-        console.log('star size out of bounds');
+        //console.log('star size out of bounds');
         return;
       }
 

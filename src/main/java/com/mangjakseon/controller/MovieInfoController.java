@@ -157,7 +157,6 @@ public class MovieInfoController {
         model.addAttribute("watchLink", watchLink);
         model.addAttribute("watchLogo", watchLogo);
 
-
         return "/movie-info";
     }
 }

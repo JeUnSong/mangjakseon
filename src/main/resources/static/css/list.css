@@ -119,3 +119,11 @@ a.top:hover{
     right: 10px;
     bottom:10px;
 }
+.tmdbAvg{
+    color: #1DB5D9;
+    font-weight: bold;
+}
+.reviewAvg{
+    color: #E3523F;
+    font-weight: bold;
+}

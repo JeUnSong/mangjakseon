@@ -23,7 +23,7 @@ public class ReviewController {
 
     @GetMapping(value = "/movie/{movieId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ReviewDTO>> findByMovieId(@PathVariable("movieId") String movieId ){
-        log.info(movieId +"======================================");
+        //log.info(movieId +"======================================");
 
         return new ResponseEntity<>( reviewService.findByMovieIdOrderByReviewNumDesc(movieId), HttpStatus.OK);
 
@@ -32,7 +32,7 @@ public class ReviewController {
     @PostMapping("/movies")
     public ResponseEntity<Long> register(@RequestBody ReviewDTO reviewDTO){
 
-        log.info(reviewDTO);
+        //log.info(reviewDTO);
 
         Long reviewNum = reviewService.register(reviewDTO);
 
@@ -41,14 +41,14 @@ public class ReviewController {
 
     @DeleteMapping(value="/{reviewNum}", produces=MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> remove(@PathVariable("reviewNum") Long reviewNum){
-        log.info("reviewNum" + reviewNum);
+        //log.info("reviewNum" + reviewNum);
         reviewService.remove(reviewNum);
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
     @PutMapping("/{reviewNum}")
     public ResponseEntity<String> modify(@RequestBody ReviewDTO reviewDTO) {
 
-        log.info(reviewDTO);
+        //log.info(reviewDTO);
 
         reviewService.modify(reviewDTO);
 

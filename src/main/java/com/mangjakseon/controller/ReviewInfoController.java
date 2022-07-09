@@ -26,21 +26,21 @@ public class ReviewInfoController {
     @GetMapping("/movie/{movieId}")
     public ResponseEntity<List<ReviewInfoDTOImpl>> reviewAverageView(@PathVariable("movieId")Long movieId){
         List<ReviewInfoDTOImpl> reviewAverage = reviewInfoService.reviewAverageMovieInfo();
-        log.info("어디 "+reviewAverage);
+        //log.info("어디 "+reviewAverage);
         return new ResponseEntity<>(reviewAverage, HttpStatus.OK);
     }
 
     @GetMapping("/movie")
     public ResponseEntity<List<ReviewInfoDTOImpl>> reviewAverageMovieListView(){
         List<ReviewInfoDTOImpl> reviewAverageList = reviewInfoService.reviewAverage();
-        log.info(reviewAverageList+"어디");
+        //log.info(reviewAverageList+"어디");
         return new ResponseEntity<>(reviewAverageList,HttpStatus.OK);
     }
 
     @GetMapping("/index")
     public ResponseEntity<List<ReviewInfoDTOImpl>>reviewAverageMovieLankList(){
         List<ReviewInfoDTOImpl> reviewAverageLankList = reviewInfoService.reviewAverage();
-        log.info("value : " + reviewAverageLankList);
+        //log.info("value : " + reviewAverageLankList);
         return new ResponseEntity<>(reviewAverageLankList,HttpStatus.OK);
     }
 }

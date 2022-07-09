@@ -2,6 +2,9 @@ var page = 1;
 const key = "";
 var totalStr = "";
 
+
+listLte();
+
 $(document).ready(function (){
     $("select[name=sortLte]").change(function (){
         $(".movieList").empty();
@@ -13,7 +16,6 @@ $(document).ready(function (){
     })
 });
 
-listLte();
 function listLte() {
     function movieList() {
         $.ajax({
@@ -38,7 +40,7 @@ function listLte() {
                         str = `<form action=/movie/${item.id} method="GET">`,
                         str += '<div class="listGroup">',
                         str += `<input type="image" name="poster" class="moviePoster" src=https://image.tmdb.org/t/p/w500${item.poster_path}>`,
-                        str += '<div class="movieScore">' + `TMDb ${item.vote_average} 망작선` + '</div>',
+                        str += '<div class="movieScore">' + `TMDb ${item.vote_average}` + '</div>',
                         str += '<div class="movieTitle">' + item.title + '</div>',
                         str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
                         str += '</div>',

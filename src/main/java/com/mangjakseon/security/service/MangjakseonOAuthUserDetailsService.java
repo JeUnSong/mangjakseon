@@ -29,17 +29,17 @@ public class MangjakseonOAuthUserDetailsService extends DefaultOAuth2UserService
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException{
-        log.info("userRequest: " + userRequest);
+        //log.info("userRequest: " + userRequest);
 
         String clientName = userRequest.getClientRegistration().getClientName();
-        log.info("clientName: " + clientName);  //사용하는 OAuth2 API 종류 확인, ex)구글의 경우 Google 출력
-        log.info(userRequest.getAdditionalParameters());
+        //log.info("clientName: " + clientName);  //사용하는 OAuth2 API 종류 확인, ex)구글의 경우 Google 출력
+        //log.info(userRequest.getAdditionalParameters());
 
         OAuth2User oAuth2User = super.loadUser(userRequest);
 
-        log.info("==========================================");
+        //log.info("==========================================");
         oAuth2User.getAttributes().forEach((k,v) -> {
-            log.info(k + ":" + v);  // 결과값 : sub, picture, email, email_verified 등이 출력
+            //log.info(k + ":" + v);  // 결과값 : sub, picture, email, email_verified 등이 출력
         });
 
         String email = null;
@@ -47,7 +47,7 @@ public class MangjakseonOAuthUserDetailsService extends DefaultOAuth2UserService
         if (clientName.equals("Google")){   //구글을 이용하는 경우
             email = oAuth2User.getAttribute("email");  // email 변수에 구글에서 받아오는 email 주소 저장
         }
-        log.info("EMAIL: " + email);
+        //log.info("EMAIL: " + email);
 
         Member member = saveSocialMember(email);
 
@@ -75,13 +75,13 @@ public class MangjakseonOAuthUserDetailsService extends DefaultOAuth2UserService
             socialPassword.append(tempPw);
         }
 
-        log.info("SocialPW??? : "+socialPassword);
+        //log.info("SocialPW??? : "+socialPassword);
 
         //기존에 동일 이메일로 가입한 회원이 있는 경우 조회만 처리
         Optional<Member> result = repository.findByEmail(email,true);
 
         if (result.isPresent()){
-            log.info("Search Social");
+            //log.info("Search Social");
             return result.get();
         }
 
@@ -95,7 +95,7 @@ public class MangjakseonOAuthUserDetailsService extends DefaultOAuth2UserService
 
         member.addMemberRole(MemberRole.USER);
 
-        log.info("Create Social");
+        //log.info("Create Social");
         repository.save(member);
 
         return member;

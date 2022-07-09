@@ -21,18 +21,14 @@ import java.net.URL;
 @Log4j2
 @RequiredArgsConstructor
 public class ActorInfoController {
-
     @Value("${API_KEY}")
     String key;
-
     @GetMapping("/actor")
     public void actor(){
 
     }
     @GetMapping ("/actor/{actorId}")
     public Object actorInfo(ActorInfoDTO dto, Model model) {
-
-
 
         Long actorId = dto.getActorId();
 
@@ -66,7 +62,6 @@ public class ActorInfoController {
             BufferedReader actorBf;
             BufferedReader actorMovieBf;
             BufferedReader snsBf;
-
 
             actorBf = new BufferedReader(new InputStreamReader(actorUrl.openStream()));
             actorMovieBf = new BufferedReader(new InputStreamReader(actorMovieUrl.openStream()));

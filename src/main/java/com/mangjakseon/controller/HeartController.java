@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-
 @Controller
 @Log4j2
 @RequiredArgsConstructor
@@ -36,7 +35,5 @@ public class HeartController {
 //        heartService.unHeart(heartDto);
 //        return new ResponseEntity<>(heartDto, HttpStatus.OK);
 //    }
-
-
 
 }

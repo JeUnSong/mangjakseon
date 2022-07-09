@@ -97,7 +97,7 @@ public class MethodController {
     @PostMapping("/nickChk")
     @ResponseBody
     public int nickChk(@RequestParam("nickname")String nickname){
-        log.info(nickname);
+        //log.info(nickname);
 
         return memberService.nicknameCheck(nickname);
     }
@@ -107,37 +107,9 @@ public class MethodController {
     public boolean loginChk(@RequestParam("email")String email,
                             @RequestParam("password")String password,
                             Model model){
-        log.info("INFO CHECK ::: ");
-        log.info(email);
-        log.info(password);
+        //log.info("INFO CHECK ::: ");
+        //log.info(email);
+        //log.info(password);
         return memberService.accountCheck(email, password);
     }
-
-    // 로그인 에러시 메시지
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    @GetMapping("/login")
-//    public String login(@RequestParam(value = "error", required = false) String error,
-//                        @RequestParam(value = "exception", required = false) String exception,
-//                        RedirectAttributes attr
-//                        ){
-////        model.addAttribute("error", error);
-////        model.addAttribute("exception", exception);
-//
-//        attr.addFlashAttribute("error", error);
-//        attr.addFlashAttribute("exception", exception);
-//        return "/index";
-//    }
-//
-//    @GetMapping("/index/login")
-//    public String error(@RequestParam(value = "error", required = false) String error,
-//                        @RequestParam(value = "exception", required = false) String exception,
-//                        Model model){
-//        log.info("ERROR PAGE CHECK !!!");
-//        model.addAttribute("error", error);
-//        model.addAttribute("exception", exception);
-//        model.addAttribute("check",1);
-//
-//        return "/index";
-//    }
-    /* Spring Security 담당 김준희 */
 }

@@ -15,8 +15,5 @@ public class MenuController {
     }
     @GetMapping("/movieLte")
     public void movieLte(){
-
     }
-
-
 }

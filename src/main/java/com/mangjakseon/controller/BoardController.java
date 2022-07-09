@@ -20,12 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
-/*
-
-    @Value("${org.zerock.upload.path}")
-    private String uploadPath;
-*/
-
 
     // 목록
     @GetMapping("/board_list")
@@ -56,7 +50,6 @@ public class BoardController {
         model.addAttribute("dto", dto);
     }
 
-
     // 삭제
     @PostMapping("/board_remove")
     public String remove(Integer bno, RedirectAttributes redirectAttributes){
@@ -76,11 +69,4 @@ public class BoardController {
         return "redirect:/board_read";
     }
 
-    /*@PostMapping("/createsum")
-    public String createsumPost(BoardDTO boardDTO, RedirectAttributes redirectAttributes, MultipartFile[] uploadFiles){
-
-
-        return "redirect:/board/list";
-    }
-*/
 }

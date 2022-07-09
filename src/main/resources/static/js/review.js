@@ -1,3 +1,10 @@
+    $(document).ready(function () {
+        //console.log($('.reviewLank').text())
+       if($('.reviewLank').text() === null){
+           $('.fa-crown').hidden()
+       }
+    });
+
 
     //리뷰 등록
     $(document).ready(function () {
@@ -11,13 +18,13 @@
             success:function(data){
                 $.each(data,function(idx,value){
                     //console.log(value);
-                    console.log(idx+1);
-                    console.log(value.reviewAvg);
+                    //console.log(idx+1);
+                    //console.log(value.reviewAvg);
                     if(movieId == value.movieId){
-                        $('.reviewLank').text(idx+1);
+                        $('.reviewLank').text(+idx+1);
                         $('.reviewAverage').text(value.reviewAvg);
-                        console.log(idx);
-                        console.log(value.reviewAvg);
+                        //console.log(idx);
+                        //console.log(value.reviewAvg);
                     }
                 });
             }
@@ -49,7 +56,7 @@
 
                 var str = "";
                 $.each(arr, function (idx, review) {
-                    console.log(review);
+                    //console.log(review);
                     str += '<div class="reviewBox">';
                     str += '<div class="writeInfo">';
                     str += '<div class="profileBox">';
@@ -81,7 +88,7 @@
                     str += '        var userInfo = document.getElementById("userInfo").value;';
                     str += '        var userChk'+idx+' = document.getElementById("userChk'+idx+'");';
                     str += '        var remove'+idx+' = document.getElementById("remove'+idx+'");';
-                    str += '        console.log(remove'+idx+');';
+                    //str += '        console.log(remove'+idx+');';
                     str += '        if(userInfo != userId'+idx+'){';
                     str += '            userChk'+idx+'.style.display="none";';
                     str += '            remove'+idx+'.style.display="none";';
@@ -122,7 +129,7 @@
                 nickName: $('input[name="nickName"]').val(),
                 profileImage: $('input[name="profileImage"]').val()
             }
-            console.log(review + "리뷰");
+            //console.log(review + "리뷰");
 
             $.ajax({
                 url: '/movies',
@@ -210,7 +217,7 @@
             var memberId = $("#userInfo").val();
 
             var param = {"memberId": memberId, "reviewNum": reviewNum}
-            console.log(param);
+            //console.log(param);
 
             $.ajax({
                 type: "POST",

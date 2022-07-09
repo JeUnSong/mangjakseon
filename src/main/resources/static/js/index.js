@@ -11,13 +11,13 @@ $(document).ready(function () {
             type: 'get',
             url: '/reviewInfo/index',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 let list = [];
                 data.forEach(function(item,idx){
                     let $idx = idx+1; //등수용 함수
                     list.push([
                         str = `<form action=/movie/${item.id} method="GET">`,
-                        str += '<div class="listGroup'+idx+'"> &nbsp 망작선 '+$idx+'등',
+                        str += '<div class="listGroup'+idx+'"> <span class="top"> &nbsp&nbsp&nbsp '+$idx+'위' + '</span>',
                         str += '<div class="movieScore"> <span class="reviewAvg">'+item.reviewAvg+'</span></div>',
                         str += '<div class="movieTitle"> </div>',
                         str += '<input type="checkbox" class="dataId" name="movieId" value="'+item.movieId+'" checked>',
@@ -51,8 +51,8 @@ function mappingMovieJSON() {
                 async:false,
                 dataType:'json',
                 success: function (data) {
-                   console.log(data);
-                   console.log("start : "+start);
+                   //console.log(data);
+                   //console.log("start : "+start);
                         let $TMDbAvg = data.vote_average;
                         let $title = data.title;
                         let $img = '<input type="image" name="poster" class="moviePoster" src="https://image.tmdb.org/t/p/w500'+data.poster_path+'">';

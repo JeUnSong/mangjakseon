@@ -25,7 +25,7 @@ public class MangjakseonUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("UserDetailsService loadUserByUsername "+username);
+        //log.info("UserDetailsService loadUserByUsername "+username);
 
         Optional<Member> result = memberRepository.findByEmail(username, false);
 

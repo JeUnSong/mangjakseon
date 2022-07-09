@@ -74,7 +74,7 @@ public class MemberServiceImpl implements MemberService{
         }
 
         if (result.isPresent() && isSocial){
-            log.info("== MOD SOCIAL ==");
+            //log.info("== MOD SOCIAL ==");
             Member entity = result.get();
             if (!(memberDTO.getNickname().equals(""))) {
                 entity.modifyNickname(memberDTO.getNickname());
@@ -82,7 +82,7 @@ public class MemberServiceImpl implements MemberService{
             memberRepository.save(entity);
         } else if (result.isPresent()) {
 
-            log.info("== MOD USER ==");
+            //log.info("== MOD USER ==");
             Member entity = result.get();
             if (!(memberDTO.getPassword().equals(""))) {
                 entity.modifyPassword(passwordEncoder.encode(memberDTO.getPassword()));
@@ -138,7 +138,7 @@ public class MemberServiceImpl implements MemberService{
 
     public boolean accountCheck(String email, String password) {
         String pass = memberRepository.findByPassword(email);
-        log.info("REF CHK ::: "+passwordEncoder.matches(password,pass));
+        //log.info("REF CHK ::: "+passwordEncoder.matches(password,pass));
         return passwordEncoder.matches(password,pass);
     }
 }
