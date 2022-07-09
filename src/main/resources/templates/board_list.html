@@ -33,7 +33,7 @@
                     <tr th:each="dto : ${result.dtoList}" th:if="${dto != null}" style="border-color:#445566;">
                         <th scope="row" style="border-color:#445566;">
                             <a th:href="@{/board_read(bno = ${dto.bno}, page=${result.page})}" >
-                                <img th:src="@{'/assets/img/'+${dto.s_img}}" class="thumbnail">
+                                <img th:src="@{'/var/webapps/img/'+${dto.s_img}}" class="thumbnail">
                             </a>
                         </th>
                         <td style="border-color:#445566;">

@@ -12,7 +12,7 @@
       <input type="hidden" name="fromSocial" th:value="${dto.fromSocial}">
       <div class="memberInfo">
         <div class="profileImage">
-          <img th:src="@{${'/profile_images/'+dto.profileImage}}" onerror="this.src='/assets/null/null.png';"/><br>
+          <img th:src="@{${'/var/webapps/profile/'+dto.profileImage}}" onerror="this.src='/assets/null/null.png';"/><br>
           <label for="file">프로필 업로드</label>
           <input class="profile" type="file" name="profileImgUrl" id="file"><br>
           <span>[[${dto.nickname}]]</span>

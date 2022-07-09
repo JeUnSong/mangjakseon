@@ -10,7 +10,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Value("/user/ubuntu/profile_images/")   //이미지 폴더의 경로를 잡아 String 변수에 저장
+    @Value("/var/webapps/profile/")   //이미지 폴더의 경로를 잡아 String 변수에 저장
     private String profileUploadFolder;
 
     @Override
@@ -18,8 +18,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.addResourceHandlers(registry);
 
         registry
-                .addResourceHandler("/profile_images/**")
-                .addResourceLocations("file:///"+profileUploadFolder)   // 폴더 경로
+                .addResourceHandler("/profile/**")
+                .addResourceLocations("file:"+profileUploadFolder)   // 폴더 경로
                 .setCachePeriod(60*10*6)    //HTTP 캐시 유효기간 초단위 설정
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());
