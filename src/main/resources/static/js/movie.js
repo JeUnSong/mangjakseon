@@ -2,6 +2,10 @@ var page = 1;
 const key = "";
 var totalStr = "";
 
+var listLength = page*20;
+
+list();
+
 $(document).ready(function (){
     $("select[name=sortLte]").change(function (){
         $(".movieList").empty();
@@ -13,7 +17,6 @@ $(document).ready(function (){
     })
 });
 
-list();
 //ajax data 불러오기
 function list() {
     function movieList() {
@@ -33,13 +36,14 @@ function list() {
             dataType: "json",
             success: function (data) {
 
+                let $page =page;
                 let list = [];
-                data.results.forEach((item) => {
+                data.results.forEach((item,idx) => {
                     list.push([
                         str = `<form action=/movie/${item.id} method="GET">`,
-                        str += '<div class="listGroup">',
+                        str += '<div class="listGroup'+idx+'page'+$page+'">',
                         str += `<input type="image" name="poster" class="moviePoster" src=https://image.tmdb.org/t/p/w500${item.poster_path}>`,
-                        str += '<div class="movieScore">' + `TMDb ${item.vote_average} 망작선` + '</div>',
+                        str += '<div class="movieScore">' + `TMDb ${item.vote_average} 망작선` + '<span class="reviewAvg"> </span>' +'</div>',
                         str += '<div class="movieTitle">' + item.title + '</div>',
                         str += `<input type="checkbox" class="dataId" name="movieId" value=${item.id} checked>`,
                         str += '</div>',
@@ -52,14 +56,16 @@ function list() {
                 sessionStorage.setItem("moviePage", page)
             }
         });
+        reviewAverageMovieListView();
     }
 
-// 최초 목록 갱신
+    // 최초 목록 갱신
     $(document).ready(function (event) {
 
         if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
             totalStr = sessionStorage.getItem("movieTotalStr");
             $('.movieList').append(totalStr);
+            reviewAverageMovieListView();
             if (sessionStorage.getItem("moviePage") != 1) {
                 $('.moreButton').hide();
             }
@@ -113,18 +119,41 @@ function list() {
             return false;
         });
     });
-// 스크롤 맨위로 올리기
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200) {
-                $('.top').fadeIn();
-            } else {
-                $('.top').fadeOut();
-            }
+    //리뷰 별점 평균 가져오는 ajax 불러오는 함수
+    function reviewAverageMovieListView() {
+        let $page =page;
+        $.getJSON({
+            url: '/reviewInfo/movie',
+            success: function (data) {
+                $.each(data, function (idx, obj) {
+                    //console.log(obj.movieId);
+                    //console.log(obj.reviewAvg);
+                    for (i = 0; i < listLength; i++) {
+                        let $movieId = $('.listGroup'+i+'page'+$page+'>input[name="movieId"]').val();
+                        console.log($movieId);
+                        console.log(obj.movieId);
+                        //console.log($movieId == obj.movieId);
+                        if ($movieId == obj.movieId) {
+                            $('.listGroup'+i+'page'+$page+' .reviewAvg').html(obj.reviewAvg);
+                        }
+                    }
+                });
+            },
+            error: function () { console.log("error"); }
         });
-        $('.top').click(function () {
-            $('html, body').animate({scrollTop: 0}, 400);
-            return false;
-        });
-    });
+    }
 }
+// 스크롤 맨위로 올리기
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.top').fadeIn();
+        } else {
+            $('.top').fadeOut();
+        }
+    });
+    $('.top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 400);
+        return false;
+    });
+});
