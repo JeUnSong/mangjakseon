@@ -1,10 +1,3 @@
-    $(document).ready(function () {
-        //console.log($('.reviewLank').text())
-       if($('.reviewLank').text() === null){
-           $('.fa-crown').hidden()
-       }
-    });
-
 
     //리뷰 등록
     $(document).ready(function () {
@@ -23,8 +16,18 @@
                     if(movieId == value.movieId){
                         $('.reviewLank').text(+idx+1);
                         $('.reviewAverage').text(value.reviewAvg);
+                        $('input[name="reviewAverage"]').val(1);
                         //console.log(idx);
                         //console.log(value.reviewAvg);
+                    }
+                });
+                let $rea = $('input[name="reviewAverage"]').val();
+                console.log($rea);
+
+                $.each(data,function(idx,value){
+                    if($rea==0){
+                        $(".posterRanking :nth-child(4)").hide();
+                        $(".posterRanking :nth-child(10)").hide();
                     }
                 });
             }
@@ -57,12 +60,13 @@
                 var str = "";
                 $.each(arr, function (idx, review) {
                     //console.log(review);
+                    let $score = (review.score)*2;
                     str += '<div class="reviewBox">';
                     str += '<div class="writeInfo">';
                     str += '<div class="profileBox">';
                     str += `<img class="profileImage" src="/profile_images/${review.profileImage}" onerror=this.src="/assets/null/null.png">`;
                     str += '</div>';
-                    str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ review.score +"점" + '</span>' ;
+                    str += '<div class="nickNameBox">'+'<span>'+'Review by&nbsp'+'</span>' +'<span>'+ review.nickName +'</span>'+ '&nbsp' +'<span>'+ $score +"점" + '</span>' ;
                     str += '</div>';
                     str += '<div class="edit" id="remove'+idx+'" data-reviewNum="' + review.reviewNum + '" data-toggle="modal" data-target="#staticBackdrop">'+ '<span id="userChk'+idx+'">'+ "리뷰 수정"+'</span>';
                     str += '</div>';
