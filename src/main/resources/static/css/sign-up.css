@@ -128,7 +128,7 @@ input{
     margin-bottom: 0px!important;
 
 }
-input:focus{
+.sign:focus{
     background-color: #ffffff;
 }
 .form-group{

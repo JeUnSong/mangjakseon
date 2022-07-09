@@ -47,24 +47,24 @@
             <form method="post" action="/register">
                 <div class="signUp">
                     <div class="form-group">
-                        <input class="email" type="text" name="email" placeholder="이메일을 입력해주세요"/><br>
+                        <input class="sign email" type="text" name="email" placeholder="이메일을 입력해주세요"/><br>
                         <span th:if="${valid_email}" class="valid">[[${valid_email}]]</span>
                     </div>
                     <br>
                     <div class="form-group">
-                        <input type="password" id="singPassword" name="password" placeholder="비밀번호를 입력해주세요"/>
+                        <input class="sign" type="password" id="singPassword" name="password" placeholder="비밀번호를 입력해주세요"/>
                         <span th:if="${valid_password}" class="valid">[[${valid_password}]]</span>
                     </div>
                     <br>
                     <div>
 
-                        <input type="password" id="passwordConfirm" placeholder="비밀번호를 다시 입력해주세요"
+                        <input class="sign" type="password" id="passwordConfirm" placeholder="비밀번호를 다시 입력해주세요"
                                onkeyup="passConfirm()"/>
                         <span id="confirmMsg"></span>
                     </div>
                     <br>
                     <div class="form-group">
-                        <input class="nickname" type="text" name="nickname" placeholder="닉네임을 입력해주세요"/><br>
+                        <input class="sign nickname" type="text" name="nickname" placeholder="닉네임을 입력해주세요"/><br>
                         <span th:if="${valid_nickname}" class="valid">[[${valid_nickname}]]</span>
                     </div>
                     <br>
