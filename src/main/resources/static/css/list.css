@@ -128,3 +128,12 @@ a.top:hover{
     color: #E3523F;
     font-weight: bold;
 }
+.tmdbXmang{
+    color: white;
+    font-size: 12px;
+    text-align: right;
+}
+.movieTmdbXmang{
+    margin: auto;
+    width: 60%;
+}

@@ -60,7 +60,7 @@ function mappingMovieJSON() {
                         //console.log($title);
                         //console.log($img);
                         $(".listGroup" + start).prepend($img);
-                        $(".listGroup" + start + " .movieScore").prepend('TMDb'+ $TMDbAvg +' 망작선');
+                        $(".listGroup" + start + " .movieScore").prepend('TMDb <span class="tmdbAvg">'+$TMDbAvg+'</span> 망작선');
                         $(".listGroup" + start + " .movieTitle").prepend($title);
 
                 }
