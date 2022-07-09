@@ -9,9 +9,9 @@ $(document).ready(function (){
     $("select[name=sortLte]").change(function (){
         $(".movieList").empty();
         if($("select[name=sortLte]").val() == "10"){
-            location.href='http://localhost:8181/movieLte';
+            location.href='https://mangjakseon.com/movieLte';
         }else if($("select[name=sortLte]").val() != "10") {
-            location.href='http://localhost:8181/movie';
+            location.href='https://mangjakseon.com/movie';
         }
     })
 });
