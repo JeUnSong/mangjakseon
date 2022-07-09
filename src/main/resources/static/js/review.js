@@ -3,7 +3,25 @@
     $(document).ready(function () {
         var movieId = $('.movieId').val();
         //console.log(movieId);
-        //var listGroup = $(".reviewContent1");
+
+        //reviewInfo 데이터 가져오는 ajax
+        $.ajax({
+            type:'get',
+            url:'/reviewInfo/movie/' + movieId,
+            success:function(data){
+                $.each(data,function(idx,value){
+                    //console.log(value);
+                    console.log(idx+1);
+                    console.log(value.reviewAvg);
+                    if(movieId == value.movieId){
+                        $('.reviewLank').text(idx+1);
+                        $('.reviewAverage').text(value.reviewAvg);
+                        console.log(idx);
+                        console.log(value.reviewAvg);
+                    }
+                });
+            }
+        });
 
         //나중에 '/reviews/review/'+movieId로 바꾸기
         $.getJSON('/movies/movie/' + movieId, function (arr) {

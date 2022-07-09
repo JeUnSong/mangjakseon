@@ -154,4 +154,8 @@
 .tmdbLofo:hover{
     filter: brightness(80%);
 }
-
+.top{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
