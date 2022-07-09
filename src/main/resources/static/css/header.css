@@ -222,7 +222,7 @@ input:focus{
 }
 #password{
     background-color: #CCDDEE;
-    width: 88%!important;
+    width: 88%;
     height: 40px;
     border-style: none;
     border-radius: 3px;
