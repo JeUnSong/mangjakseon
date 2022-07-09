@@ -34,7 +34,7 @@ $(document).ready(function () {
     //0.5초 늦게 생성되어서 loadMovieLankJSON() 실행되고 나서 값 불러옴
     setTimeout(function () {
        mappingMovieJSON();
-    }, 100);
+    }, 150);
 
 });
 
