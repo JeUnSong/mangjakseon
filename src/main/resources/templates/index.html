@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link th:href="@{/css/index.css}" rel="stylesheet"/>
 <link th:href="@{/css/menu.css}" rel="stylesheet"/>
 <link th:href="@{/css/list.css}" rel="stylesheet"/>
@@ -25,7 +25,8 @@
                     <span>누군가에겐 명작인 망작을</span><br>
                     <span>소개해 주세요.</span>
                 </div>
-                <div class="infoSignUp">
+
+                <div class="infoSignUp" sec:authorize-expr="!isAuthenticated()">
                     <button onclick="location.href='https://mangjakseon.com/sign-up?'">시작하세요</button>
                 </div>
                 <div class="fromAPI">
