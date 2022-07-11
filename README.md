@@ -1,11 +1,36 @@
 # mangjakseon
+제작 기간 : 2022년 6월 14 ~ 2022년 7월 12일
+
+참여 인원 : 5명 (김도겸, 김준희, 권수한, 장재혁, 심동수, 송제운)
+
+# 프로젝트 개요
+망한 영화 중에서도 자신이 좋았던 영화를 리뷰 하여
+다른 사람에게 추천 할 수 있으며,
+화려한 포스터에 속아 내상을 입었다면 이 또한 리뷰를 통해 경고를 줄 수 있음
 
 
-이유 없는 오류시 확인하기 
+1. TMDb 영화 데이터 리스트 제공
+2. TMDb 기준 6점 이상의 영화는 리뷰 작성 불가
+3. 망작선 사이트 자체 리뷰 평점 제공
+
+# 활용 기술
+* 개발 환경 : Spring boot, Apache Tomcat, MariaDB
+* 개발 언어 : Java, JavaScript, jQuery, Thymeleaf
+* 개발 툴 : IntelliJ, HeidiSQL, AWS
+* 기타 적용 기술 : JPA, Ajax, Rest API, JSON
+
+# 프로젝트 URL
+https://mangjakseon.com
+
+
+# 개발 중 겪었던 문제와 해결
+
+
+# 진행 상황
+
+이유 없는 오류시 확인하기
 *이유없이 js 가 안먹을때는 jQuery.noConflict(); 이용
 *css가 이상이 있으면 해당 옵션에 효과에 !important
-
-
 # 07.07 beta 배포 완료
 
 bata 배포 후 결함
