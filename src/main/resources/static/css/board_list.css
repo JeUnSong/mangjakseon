@@ -68,3 +68,9 @@
     color: black;
     background: none;
 }
+#username{
+    color: black!important;
+}
+#password{
+    color: black!important;
+}

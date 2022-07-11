@@ -18,23 +18,12 @@
     padding-left: 15%;
     font-size: 10px;
 }
-/*
-.iframe{
-    position: relative;
-    width:100%;
-    height:0;
-    padding-bottom: 56.25%;
-    margin: 0;
+#username{
+    color: black!important;
 }
-
-.iframe iframe{
-    position: absolute;
-    width: 100%;
-    height: 75%;
-    padding-left: 20%;
-    padding-right: 20%;
-}*/
-
+#password{
+    color: black!important;
+}
 .modify_list{
     padding-left: 15%;
 }
