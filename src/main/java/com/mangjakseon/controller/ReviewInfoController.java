@@ -32,7 +32,7 @@ public class ReviewInfoController {
 
     @GetMapping("/movie")
     public ResponseEntity<List<ReviewInfoDTOImpl>> reviewAverageMovieListView(){
-        List<ReviewInfoDTOImpl> reviewAverageList = reviewInfoService.reviewAverage();
+        List<ReviewInfoDTOImpl> reviewAverageList = reviewInfoService.reviewAverageMovieInfo();
         //log.info(reviewAverageList+"어디");
         return new ResponseEntity<>(reviewAverageList,HttpStatus.OK);
     }

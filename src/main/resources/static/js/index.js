@@ -9,6 +9,7 @@ $(document).ready(function () {
     function loadMovieLankJSON() {
         $.ajax({
             type: 'get',
+            async:false,
             url: '/reviewInfo/index',
             success: function (data) {
                 //console.log(data);
