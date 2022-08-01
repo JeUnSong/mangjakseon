@@ -66,4 +66,8 @@ public interface MemberService {
     int nicknameCheck(String nickname);
 
     boolean accountCheck(String email, String password);
+
+    boolean emailCheck(String email);
+
+    void passModify(String email, String code);
 }

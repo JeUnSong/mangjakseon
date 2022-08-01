@@ -16,8 +16,8 @@ public interface MemberRepository extends JpaRepository<Member, String>, Queryds
     @Query("SELECT m FROM Member m WHERE m.fromSocial = :social AND m.email = :email")
     Optional<Member> findByEmail(@Param("email") String email, @Param("social") boolean social);
 
-    @Query("SELECT m.memberId FROM Member m WHERE m.email = :memberId")
-    Optional<Member> findByMember(@Param("memberId") String memberId);
+    @Query("SELECT m FROM Member m WHERE m.email = :email")
+    Optional<Member> findByMember(@Param("email") String email);
 
     @Query("SELECT m.memberId FROM Member m WHERE m.email = :email")
     String findByMemberId(@Param("email") String email);
@@ -30,4 +30,7 @@ public interface MemberRepository extends JpaRepository<Member, String>, Queryds
 
     @Query("SELECT m.password FROM Member m WHERE m.email = :email")
     String findByPassword(@Param("email") String email);
+
+    @Query("SELECT count(*) FROM Member WHERE email = :email")
+    int findByEmail(@Param("email") String email);
 }

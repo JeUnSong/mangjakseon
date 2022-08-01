@@ -94,6 +94,28 @@
         </div>
     </div><!-- Modal 끝 -->
 
+    <!-- 비밀번호 찾기 -->
+    <div class="modal fade" id="sPass" data-backdrop="static" tabindex="-1" role="dialog"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">비밀번호 찾기</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/emailSend" method="post" id="send">
+                        <h3>이메일 확인</h3><br>
+                        <input type="text" name="email" id="email" placeholder="Email"><br>
+                        <input type="button" value="확인" onclick="emailCheck()">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- 비밀번호 찾기 끝 -->
+
     <!--footer-->
     <div class="footerGap"></div>
     <div class="footer">

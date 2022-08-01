@@ -112,4 +112,11 @@ public class MethodController {
         //log.info(password);
         return memberService.accountCheck(email, password);
     }
+
+    @PostMapping("/emailChk")
+    @ResponseBody
+    public boolean searchPass(@RequestParam("email")String email){
+
+        return memberService.emailCheck(email);
+    }
 }

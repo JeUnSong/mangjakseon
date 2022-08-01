@@ -141,4 +141,20 @@ public class MemberServiceImpl implements MemberService{
         //log.info("REF CHK ::: "+passwordEncoder.matches(password,pass));
         return passwordEncoder.matches(password,pass);
     }
+
+    public boolean emailCheck(String email) {
+        int checkPoint = memberRepository.findByEmail(email);
+        if (checkPoint == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void passModify(String email, String code) {
+        Optional<Member> result = memberRepository.findByMember(email);
+        Member entity =  result.get();
+        entity.modifyPassword(passwordEncoder.encode(code));
+        memberRepository.save(entity);
+    }
 }

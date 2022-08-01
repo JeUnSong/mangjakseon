@@ -36,3 +36,30 @@ function validCheck() {
         }
     })
 }
+
+function searchPass() {
+    var closeBtn = document.getElementById("modalClose");
+    closeBtn.click();
+}
+// 비밀번호 찾기
+function emailCheck() {
+    $.ajax({
+        type: "POST",
+        url: "/emailChk",
+        data: {"email":email.value},
+        contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+        success : function(result){
+            if(result){
+                alert("임시 비밀번호가 입력한 메일로 발송되었습니다.");
+                var send = document.getElementById('send');
+                send.submit();
+                $(location).attr('href', 'http://localhost:8181/');
+            }else{
+                alert("가입되지 않은 이메일 입니다.");
+            }
+        },
+        error : function(){
+            alert("ajax 실패..");
+        }
+    })
+}
