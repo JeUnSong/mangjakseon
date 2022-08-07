@@ -340,6 +340,7 @@
 @media all and (min-width:768px) and (max-width:1500px) {
     .reviewItem{
         /*background-color: chartreuse;*/
+        width: 70%;
         margin-left: 280px;
     }
 
