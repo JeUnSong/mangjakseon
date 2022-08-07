@@ -6,6 +6,13 @@
     display: grid;
     grid-template-columns: 30% 70%
 }
+@media all and (min-width:768px) and (max-width:1500px) {
+    .mainContainer{
+        /*background-color: chartreuse;*/
+        width: 100%;
+    }
+
+}
 .profile{
     /*background-color: #E0C010;*/
     text-align: center;
@@ -13,7 +20,7 @@
     height: 400px;
 }
 .profile img {
-    width: 80%;
+    width: 300px;
     margin-top: 25px;
     border-radius: 7px;
     object-fit: cover;
@@ -56,6 +63,13 @@ a{
     height: auto;
     margin: auto;
     padding-top: 50px;
+}
+@media all and (min-width:768px) and (max-width:1500px) {
+    .mainContainer2{
+        /*background-color: chartreuse;*/
+        width: 100%;
+    }
+
 }
 .biographyTitle{
     border-bottom: 1px #445566 solid;

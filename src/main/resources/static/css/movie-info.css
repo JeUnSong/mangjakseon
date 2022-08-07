@@ -17,6 +17,13 @@
     height: 490px;
     margin: auto;
 }
+@media all and (min-width:768px) and (max-width:1500px) {
+    .posterContainer{
+        /*background-color: chartreuse;*/
+        width: 99%;
+    }
+
+}
 
 .mainContainer2 {
     background-color: #14181C;
@@ -36,6 +43,13 @@
     "poster title title"
     "poster content score"
     "poster content score";
+}
+@media all and (min-width:768px) and (max-width:1500px) {
+    .movieReviewContainer{
+        /*background-color: chartreuse;*/
+        width: 99%;
+    }
+
 }
 
 .movieReviewTitle {
@@ -322,6 +336,13 @@
     /*background-color: #00C030;*/
     width: 45%;
     margin-left: 665px;
+}
+@media all and (min-width:768px) and (max-width:1500px) {
+    .reviewItem{
+        /*background-color: chartreuse;*/
+        margin-left: 280px;
+    }
+
 }
 
 .bestReviewContent, .reviewContent {

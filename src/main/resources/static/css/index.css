@@ -36,10 +36,9 @@
     url("/assets/dummy/2426E33A592C233F07.jpg");
     background-size: cover;
     border-radius: 50px;
-    width: 60%;
+    width: 1140px;
     height: 560px;
     margin: auto;
-
 }
 
 .posterField{
@@ -67,11 +66,11 @@
 .info{
     /*background-color: aqua;*/
     margin: auto;
-    width: 50%;
+    width: 1000px;
     text-align: center;
 }
 .tmdbLofo{
-    width: 13%;
+    width: 120px;
 }
 .introduce{
     font-size: 32px;
@@ -111,7 +110,16 @@
 .movieContainer{
     /*background-color: chartreuse;*/
     margin: auto;
-    width: 45%;
+    width: 60%;
+}
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1500px) {
+    .movieContainer{
+        /*background-color: chartreuse;*/
+        margin: auto;
+        width: 805px;
+    }
+
 }
 .movieLabel{
     /*background-color: burlywood;*/
@@ -124,7 +132,7 @@
     text-align: center;
     height: auto;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 383px 383px 383px 383px 383px;
     grid-row-gap: 40px;
 }
 .movieList div:hover {
@@ -146,7 +154,6 @@
     width: 150px;
     height: 230px;
     border-radius: 7px;
-    object-fit: cover;
 }
 .moviePoster img:hover{
     filter: brightness(50%);

@@ -25,18 +25,26 @@ input:focus{
 .header{
     position: fixed;
     height: 60px;
-    top:0px;
+    width: 100%;
+    top:0;
     background: #14181C;
     box-shadow: 0 0 0 0 #000000;
     z-index: 5;
 }
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1500px) {
+    .headerContainer{
+        margin: 1px!important;
+    }
+}
+
 .headerContainer{
     /*background-color: blueviolet;*/
     text-align: center;
     margin: auto;
     width: 60%;
     display: grid;
-    grid-template-columns: 25% 60% 15% ;
+    grid-template-columns: 285px 684px 171px ;
 
 }
 .headerLogo{
@@ -45,17 +53,17 @@ input:focus{
     z-index: 10;
 }
 .headerLogo img{
-    width: 100%;
+    width: 300px;
 }
 .headerList{
     /*background-color: chocolate;*/
     margin-top: 19px;
     display: flex;
+    flex-direction: row-reverse;
     z-index: 10;
 }
 .listAlign{
-    margin-left: auto;
-    width: 100%;
+    width: 500px;
     text-align: right;
 }
 .dropdown {

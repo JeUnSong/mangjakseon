@@ -6,6 +6,14 @@
     font-size: 35px;
     border-bottom: 1px #445566 solid;;
 }
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1500px) {
+    .listTitle{
+        /*background-color: chartreuse;*/
+        width: 99%;
+    }
+
+}
 .listGap{
     height: 30px;
 }
