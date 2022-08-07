@@ -15,8 +15,13 @@
             </div>
             <div class="infoView">
                 <span>이메일</span><br><input type="text" name="email" th:value="${dto.email}" readonly><br>
-                <span>비밀번호</span><br><input type="password" name="password" th:value="${dto.password}" readonly><br>
+
                 <span>닉네임</span><br><input type="text" name="nickname" th:value="${dto.nickname}" readonly>
+
+                <input type="hidden" id="regDate" th:value="${dto.regDate}"/>
+
+                <br>
+                <h5 style="color:green"><span id="withDate"></span>일째 망작선과 항해중..</h5>
                 <div class="button">
                     <a href="/modify"><button class="modify">수정하기</button></a>
                     <form method="post" th:action="@{/remove(memberId=${dto.memberId})}">
@@ -25,5 +30,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            var today = new Date();
+            var tempRegDate = document.getElementById("regDate").value;
+            var regDate = new Date(tempRegDate);
+            var withDate = Math.floor((today.getTime() - regDate.getTime()) / (1000 * 60 * 60 * 24));
+
+            document.getElementById("withDate").innerHTML = withDate;
+        </script>
     </th:block>
 </th:block>
